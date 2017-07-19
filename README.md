@@ -1,6 +1,6 @@
 # サンプル（プロダクト名）
 
-![](https://www.youtube.com/watch?v=G5rULR53uMk)
+[![IMAGE ALT TEXT HERE](https://i.ytimg.com/vi/G5rULR53uMk/maxresdefault.jpg)](https://www.youtube.com/watch?v=G5rULR53uMk)
 
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
