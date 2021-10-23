@@ -1,9 +1,11 @@
-const Home = () => {
-	return (
-		<div>
-			home page だよ
-		</div>
-	)
-}
+import styles from "../styles/home.scss";
 
-export default Home
+const Home = () => {
+  return (
+    <div>
+      <div className={styles.headerContainer}>home page だよ</div>
+    </div>
+  );
+};
+
+export default Home;
