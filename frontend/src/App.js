@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "./App.css";
 import AppContextProvider from "./contexts/AppContext";
 import Home from "./pages/Home";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
   return (
@@ -18,9 +18,11 @@ function App() {
 
 const AppContainer = () => {
   return (
-    <AppContextProvider>
-      <App />
-    </AppContextProvider>
+    <ChakraProvider>
+      <AppContextProvider>
+        <App />
+      </AppContextProvider>
+    </ChakraProvider>
   );
 };
 
