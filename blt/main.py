@@ -1,9 +1,13 @@
 from bluepy import btle
  
 scanner = btle.Scanner(0)
-devices = scanner.scan(3.0)
- 
-for device in devices:
-  for (_, description, valueText) in device.getScanData():
-    if("Complete 16b Services"==description and "fd6f"==valueText[4:8]):
-      print("cocoa detexted")
+while(True):
+  devices = scanner.scan(0.5)
+  for device in devices:
+    try:
+      if(list(device.getScanData()[0])[2][4:8]=="fd6f"):
+        print("cocoa detected")
+        print("   rssi:",device.rssi)
+        print("   Servicedata:",list(device.getScanData()[1])[2])
+    except:
+      pass
