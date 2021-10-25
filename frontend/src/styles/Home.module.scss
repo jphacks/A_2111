@@ -26,7 +26,7 @@
 }
 .mask {
   text-align: center;
-  margin-top: 90px;
+  margin-top: 80px;
   margin-bottom: 80px;
   .maskPic {
     height: 200px;
@@ -35,12 +35,14 @@
   p {
     margin-top: 30px;
     font-size: 30px;
+    font-weight: 500;
   }
 }
 .friendList {
   .friendListTitle {
     font-size: 22px;
     margin-left: 40px;
+    font-weight: 600;
   }
   .friendName {
     font-size: 18px;

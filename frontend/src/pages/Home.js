@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.scss";
 import maskPic from "../assets/mask.png";
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, HStack,Button } from "@chakra-ui/react";
 import { BsPersonPlus } from "react-icons/bs";
 import { FiMinusCircle } from "react-icons/fi";
 
@@ -16,18 +16,18 @@ const Home = () => {
         <p>マスク着用中</p>
       </div>
       <div className={styles.friendList}>
-        <HStack spacing="45vw">
+        <HStack spacing="50vw">
           <p className={styles.friendListTitle}> 友達一覧</p>
-          <BsPersonPlus size={25} />
+          <Button variant="ghost"><BsPersonPlus size={25} /></Button>
         </HStack>
         <hr className={styles.border} />
-        <Box boxShadow="sm" w="100%" p={2} marginBottom="1.5px"  _hover={{background:"gray.200"}}>
+        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px"  _hover={{background:"gray.200"}}>
           <p className={styles.friendName}>山田　太郎</p>
         </Box>
-        <Box boxShadow="sm" w="100%" p={2} marginBottom="1.5px"  _hover={{background:"gray.200"}}>
+        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px"  _hover={{background:"gray.200"}}>
           <p className={styles.friendName}>aaaaaaaa</p>
         </Box>
-        <Box boxShadow="sm" w="100%" p={2} marginBottom="1.5px"  _hover={{background:"gray.200"}}>
+        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px"  _hover={{background:"gray.200"}}>
           <p className={styles.friendName}>bbbbbbbb</p>
         </Box>
       </div>
