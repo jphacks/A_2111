@@ -1,5 +1,5 @@
 import styles from "../styles/Login.module.scss";
-import { Input,  Checkbox,Button,Spacer } from "@chakra-ui/react";
+import { Input,  Checkbox, Button,Spacer } from "@chakra-ui/react";
 
 const Signup = () => {
   return (
