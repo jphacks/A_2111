@@ -1,2 +1,1 @@
-import styles from "../styles/Login.module.scss"
-
+import styles from '../styles/Login.module.scss'

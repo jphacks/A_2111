@@ -1,22 +1,22 @@
-import React, { createContext, useEffect, useState } from "react";
-import { getUserIdFromLocalStorage, storageAvailable } from "../utils/storage";
+import React, { createContext, useEffect, useState } from 'react'
+import { getUserIdFromLocalStorage, storageAvailable } from '../utils/storage'
 
-export const AuthContext = createContext();
+export const AuthContext = createContext()
 
 const AppContextProvider = ({ children }) => {
-  const [initialLoading, setInitialLoading] = useState(true);
-  const [localStorageAvailable, setLocalStorageAvailable] = useState(false);
-  const [userId, setUserId] = useState(undefined);
+  const [initialLoading, setInitialLoading] = useState(true)
+  const [localStorageAvailable, setLocalStorageAvailable] = useState(false)
+  const [userId, setUserId] = useState(undefined)
   useEffect(() => {
     if (storageAvailable()) {
-      setLocalStorageAvailable(true);
-      let id = getUserIdFromLocalStorage();
+      setLocalStorageAvailable(true)
+      let id = getUserIdFromLocalStorage()
       if (!id) {
         // TODO: なまえを入力してIDを取得して保存しておく
       }
     }
-    setInitialLoading(false);
-  }, []);
+    setInitialLoading(false)
+  }, [])
   return (
     <AuthContext.Provider
       value={{
@@ -24,12 +24,12 @@ const AppContextProvider = ({ children }) => {
         setUserId,
         initialLoading,
         setInitialLoading,
-        localStorageAvailable,
+        localStorageAvailable
       }}
     >
       {children}
     </AuthContext.Provider>
-  );
-};
+  )
+}
 
-export default AppContextProvider;
+export default AppContextProvider
