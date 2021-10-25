@@ -18,7 +18,6 @@ function App() {
   )
 }
 
-const AppContainer = () => {
   return (
     <ChakraProvider>
       <AppContextProvider>
