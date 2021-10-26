@@ -13,15 +13,70 @@ import {
 } from "@chakra-ui/react";
 import { BsPersonPlus } from "react-icons/bs";
 import { useDisclosure } from "@chakra-ui/hooks";
+import "";
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  function qrParse(video) {
+    const canvas = new OffscreenCanvas(240, 320);
+    const render = canvas.getContext("2d");
+
+    return new Promise((res) => {
+      const loop = setInterval(() => {
+        render.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        const img = render.getImageData(0, 0, canvas.width, canvas.height);
+        const result = jsQR(img.data, img.width, img.height);
+
+        if (result) {
+          clearInterval(loop);
+          return res(result.data);
+        }
+      }, 100);
+    });
+  }
+
+  function qrGenerate(data) {
+    const canvas = new OffscreenCanvas(1, 1);
+
+    return new Promise((res, rej) =>
+      QRCode.toCanvas(canvas, data, {}, (err) =>
+        !err ? res(canvas) : rej(err)
+      )
+    );
+  }
+
+  document
+    .getElementById("data")
+    .addEventListener("change", async ({ target }) => {
+      document
+        .getElementById("canvas")
+        .getContext("bitmaprenderer")
+        .transferFromImageBitmap(
+          (await qrGenerate(target.value)).transferToImageBitmap()
+        );
+    });
+
+  (async () => {
+    const video = document.getElementById("video");
+    video.srcObject = await navigator.mediaDevices.getUserMedia({
+      audio: false,
+      video: {
+        facingMode: "environment",
+      },
+    });
+
+    document.getElementById("result").value = await qrParse(video);
+  })();
+
   return (
     <div>
       <div className={styles.headerContainer}>
         <p>**** さん</p>
         <hr className={styles.border} />
       </div>
+
       <div className={styles.mask}>
         <img className={styles.maskPic} src={maskPic} alt="mask" />
         <p>マスク着用中</p>
@@ -38,10 +93,9 @@ const Home = () => {
               <ModalHeader>友達追加</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <Button colorScheme="blue" onClick={onClose} >
-                  QRコードを読み込む
-                </Button>
-                <div style={{height:"200px"}}>QRコードを表示↓</div>
+                <div style={{ height: "200px" }}>
+                  <div id="qrcode"></div>
+                </div>
               </ModalBody>
             </ModalContent>
           </Modal>

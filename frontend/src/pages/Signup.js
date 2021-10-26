@@ -7,23 +7,9 @@ const Signup = () => {
       <Input
         placeholder="FullName"
         size="lg"
-        mt={20}
+        mt={140}
         width={"80"}
-        boxShadow="base"
-      />
-      <Input
-        placeholder="Phone number"
-        size="lg"
-        width={"80"}
-        mt={10}
-        boxShadow="base"
-      />
-      <Input
-        placeholder="Email"
-        size="lg"
-        width={"80"}
-        mt={10}
-        boxShadow="base"
+        boxShadow="base blue"
       />
       <Input
         placeholder="Password"
@@ -32,9 +18,11 @@ const Signup = () => {
         mt={10}
         boxShadow="base"
       />
-      <Checkbox mt ={10}>Terms and conditions</Checkbox>
-      <Spacer/>
-      <Button mt={20} bg={"blue.200"}>Create account</Button>
+      <Checkbox mt={10}>Terms and conditions</Checkbox>
+      <Spacer />
+      <Button mt={20} bg={"blue.200"} size="lg">
+        Create account
+      </Button>
     </div>
   );
 };
