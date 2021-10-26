@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react'
 import { BsPersonPlus } from 'react-icons/bs'
 import { useDisclosure } from '@chakra-ui/hooks'
+import SwitchMode from '../components/SwitchMode'
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -21,6 +22,7 @@ const Home = () => {
       <div className={styles.headerContainer}>
         <p>**** さん</p>
         <hr className={styles.border} />
+        <SwitchMode />
       </div>
       <div className={styles.mask}>
         <img className={styles.maskPic} src={maskPic} alt="mask" />
