@@ -57,17 +57,20 @@ async def get_familiars():
     }
     return resp
 
+
 @app.post("/member")
 async def post_member(
-    name: Optional[str] = Form(...),
+    name: str = Form(...),
 ):
-    return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
+    uuid = await crud.create_member(name)
+    return JSONResponse(content={"status": "ok", "uuid": uuid, "name": name}, status_code=status.HTTP_201_CREATED)
+
 
 @app.post("/familiar")
 async def post_familiar(
     # 書き方合っているのか？
-    start: Optional[str] = Form(...),
-    end:  Optional[str] = Form(...),
+    start: str = Form(...),
+    end:  str = Form(...),
 ):
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
@@ -77,23 +80,25 @@ async def post_familiar(
 #     price: float
 #     tax: Optional[float] = None
 
+
 @app.put("/member")
 # async def put_member():
-    # return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
+# return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 async def create_item(item_id: int, item, q: Optional[str] = None):
     result = {"item_id": item_id, **item.dict()}
     if q:
         result.update({"q": q})
     return result
 
+
 @app.delete("/member")
 async def delete_member():
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
+
 @app.delete("familiar")
 async def delete_familiar():
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
-
 
 
 if __name__ == '__main__':

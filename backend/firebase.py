@@ -29,8 +29,8 @@ if not is_local:
     os.remove(tmp_cred_file_path)
 
 firebase_app = firebase_admin.initialize_app(cred, {
-    'storageBucket': 'garigari-stagram.appspot.com',
-    'projectId': 'garigari-stagram',
+    'storageBucket': 'garigari-mask.appspot.com',
+    'projectId': 'garigari-mask',
 })
 
 bucket = storage.bucket()
