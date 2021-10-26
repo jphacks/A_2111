@@ -1,10 +1,9 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import AppContextProvider from "./contexts/AppContext";
-import Home from "./pages/Home";
-import Signup from "./pages/Signup";
-
-import { ChakraProvider } from "@chakra-ui/react";
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import AppContextProvider from './contexts/AppContext'
+import Home from './pages/Home'
+import Signup from './pages/Signup'
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
         </Switch>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
 const AppContainer = () => {
@@ -26,7 +25,7 @@ const AppContainer = () => {
         <App />
       </AppContextProvider>
     </ChakraProvider>
-  );
-};
+  )
+}
 
-export default AppContainer;
+export default AppContainer

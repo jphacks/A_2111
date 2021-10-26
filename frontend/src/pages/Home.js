@@ -1,5 +1,5 @@
-import styles from "../styles/Home.module.scss";
-import maskPic from "../assets/mask.png";
+import styles from '../styles/Home.module.scss'
+import maskPic from '../assets/mask.png'
 import {
   Box,
   HStack,
@@ -9,67 +9,13 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalCloseButton,
-} from "@chakra-ui/react";
-import { BsPersonPlus } from "react-icons/bs";
-import { useDisclosure } from "@chakra-ui/hooks";
-import "";
+  ModalCloseButton
+} from '@chakra-ui/react'
+import { BsPersonPlus } from 'react-icons/bs'
+import { useDisclosure } from '@chakra-ui/hooks'
 
 const Home = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  function qrParse(video) {
-    const canvas = new OffscreenCanvas(240, 320);
-    const render = canvas.getContext("2d");
-
-    return new Promise((res) => {
-      const loop = setInterval(() => {
-        render.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        const img = render.getImageData(0, 0, canvas.width, canvas.height);
-        const result = jsQR(img.data, img.width, img.height);
-
-        if (result) {
-          clearInterval(loop);
-          return res(result.data);
-        }
-      }, 100);
-    });
-  }
-
-  function qrGenerate(data) {
-    const canvas = new OffscreenCanvas(1, 1);
-
-    return new Promise((res, rej) =>
-      QRCode.toCanvas(canvas, data, {}, (err) =>
-        !err ? res(canvas) : rej(err)
-      )
-    );
-  }
-
-  document
-    .getElementById("data")
-    .addEventListener("change", async ({ target }) => {
-      document
-        .getElementById("canvas")
-        .getContext("bitmaprenderer")
-        .transferFromImageBitmap(
-          (await qrGenerate(target.value)).transferToImageBitmap()
-        );
-    });
-
-  (async () => {
-    const video = document.getElementById("video");
-    video.srcObject = await navigator.mediaDevices.getUserMedia({
-      audio: false,
-      video: {
-        facingMode: "environment",
-      },
-    });
-
-    document.getElementById("result").value = await qrParse(video);
-  })();
-
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <div>
       <div className={styles.headerContainer}>
@@ -87,13 +33,13 @@ const Home = () => {
           <Button variant="ghost" onClick={onOpen}>
             <BsPersonPlus size={25} />
           </Button>
-          <Modal isOpen={isOpen} onClose={onClose} size={"sm"}>
+          <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
             <ModalOverlay />
             <ModalContent>
               <ModalHeader>友達追加</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <div style={{ height: "200px" }}>
+                <div style={{ height: '200px' }}>
                   <div id="qrcode"></div>
                 </div>
               </ModalBody>
@@ -101,36 +47,18 @@ const Home = () => {
           </Modal>
         </HStack>
         <hr className={styles.border} />
-        <Box
-          boxShadow="xs"
-          w="100%"
-          p={3}
-          marginBottom="1.5px"
-          _hover={{ background: "gray.200" }}
-        >
+        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px" _hover={{ background: 'gray.200' }}>
           <p className={styles.friendName}>山田　太郎</p>
         </Box>
-        <Box
-          boxShadow="xs"
-          w="100%"
-          p={3}
-          marginBottom="1.5px"
-          _hover={{ background: "gray.200" }}
-        >
+        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px" _hover={{ background: 'gray.200' }}>
           <p className={styles.friendName}>aaaaaaaa</p>
         </Box>
-        <Box
-          boxShadow="xs"
-          w="100%"
-          p={3}
-          marginBottom="1.5px"
-          _hover={{ background: "gray.200" }}
-        >
+        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px" _hover={{ background: 'gray.200' }}>
           <p className={styles.friendName}>bbbbbbbb</p>
         </Box>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

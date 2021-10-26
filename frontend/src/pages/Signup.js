@@ -1,5 +1,5 @@
-import styles from "../styles/Login.module.scss";
-import { Input,  Checkbox, Button,Spacer } from "@chakra-ui/react";
+import styles from '../styles/Signup.module.scss'
+import { Input, Checkbox, Button, Spacer } from '@chakra-ui/react'
 
 const Signup = () => {
   return (
@@ -24,6 +24,6 @@ const Signup = () => {
         Create account
       </Button>
     </div>
-  );
-};
-export default Signup;
+  )
+}
+export default Signup
