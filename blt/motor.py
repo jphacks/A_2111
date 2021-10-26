@@ -54,6 +54,11 @@ def motorone():
         print("cleaning up")
         MotorOne.cleanup(True)
     
+def close():
+    print("closing")
+def open():
+    print("opening")
+
 if __name__ == '__main__':
     # motorone()
     MotorOne = rpi_dc_lib.L298NMDc(20 ,21 ,12 ,100 ,True, "motor_one")

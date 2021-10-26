@@ -3,7 +3,7 @@ import array
 import struct
 import sys
 import traceback
-
+import motor
 class EchoCharacteristic(Characteristic):
     
     def __init__(self, uuid):
@@ -24,7 +24,9 @@ class EchoCharacteristic(Characteristic):
         self._value = data
 
         print('EchoCharacteristic - %s - onWriteRequest: value = %s' % (self['uuid'], [hex(c) for c in self._value]))
-
+        print([hex(c) for c in self._value])
+        motor.open()
+        motor.close()
         if self._updateValueCallback:
             print('EchoCharacteristic - onWriteRequest: notifying');
             

@@ -11,7 +11,7 @@ def onStateChange(state):
    print('on -> stateChange: ' + state);
 
    if (state == 'poweredOn'):
-     bleno.startAdvertising('coconomask', ['ec00'])
+     bleno.startAdvertising('COCONO MASK', ['ec00'])
    else:
      bleno.stopAdvertising();
 
