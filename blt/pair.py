@@ -3,7 +3,6 @@ import sys
 import signal
 from EchoCharacteristic import *
 
-print('bleno - echo');
 
 bleno = Bleno()
 
@@ -11,7 +10,7 @@ def onStateChange(state):
    print('on -> stateChange: ' + state);
 
    if (state == 'poweredOn'):
-     bleno.startAdvertising('COCONO MASK', ['ec00'])
+     bleno.startAdvertising('COCONOMASK', ['ec00'])
    else:
      bleno.stopAdvertising();
 
