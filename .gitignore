@@ -25,3 +25,6 @@ yarn-error.log*
 package.json
 
 yarn.lock
+
+*.pyc
+cert.json
