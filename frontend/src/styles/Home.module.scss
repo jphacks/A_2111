@@ -11,8 +11,8 @@
   position: relative;
   height: 2px;
   border-width: 0;
-  background-image: -webkit-linear-gradient(left, transparent 0%, #283593 50%, transparent 100%);
-  background-image: linear-gradient(90deg, transparent 0%, #283593 50%, transparent 100%);
+  background-image: -webkit-linear-gradient(left, transparent 0%, #ffd085 50%, transparent 100%);
+  background-image: linear-gradient(90deg, transparent 0%, #fbba40 50%, transparent 100%);
 }
 .mask {
   text-align: center;
@@ -39,4 +39,10 @@
     text-align: center;
     border-bottom: 2px black;
   }
+}
+.qrcodeSentence {
+  text-align: center;
+}
+.qrcode {
+  margin: 0 auto;
 }

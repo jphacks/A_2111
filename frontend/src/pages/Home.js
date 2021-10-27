@@ -14,9 +14,11 @@ import {
 import { BsPersonPlus } from 'react-icons/bs'
 import { useDisclosure } from '@chakra-ui/hooks'
 import SwitchMode from '../components/SwitchMode'
+import ModalQrBody from '../components/ModalQrBody'
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <div>
       <div className={styles.headerContainer}>
@@ -37,13 +39,15 @@ const Home = () => {
           <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>友達追加</ModalHeader>
+              <ModalHeader>マイ QR コード</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <Button colorScheme="blue" onClick={onClose}>
-                  QRコードを読み込む
-                </Button>
-                <div style={{ height: '200px' }}>QRコードを表示↓</div>
+                <div className={styles.qrcodeSentence}>
+                  友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
+                </div>
+                <ModalQrBody
+                  text={'https://garigari-mask.com/qr?from=976fae18-031d-461e-92d7-bcfe1d72d8fe'}
+                />
               </ModalBody>
             </ModalContent>
           </Modal>
