@@ -9,15 +9,15 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalCloseButton,
-} from "@chakra-ui/react";
-import { BsPersonPlus } from "react-icons/bs";
-import { useDisclosure } from "@chakra-ui/hooks";
-import React from "react";
-import ModalQrBody from "../components/ModalQrBody";
+  ModalCloseButton
+} from '@chakra-ui/react'
+import { BsPersonPlus } from 'react-icons/bs'
+import { useDisclosure } from '@chakra-ui/hooks'
+import React from 'react'
+import ModalQrBody from '../components/ModalQrBody'
 
 const Home = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <div>
@@ -45,9 +45,7 @@ const Home = () => {
                   友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
                 </div>
                 <ModalQrBody
-                  text={
-                    "https://garigari-mask.com/qr?from=976fae18-031d-461e-92d7-bcfe1d72d8fe"
-                  }
+                  text={'https://garigari-mask.com/qr?from=976fae18-031d-461e-92d7-bcfe1d72d8fe'}
                 />
               </ModalBody>
             </ModalContent>
