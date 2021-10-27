@@ -32,12 +32,7 @@ async def get_members():
     resp = {
         "status": "ok",
         "count": len(members),
-        "data": [
-            {
-                # "id": uuid,
-                # "name": name,
-            }
-        ]
+        "data": members
     }
     return resp
 
@@ -50,8 +45,8 @@ async def get_familiars():
         "count": len(familiars),
         "data": [
             {
-                # "id": uuid,
-                # "name": name,
+                "uuid": uuid,
+                "name": name,
             }
         ],
     }

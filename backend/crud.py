@@ -14,8 +14,6 @@ tmp_dir_name = "/tmp" if os.environ.get("DYNO") else "./tmp"
 
 
 async def get_all_members():
-    # なんでuuidが薄い？
-    uuid = str(uuid4())
     docs = db.collection("members").stream()
     data = []
     for doc in docs:
