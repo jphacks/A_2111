@@ -1,12 +1,14 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { getUserIdFromLocalStorage, storageAvailable } from '../utils/storage'
 
-export const AuthContext = createContext()
+export const AppContext = createContext()
 
 const AppContextProvider = ({ children }) => {
   const [initialLoading, setInitialLoading] = useState(true)
   const [localStorageAvailable, setLocalStorageAvailable] = useState(false)
   const [userId, setUserId] = useState(undefined)
+  const [demoMode, setDemoMode] = useState(undefined)
+
   useEffect(() => {
     if (storageAvailable()) {
       setLocalStorageAvailable(true)
@@ -14,21 +16,25 @@ const AppContextProvider = ({ children }) => {
       if (!id) {
         // TODO: なまえを入力してIDを取得して保存しておく
       }
+      // TODO: demoモードかどうか確認する
+      setDemoMode(false)
     }
     setInitialLoading(false)
   }, [])
   return (
-    <AuthContext.Provider
+    <AppContext.Provider
       value={{
         userId,
         setUserId,
         initialLoading,
         setInitialLoading,
-        localStorageAvailable
+        localStorageAvailable,
+        demoMode,
+        setDemoMode
       }}
     >
       {children}
-    </AuthContext.Provider>
+    </AppContext.Provider>
   )
 }
 
