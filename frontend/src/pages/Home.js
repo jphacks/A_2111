@@ -13,62 +13,25 @@ import {
 } from "@chakra-ui/react";
 import { BsPersonPlus } from "react-icons/bs";
 import { useDisclosure } from "@chakra-ui/hooks";
-import "";
+import React from "react";
+import { useQRCode } from "next-qrcode";
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  function qrParse(video) {
-    const canvas = new OffscreenCanvas(240, 320);
-    const render = canvas.getContext("2d");
-
-    return new Promise((res) => {
-      const loop = setInterval(() => {
-        render.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        const img = render.getImageData(0, 0, canvas.width, canvas.height);
-        const result = jsQR(img.data, img.width, img.height);
-
-        if (result) {
-          clearInterval(loop);
-          return res(result.data);
-        }
-      }, 100);
-    });
-  }
-
-  function qrGenerate(data) {
-    const canvas = new OffscreenCanvas(1, 1);
-
-    return new Promise((res, rej) =>
-      QRCode.toCanvas(canvas, data, {}, (err) =>
-        !err ? res(canvas) : rej(err)
-      )
-    );
-  }
-
-  document
-    .getElementById("data")
-    .addEventListener("change", async ({ target }) => {
-      document
-        .getElementById("canvas")
-        .getContext("bitmaprenderer")
-        .transferFromImageBitmap(
-          (await qrGenerate(target.value)).transferToImageBitmap()
-        );
-    });
-
-  (async () => {
-    const video = document.getElementById("video");
-    video.srcObject = await navigator.mediaDevices.getUserMedia({
-      audio: false,
-      video: {
-        facingMode: "environment",
+  const { inputRef } = useQRCode({
+    text: "garigari-mask.com",
+    options: {
+      level: "M",
+      margin: 7,
+      scale: 1,
+      width: 300,
+      color: {
+        dark: "#000000",
+        light: "#FFFFFF",
       },
-    });
-
-    document.getElementById("result").value = await qrParse(video);
-  })();
+    },
+  });
 
   return (
     <div>
@@ -76,7 +39,6 @@ const Home = () => {
         <p>**** さん</p>
         <hr className={styles.border} />
       </div>
-
       <div className={styles.mask}>
         <img className={styles.maskPic} src={maskPic} alt="mask" />
         <p>マスク着用中</p>
@@ -90,11 +52,14 @@ const Home = () => {
           <Modal isOpen={isOpen} onClose={onClose} size={"sm"}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>友達追加</ModalHeader>
+              <ModalHeader>マイQRコード</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <div style={{ height: "200px" }}>
-                  <div id="qrcode"></div>
+              {/* <div　className={styles.qrcodeSentence}>
+                友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
+              </div> */}
+                <div>
+                  <canvas className={styles.qrcode} ref={inputRef} />
                 </div>
               </ModalBody>
             </ModalContent>
