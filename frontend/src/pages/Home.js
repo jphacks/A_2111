@@ -9,15 +9,23 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalCloseButton
+  ModalCloseButton,
+  Switch
 } from '@chakra-ui/react'
 import { BsPersonPlus } from 'react-icons/bs'
 import { useDisclosure } from '@chakra-ui/hooks'
 import SwitchMode from '../components/SwitchMode'
 import ModalQrBody from '../components/ModalQrBody'
+import { useContext } from 'react'
+import { AppContext } from '../contexts/AppContext'
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isMaskOpen, setMaskOpen } = useContext(AppContext)
+
+  const handleMaskChange = () => {
+    setMaskOpen(!isMaskOpen)
+  }
 
   return (
     <div>
@@ -27,8 +35,17 @@ const Home = () => {
         <SwitchMode />
       </div>
       <div className={styles.mask}>
-        <img className={styles.maskPic} src={maskPic} alt="mask" />
-        <p>マスク着用中</p>
+        {/* @usatyo ここお願い！ */}
+        {isMaskOpen ? (
+          <img className={styles.maskPic} src={maskPic} alt="open mask" />
+        ) : (
+          <img className={styles.maskPic} src={maskPic} alt="closed mask" />
+        )}
+
+        <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
+      </div>
+      <div style={{ textAlign: 'center' }}>
+        <Switch onChange={handleMaskChange} colorScheme="orange" isChecked={!isMaskOpen} />
       </div>
       <div className={styles.friendList}>
         <HStack spacing="50vw">
