@@ -24,6 +24,6 @@ const Signup = () => {
         Create account
       </Button>
     </div>
-  );
-};
-export default Signup;
+  )
+}
+export default Signup
