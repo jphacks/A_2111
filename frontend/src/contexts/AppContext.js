@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { getUserIdFromLocalStorage, storageAvailable } from '../utils/storage'
+import Signup from '../pages/Signup'
 
 export const AppContext = createContext()
 
@@ -15,6 +16,7 @@ const AppContextProvider = ({ children }) => {
       let id = getUserIdFromLocalStorage()
       if (!id) {
         // TODO: なまえを入力してIDを取得して保存しておく
+        <Signup/>
       }
       // TODO: demoモードかどうか確認する
       setDemoMode(false)

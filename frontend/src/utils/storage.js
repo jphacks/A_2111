@@ -32,7 +32,7 @@ export const setIdToLocalStorage = (id) => {
   if (!storageAvailable()) {
     throw new Error('there is no local storage')
   }
-  window.localStorage.setItem(id)
+  window.localStorage.setItem(DEFAULT_KEY, id)
   return
 }
 
