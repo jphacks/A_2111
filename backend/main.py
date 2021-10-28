@@ -61,6 +61,15 @@ async def get_familiars():
     }
     return resp
 
+@app.get("/familiar")
+async def get_familiar(uuid: str):
+    member = await crud.get_familiar(uuid)
+    print(f"familiars of {uuid}: ", member)
+    resp = {
+        "status": "ok",
+        "data": member
+    }
+    return resp
 
 @app.post("/member")
 async def post_member(
@@ -85,7 +94,7 @@ async def post_familiar(
 # async def put_member():
 # return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 # "Form(...)"を付け加えるとqueryがつく。？
-async def put_member(uuid, name: str = Form(...)):
+async def put_member(uuid: str, name: str = Form(...)):
     print(4)
     result = await crud.update_member(uuid, name)
     print(5)
