@@ -17,22 +17,27 @@ const compatibleBrowsers = ['chrome', 'edge-chromium', 'edge', 'opera', 'opera-m
 
 const NavigateBTInitialize = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { shouldCheckBTStatus, setShouldCheckBTStatus, setDemoMode, demoMode } =
-    useContext(AppContext)
+  const { shouldCheckBTStatus, demoMode, setDemoMode, initialLoading } = useContext(AppContext)
   const [leScanAvailable, setLeScanAvailable] = useState(false)
 
   const browser = detect()
   const isCompatible = compatibleBrowsers.includes(browser.name)
 
+  if (initialLoading) {
+    return null
+  } else {
+    if (!isOpen && !demoMode) {
+      onOpen()
+    }
+    // if (!demoMode && shouldCheckBTStatus && !isOpen) { // TODO: わからん
+    //   onOpen()
+    // }
+  }
   const handleStartDemoMode = () => {
-    setShouldCheckBTStatus(false)
     setDemoMode(true)
     onClose()
   }
 
-  if (shouldCheckBTStatus && !isOpen) {
-    onOpen()
-  }
   // 'aol' | 'edge' | 'edge-ios' | 'yandexbrowser' | 'kakaotalk' | 'samsung' | 'silk' | 'miui' | 'beaker' | 'edge-chromium' |
   // 'chrome' | 'chromium-webview' | 'phantomjs' | 'crios' | 'firefox' | 'fxios' | 'opera-mini' | 'opera' | 'ie' | 'bb10' |
   // 'android' | 'ios' | 'safari' | 'facebook' | 'instagram' | 'ios-webview' | 'curl' | 'searchbot';

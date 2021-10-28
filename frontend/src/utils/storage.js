@@ -1,6 +1,7 @@
 const DEFAULT_STORAGE_TYPE = 'localStorage'
 const DEFAULT_KEY = 'GARIGARI_MASK_USER_ID_KEY'
 const DEFAULT_BT_STATUS_KEY = 'GARIGARI_MASK_BT_STATUS_CHECKED'
+const DEMO_MODE_KEY = 'GARIGARI_MASK_DEMO_MODE'
 
 export const storageAvailable = (type = DEFAULT_STORAGE_TYPE) => {
   var storage
@@ -56,6 +57,22 @@ export const setBTInitializeStatusChecked = () => {
 
 export const resetBTStatusStorage = () => {
   window.localStorage.removeItem(DEFAULT_BT_STATUS_KEY)
+}
+
+export const getDemoModeFromStorage = () => {
+  const value = window.localStorage.getItem(DEMO_MODE_KEY)
+  if (value) {
+    return value
+  }
+  return false
+}
+
+export const setDemoModeToStorage = (demo) => {
+  if (demo) {
+    window.localStorage.setItem(DEMO_MODE_KEY, Date.now())
+  } else {
+    window.localStorage.removeItem(DEMO_MODE_KEY)
+  }
 }
 
 export const resetLocalStorage = () => {
