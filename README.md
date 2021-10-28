@@ -1,6 +1,6 @@
 # ココノマスク
 
-[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2021/07/JPHACKS2021_ogp.jpg)](https://www.youtube.com/watch?v=LUPQFB4QyVo)
+[![IMAGE ALT TEXT HERE](![image](https://user-images.githubusercontent.com/38291975/139288053-7d97dbb4-4dde-4227-ab7d-8fa9bceea996.png))](https://user-images.githubusercontent.com/38291975/139288053-7d97dbb4-4dde-4227-ab7d-8fa9bceea996.png)
 
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
