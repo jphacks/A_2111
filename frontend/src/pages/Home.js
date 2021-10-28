@@ -1,5 +1,7 @@
 import styles from '../styles/Home.module.scss'
-import maskPic from '../assets/mask.png'
+// import maskPic from '../assets/mask.png'
+import maskOpenVideo from '../assets/maskOpen.mp4'
+import maskCloseVideo from '../assets/maskClose.mp4'
 import {
   Box,
   HStack,
@@ -35,11 +37,10 @@ const Home = () => {
         <SwitchMode />
       </div>
       <div className={styles.mask}>
-        {/* @usatyo ここお願い！ */}
         {isMaskOpen ? (
-          <img className={styles.maskPic} src={maskPic} alt="open mask" />
+          <video className={styles.maskPic} src={maskOpenVideo} loop autoPlay muted></video>
         ) : (
-          <img className={styles.maskPic} src={maskPic} alt="closed mask" />
+          <video className={styles.maskPic} src={maskCloseVideo} loop autoPlay muted></video>
         )}
 
         <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
