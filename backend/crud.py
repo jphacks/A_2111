@@ -5,8 +5,6 @@ from uuid import uuid4
 from firebase import db
 from firebase_admin import firestore
 
-from main import get_members
-
 
 tmp_dir_name = "/tmp" if os.environ.get("DYNO") else "./tmp"
 

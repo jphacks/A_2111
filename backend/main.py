@@ -9,7 +9,8 @@ app = FastAPI()
 
 origins = [
     # TODO: フロントエンドデプロイしたらそのURLも入れる
-    "*"
+    "http://localhost:3000",
+    "http://localhost",
 ]
 
 app.add_middleware(
