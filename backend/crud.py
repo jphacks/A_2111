@@ -20,6 +20,15 @@ async def get_all_members():
     return data
 
 
+async def get_member(uuid: str):
+    docs = db.collection("members").where("uuid", "==", uuid).stream()
+    data = []
+    for doc in docs:
+        post = {"id": doc.id, **doc.to_dict()}
+        data.append(post)
+    return data
+
+
 async def get_all_familiars():
     uuid = str(uuid4())
     docs = db.collection("familiars").stream()
@@ -50,7 +59,7 @@ async def create_familiar(name: str):
     return True
 
 
-async def update_member(uuid, name: str):
+async def update_member(uuid: str, name: str):
     print(1)
     member_ref = db.collection("members").document(uuid)
     print(2)
@@ -59,7 +68,7 @@ async def update_member(uuid, name: str):
     return 
 
 
-async def remove_member(uuid):
+async def remove_member(uuid: str):
     docs = db.collection("members").where("uuid", "==", uuid).stream()
     print(docs)
     db.collection("members").document(docs).delete() 
