@@ -23,7 +23,8 @@ import NavigateBTInitialize from '../components/NavigateBTInitialize'
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, familiars } = useContext(AppContext)
+  const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, familiars, isScanningLE } =
+    useContext(AppContext)
 
   if (shouldShowNewRegistration) {
     return <Redirect to="/signup" />
@@ -41,6 +42,9 @@ const Home = () => {
         <hr className={styles.border} />
         <SwitchMode />
       </div>
+      <p>
+        <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
+      </p>
       <div className={styles.mask}>
         {/* @usatyo ここお願い！ */}
         {isMaskOpen ? (

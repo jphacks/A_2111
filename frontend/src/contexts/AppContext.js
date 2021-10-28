@@ -18,20 +18,22 @@ const AppContextProvider = ({ children }) => {
   const [demoMode, _setDemoMode] = useState(undefined)
   const [shouldShowNewRegistration, setShouldShowNewRegistration] = useState(false)
   const [isMaskOpen, setMaskOpen] = useState(false)
-  const [checkedBTAvailability, setCheckedBTAvailability] = useState(false) // eslint-disable-line
   const [shouldCheckBTStatus, _setShouldCheckBTStatus] = useState(true)
   const [familiars, setFamiliars] = useState([])
 
+  const [waitForReloading, setWaitForReloading] = useState(false)
+  const [isScanningLE, setScanningLE] = useState(false)
+
   const setShouldCheckBTStatus = (status) => {
-    setCheckedBTAvailability(!status)
     _setShouldCheckBTStatus(status)
   }
 
   const setDemoMode = (setToDemoMode) => {
+    setWaitForReloading(true)
     setShouldCheckBTStatus(!setToDemoMode)
     setDemoModeToStorage(setToDemoMode)
-    _setDemoMode(setToDemoMode)
     const message = setToDemoMode ? 'DEMO モードに切り替えます。' : 'DEMO モードを終了します 👋'
+
     toast({
       title: message,
       description: `リロードされます。`,
@@ -41,7 +43,11 @@ const AppContextProvider = ({ children }) => {
       duration: 3000,
       isClosable: true
     })
-    setTimeout(() => window.location.reload(), 500)
+    _setDemoMode(setToDemoMode)
+    setTimeout(() => {
+      setShouldCheckBTStatus(!setToDemoMode)
+      window.location.reload()
+    }, 500)
   }
 
   useEffect(() => {
@@ -79,6 +85,9 @@ const AppContextProvider = ({ children }) => {
         setShouldShowNewRegistration,
         shouldCheckBTStatus,
         setShouldCheckBTStatus,
+        waitForReloading,
+        isScanningLE,
+        setScanningLE,
         familiars
       }}
     >
