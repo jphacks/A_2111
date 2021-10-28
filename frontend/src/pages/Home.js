@@ -18,10 +18,15 @@ import SwitchMode from '../components/SwitchMode'
 import ModalQrBody from '../components/ModalQrBody'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
+import { Redirect } from 'react-router-dom'
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { isMaskOpen, setMaskOpen } = useContext(AppContext)
+  const { shouldShowNewRegistration, isMaskOpen, setMaskOpen } = useContext(AppContext)
+
+  if (shouldShowNewRegistration) {
+    return <Redirect to="/signup" />
+  }
 
   const handleMaskChange = () => {
     setMaskOpen(!isMaskOpen)

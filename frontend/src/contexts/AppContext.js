@@ -8,20 +8,23 @@ const AppContextProvider = ({ children }) => {
   const [localStorageAvailable, setLocalStorageAvailable] = useState(false)
   const [userId, setUserId] = useState(undefined)
   const [demoMode, setDemoMode] = useState(undefined)
+  const [shouldShowNewRegistration, setShouldShowNewRegistration] = useState(false)
   const [isMaskOpen, setMaskOpen] = useState(false)
 
   useEffect(() => {
     if (storageAvailable()) {
       setLocalStorageAvailable(true)
-      let id = getUserIdFromLocalStorage()
-      if (!id) {
-        // TODO: なまえを入力してIDを取得して保存しておく
+      let idFromStorage = getUserIdFromLocalStorage()
+      if (!idFromStorage) {
+        setShouldShowNewRegistration(true)
+        // これで自動で /signup に遷移する
       }
       // TODO: demoモードかどうか確認する
       setDemoMode(false)
     }
     setInitialLoading(false)
   }, [])
+
   return (
     <AppContext.Provider
       value={{
@@ -33,7 +36,9 @@ const AppContextProvider = ({ children }) => {
         setInitialLoading,
         localStorageAvailable,
         demoMode,
-        setDemoMode
+        setDemoMode,
+        shouldShowNewRegistration,
+        setShouldShowNewRegistration
       }}
     >
       {children}
