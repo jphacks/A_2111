@@ -27,6 +27,8 @@ async def root():
     return {"message": "this is root"}
 
 
+
+
 @app.get("/members")
 async def get_members():
     members = await crud.get_all_members()
@@ -34,6 +36,17 @@ async def get_members():
         "status": "ok",
         "count": len(members),
         "data": members
+    }
+    return resp
+
+# /member?uuid=<id>
+@app.get("/member")
+async def get_member(uuid: str):
+    member = await crud.get_member(uuid)
+    print("member", member)
+    resp = {
+        "status": "ok",
+        "data": member
     }
     return resp
 
@@ -57,6 +70,8 @@ async def post_member(
     return JSONResponse(content={"status": "ok", "uuid": uuid, "name": name}, status_code=status.HTTP_201_CREATED)
 
 # これはちょっとどうしたら良いか分からないので飛ばす
+
+
 @app.post("/familiar")
 async def post_familiar(
     # 書き方合っているのか？
@@ -78,6 +93,8 @@ async def put_member(uuid, name: str = Form(...)):
     return result
 
 # 何を消したいんだっけ
+
+
 @app.delete("/member")
 async def delete_member(uuid):
     print(uuid)
