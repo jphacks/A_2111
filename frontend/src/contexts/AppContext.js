@@ -1,7 +1,6 @@
 import { useToast } from '@chakra-ui/toast'
 import React, { createContext, useEffect, useState } from 'react'
 import {
-  getBTStatusFromStorage,
   getDemoModeFromStorage,
   getUserIdFromLocalStorage,
   setDemoModeToStorage,
@@ -18,7 +17,7 @@ const AppContextProvider = ({ children }) => {
   const [demoMode, _setDemoMode] = useState(undefined)
   const [shouldShowNewRegistration, setShouldShowNewRegistration] = useState(false)
   const [isMaskOpen, setMaskOpen] = useState(false)
-  const [checkedBTAvailability, setCheckedBTAvailability] = useState(false)
+  const [checkedBTAvailability, setCheckedBTAvailability] = useState(false) // eslint-disable-line
   const [shouldCheckBTStatus, _setShouldCheckBTStatus] = useState(true)
 
   const setShouldCheckBTStatus = (status) => {

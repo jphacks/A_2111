@@ -1,4 +1,4 @@
-import { Switch, FormControl, FormLabel, useToast } from '@chakra-ui/react'
+import { Switch, FormControl, FormLabel } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 

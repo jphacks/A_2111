@@ -17,8 +17,8 @@ const compatibleBrowsers = ['chrome', 'edge-chromium', 'edge', 'opera', 'opera-m
 
 const NavigateBTInitialize = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { shouldCheckBTStatus, demoMode, setDemoMode, initialLoading } = useContext(AppContext)
-  const [leScanAvailable, setLeScanAvailable] = useState(false)
+  const { demoMode, setDemoMode, initialLoading } = useContext(AppContext)
+  const [leScanAvailable, setLeScanAvailable] = useState(false) // eslint-disable-line
 
   const browser = detect()
   const isCompatible = compatibleBrowsers.includes(browser.name)
