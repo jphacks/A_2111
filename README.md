@@ -1,4 +1,4 @@
-# サンプル（プロダクト名）
+# ココノマスク
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2021/07/JPHACKS2021_ogp.jpg)](https://www.youtube.com/watch?v=LUPQFB4QyVo)
 
@@ -19,16 +19,22 @@
 ## 開発技術
 ### 活用した技術
 #### API・データ
-* 
-* 
+* Apple/Google Notification Exposure Notification
+* FastAPI
+
 
 #### フレームワーク・ライブラリ・モジュール
-* 
-* 
+* React
+* Bluetooth Low Energy
+* Web Bluetooth
+* Firebase Hosting
+* Cloud Firestore
+* blender
+* Python
+* pybleno
 
 #### デバイス
-* 
-* 
+* Raspberry Pi Zero
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
