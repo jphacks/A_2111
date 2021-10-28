@@ -17,25 +17,25 @@ const AppContextProvider = ({ children }) => {
   const [demoMode, _setDemoMode] = useState(undefined)
   const [shouldShowNewRegistration, setShouldShowNewRegistration] = useState(false)
   const [isMaskOpen, setMaskOpen] = useState(false)
-  const [checkedBTAvailability, setCheckedBTAvailability] = useState(false) // eslint-disable-line
   const [shouldCheckBTStatus, _setShouldCheckBTStatus] = useState(true)
 
+  const [waitForReloading, setWaitForReloading] = useState(false)
+  const [isScanningLE, setScanningLE] = useState(false)
+
   const setShouldCheckBTStatus = (status) => {
-    setCheckedBTAvailability(!status)
     _setShouldCheckBTStatus(status)
   }
 
   const setDemoMode = (setToDemoMode) => {
+    setWaitForReloading(true)
     console.log('called')
     let message = null
-    setShouldCheckBTStatus(!setToDemoMode)
     setDemoModeToStorage(setToDemoMode)
     if (setToDemoMode) {
       message = 'DEMO モードに切り替えます。'
     } else {
       message = 'DEMO モードを終了します 👋'
     }
-    _setDemoMode(setToDemoMode)
 
     toast({
       title: message,
@@ -47,7 +47,9 @@ const AppContextProvider = ({ children }) => {
       isClosable: true
     })
 
+    _setDemoMode(setToDemoMode)
     setTimeout(() => {
+      setShouldCheckBTStatus(!setToDemoMode)
       window.location.reload()
     }, 500)
   }
@@ -83,7 +85,10 @@ const AppContextProvider = ({ children }) => {
         shouldShowNewRegistration,
         setShouldShowNewRegistration,
         shouldCheckBTStatus,
-        setShouldCheckBTStatus
+        setShouldCheckBTStatus,
+        waitForReloading,
+        isScanningLE,
+        setScanningLE
       }}
     >
       {children}
