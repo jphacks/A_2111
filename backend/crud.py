@@ -24,7 +24,7 @@ async def get_all_members():
 
 async def get_all_familiars():
     uuid = str(uuid4())
-    docs = db.collection("members").stream()
+    docs = db.collection("familiars").stream()
     data = []
     for doc in docs:
         post = {"id": doc.id, **doc.to_dict()}
@@ -41,7 +41,6 @@ async def create_member(name: str) -> str:
         'uuid': uuid,
         'name': name
     })
-    # print(doc_ref)
     return uuid
 
 
@@ -53,21 +52,26 @@ async def create_familiar(name: str):
     return True
 
 
-async def update_member():
-    return
+async def update_member(uuid, name: str):
+    print(1)
+    member_ref = db.collection("members").document(uuid)
+    print(2)
+    await member_ref.update({"name": name}) # ここに問題あり
+    print(3)
+    return 
 
 
-# Sessionってなんだろう。明日考える
-# async def remove_member(member_id: str,
-# db: Session = Depends(get_db)
-# ):
-#     member = get_members(db, member_id)
-#     db.delete(member)
-#     db.commit()
+async def remove_member(uuid):
+    docs = db.collection("members").where("uuid", "==", uuid).stream()
+    print(docs)
+    db.collection("members").document(docs).delete() 
 
+    # for doc in docs:
+    #     print(f"{doc.id} => {doc.to_dict()}")
 
 # async def remove_familiar(familiar_id: str,
 #  ):
 #     familiar = get_familiars(db, familiar_id)
 #     db.delete()
 #     db.commit()
+
