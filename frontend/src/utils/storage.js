@@ -1,5 +1,7 @@
 const DEFAULT_STORAGE_TYPE = 'localStorage'
 const DEFAULT_KEY = 'GARIGARI_MASK_USER_ID_KEY'
+const DEFAULT_BT_STATUS_KEY = 'GARIGARI_MASK_BT_STATUS_CHECKED'
+const DEMO_MODE_KEY = 'GARIGARI_MASK_DEMO_MODE'
 
 export const storageAvailable = (type = DEFAULT_STORAGE_TYPE) => {
   var storage
@@ -32,7 +34,7 @@ export const setIdToLocalStorage = (id) => {
   if (!storageAvailable()) {
     throw new Error('there is no local storage')
   }
-  window.localStorage.setItem(id)
+  window.localStorage.setItem(DEFAULT_KEY, id)
   return
 }
 
@@ -42,4 +44,38 @@ export const getUserIdFromLocalStorage = (key = DEFAULT_KEY) => {
   }
   const value = window.localStorage.getItem(key)
   return value
+}
+
+export const getBTStatusFromStorage = () => {
+  const value = window.localStorage.getItem(DEFAULT_BT_STATUS_KEY)
+  return value
+}
+
+export const setBTInitializeStatusChecked = () => {
+  window.localStorage.setItem(DEFAULT_BT_STATUS_KEY, Date.now())
+}
+
+export const resetBTStatusStorage = () => {
+  window.localStorage.removeItem(DEFAULT_BT_STATUS_KEY)
+}
+
+export const getDemoModeFromStorage = () => {
+  const value = window.localStorage.getItem(DEMO_MODE_KEY)
+  if (value) {
+    return value
+  }
+  return false
+}
+
+export const setDemoModeToStorage = (demo) => {
+  if (demo) {
+    window.localStorage.setItem(DEMO_MODE_KEY, Date.now())
+  } else {
+    window.localStorage.removeItem(DEMO_MODE_KEY)
+  }
+}
+
+export const resetLocalStorage = () => {
+  window.localStorage.removeItem(DEFAULT_KEY)
+  resetBTStatusStorage()
 }

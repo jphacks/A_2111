@@ -20,10 +20,17 @@ import SwitchMode from '../components/SwitchMode'
 import ModalQrBody from '../components/ModalQrBody'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
+import { Redirect } from 'react-router-dom'
+import NavigateBTInitialize from '../components/NavigateBTInitialize'
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { isMaskOpen, setMaskOpen } = useContext(AppContext)
+  const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, familiars, isScanningLE } =
+    useContext(AppContext)
+
+  if (shouldShowNewRegistration) {
+    return <Redirect to="/signup" />
+  }
 
   const handleMaskChange = () => {
     setMaskOpen(!isMaskOpen)
@@ -31,11 +38,15 @@ const Home = () => {
 
   return (
     <div>
+      <NavigateBTInitialize />
       <div className={styles.headerContainer}>
         <p>**** さん</p>
         <hr className={styles.border} />
         <SwitchMode />
       </div>
+      <p>
+        <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
+      </p>
       <div className={styles.mask}>
         {isMaskOpen ? (
           <video className={styles.maskPic} src={maskOpenVideo} loop autoPlay muted></video>
@@ -71,15 +82,21 @@ const Home = () => {
           </Modal>
         </HStack>
         <hr className={styles.border} />
-        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px" _hover={{ background: 'gray.200' }}>
-          <p className={styles.friendName}>山田　太郎</p>
-        </Box>
-        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px" _hover={{ background: 'gray.200' }}>
-          <p className={styles.friendName}>aaaaaaaa</p>
-        </Box>
-        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px" _hover={{ background: 'gray.200' }}>
-          <p className={styles.friendName}>bbbbbbbb</p>
-        </Box>
+        {/* TODO: コンポーネントに切り出したい↓ */}
+        {familiars.length
+          ? familiars.map((person, i) => (
+              <Box
+                key={i}
+                boxShadow="xs"
+                w="100%"
+                p={3}
+                marginBottom="1.5px"
+                _hover={{ background: 'gray.200' }}
+              >
+                <p className={styles.friendName}>{person.name}</p>
+              </Box>
+            ))
+          : null}
       </div>
     </div>
   )
