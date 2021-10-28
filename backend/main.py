@@ -74,11 +74,10 @@ async def post_member(
 
 @app.post("/familiar")
 async def post_familiar(
-    # 書き方合っているのか？
     start: str = Form(...),
     end: str = Form(...),
 ):
-
+    await crud.create_familiar(start, end)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 

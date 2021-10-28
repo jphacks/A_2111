@@ -51,10 +51,11 @@ async def create_member(name: str) -> str:
     return uuid
 
 
-async def create_familiar(name: str):
+async def create_familiar(start: str, end: str):
     doc_ref = db.collection('members').document()
     doc_ref.set({
-        'name': name
+        "start": start,
+        "end": end
     })
     return True
 
@@ -63,15 +64,15 @@ async def update_member(uuid: str, name: str):
     print(1)
     member_ref = db.collection("members").document(uuid)
     print(2)
-    await member_ref.update({"name": name}) # ここに問題あり
+    await member_ref.update({"name": name})  # ここに問題あり
     print(3)
-    return 
+    return
 
 
 async def remove_member(uuid: str):
     docs = db.collection("members").where("uuid", "==", uuid).stream()
     print(docs)
-    db.collection("members").document(docs).delete() 
+    db.collection("members").document(docs).delete()
 
     # for doc in docs:
     #     print(f"{doc.id} => {doc.to_dict()}")
@@ -81,4 +82,3 @@ async def remove_member(uuid: str):
 #     familiar = get_familiars(db, familiar_id)
 #     db.delete()
 #     db.commit()
-
