@@ -4,3 +4,4 @@ firebase-admin
 google-auth
 httplib2<0.20
 pyparsing==2.4.7
+python-multipart
