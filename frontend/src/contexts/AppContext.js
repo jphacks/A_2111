@@ -9,6 +9,7 @@ const AppContextProvider = ({ children }) => {
   const [userId, setUserId] = useState(undefined)
   const [demoMode, setDemoMode] = useState(undefined)
   const [shouldShowNewRegistration, setShouldShowNewRegistration] = useState(false)
+  const [isMaskOpen, setMaskOpen] = useState(false)
 
   useEffect(() => {
     if (storageAvailable()) {
@@ -29,6 +30,8 @@ const AppContextProvider = ({ children }) => {
       value={{
         userId,
         setUserId,
+        isMaskOpen,
+        setMaskOpen,
         initialLoading,
         setInitialLoading,
         localStorageAvailable,
