@@ -1,5 +1,6 @@
 import { useToast } from '@chakra-ui/toast'
 import React, { createContext, useEffect, useState } from 'react'
+import { getFamiliars } from '../utils/api'
 import {
   getDemoModeFromStorage,
   getUserIdFromLocalStorage,
@@ -18,6 +19,7 @@ const AppContextProvider = ({ children }) => {
   const [shouldShowNewRegistration, setShouldShowNewRegistration] = useState(false)
   const [isMaskOpen, setMaskOpen] = useState(false)
   const [shouldCheckBTStatus, _setShouldCheckBTStatus] = useState(true)
+  const [familiars, setFamiliars] = useState([])
 
   const [waitForReloading, setWaitForReloading] = useState(false)
   const [isScanningLE, setScanningLE] = useState(false)
@@ -28,14 +30,9 @@ const AppContextProvider = ({ children }) => {
 
   const setDemoMode = (setToDemoMode) => {
     setWaitForReloading(true)
-    console.log('called')
-    let message = null
+    setShouldCheckBTStatus(!setToDemoMode)
     setDemoModeToStorage(setToDemoMode)
-    if (setToDemoMode) {
-      message = 'DEMO モードに切り替えます。'
-    } else {
-      message = 'DEMO モードを終了します 👋'
-    }
+    const message = setToDemoMode ? 'DEMO モードに切り替えます。' : 'DEMO モードを終了します 👋'
 
     toast({
       title: message,
@@ -46,7 +43,6 @@ const AppContextProvider = ({ children }) => {
       duration: 3000,
       isClosable: true
     })
-
     _setDemoMode(setToDemoMode)
     setTimeout(() => {
       setShouldCheckBTStatus(!setToDemoMode)
@@ -67,6 +63,9 @@ const AppContextProvider = ({ children }) => {
       _setDemoMode(isDemoMode)
       setShouldCheckBTStatus(false)
     }
+    getFamiliars().then((data) => {
+      setFamiliars(data)
+    })
     setInitialLoading(false)
   }, []) // eslint-disable-line
 
@@ -88,7 +87,9 @@ const AppContextProvider = ({ children }) => {
         setShouldCheckBTStatus,
         waitForReloading,
         isScanningLE,
-        setScanningLE
+        setScanningLE,
+        familiars
+
       }}
     >
       {children}

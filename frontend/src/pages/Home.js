@@ -23,8 +23,7 @@ import NavigateBTInitialize from '../components/NavigateBTInitialize'
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, isScanningLE } =
-    useContext(AppContext)
+  const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, familiars, isScanningLE } = useContext(AppContext)
 
   if (shouldShowNewRegistration) {
     return <Redirect to="/signup" />
@@ -81,15 +80,21 @@ const Home = () => {
           </Modal>
         </HStack>
         <hr className={styles.border} />
-        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px" _hover={{ background: 'gray.200' }}>
-          <p className={styles.friendName}>山田　太郎</p>
-        </Box>
-        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px" _hover={{ background: 'gray.200' }}>
-          <p className={styles.friendName}>aaaaaaaa</p>
-        </Box>
-        <Box boxShadow="xs" w="100%" p={3} marginBottom="1.5px" _hover={{ background: 'gray.200' }}>
-          <p className={styles.friendName}>bbbbbbbb</p>
-        </Box>
+        {/* TODO: コンポーネントに切り出したい↓ */}
+        {familiars.length
+          ? familiars.map((person, i) => (
+              <Box
+                key={i}
+                boxShadow="xs"
+                w="100%"
+                p={3}
+                marginBottom="1.5px"
+                _hover={{ background: 'gray.200' }}
+              >
+                <p className={styles.friendName}>{person.name}</p>
+              </Box>
+            ))
+          : null}
       </div>
     </div>
   )
