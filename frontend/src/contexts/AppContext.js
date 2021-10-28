@@ -89,7 +89,6 @@ const AppContextProvider = ({ children }) => {
         isScanningLE,
         setScanningLE,
         familiars
-
       }}
     >
       {children}

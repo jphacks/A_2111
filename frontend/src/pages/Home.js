@@ -23,7 +23,8 @@ import NavigateBTInitialize from '../components/NavigateBTInitialize'
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, familiars, isScanningLE } = useContext(AppContext)
+  const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, familiars, isScanningLE } =
+    useContext(AppContext)
 
   if (shouldShowNewRegistration) {
     return <Redirect to="/signup" />
