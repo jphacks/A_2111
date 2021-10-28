@@ -1,5 +1,9 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { getUserIdFromLocalStorage, storageAvailable } from '../utils/storage'
+import {
+  getBTStatusFromStorage,
+  getUserIdFromLocalStorage,
+  storageAvailable
+} from '../utils/storage'
 
 export const AppContext = createContext()
 
@@ -10,6 +14,15 @@ const AppContextProvider = ({ children }) => {
   const [demoMode, setDemoMode] = useState(undefined)
   const [shouldShowNewRegistration, setShouldShowNewRegistration] = useState(false)
   const [isMaskOpen, setMaskOpen] = useState(false)
+  const [checkedBTAvailability, setCheckedBTAvailability] = useState(false)
+  const [shouldCheckBTStatus, _setShouldCheckBTStatus] = useState(
+    !Boolean(getBTStatusFromStorage())
+  )
+
+  const setShouldCheckBTStatus = (status) => {
+    setCheckedBTAvailability(!status)
+    _setShouldCheckBTStatus(status)
+  }
 
   useEffect(() => {
     if (storageAvailable()) {
@@ -38,7 +51,9 @@ const AppContextProvider = ({ children }) => {
         demoMode,
         setDemoMode,
         shouldShowNewRegistration,
-        setShouldShowNewRegistration
+        setShouldShowNewRegistration,
+        shouldCheckBTStatus,
+        setShouldCheckBTStatus
       }}
     >
       {children}
