@@ -5,8 +5,7 @@
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
 ### 製品説明（具体的な製品の説明）
-![](https://user-images.githubusercontent.com/38291975/139288053-7d97dbb4-4dde-4227-ab7d-8fa9bceea996.png)
-
+![image](https://user-images.githubusercontent.com/38291975/139291289-61c07124-b0cb-4f72-8d42-54011f6d163c.png)
 ### 特長
 ####1. 特長1
 ####2. 特長2
