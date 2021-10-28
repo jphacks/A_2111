@@ -1,5 +1,6 @@
 import { useToast } from '@chakra-ui/toast'
 import React, { createContext, useEffect, useState } from 'react'
+import { getFamiliars } from '../utils/api'
 import {
   getDemoModeFromStorage,
   getUserIdFromLocalStorage,
@@ -19,6 +20,7 @@ const AppContextProvider = ({ children }) => {
   const [isMaskOpen, setMaskOpen] = useState(false)
   const [checkedBTAvailability, setCheckedBTAvailability] = useState(false) // eslint-disable-line
   const [shouldCheckBTStatus, _setShouldCheckBTStatus] = useState(true)
+  const [familiars, setFamiliars] = useState([])
 
   const setShouldCheckBTStatus = (status) => {
     setCheckedBTAvailability(!status)
@@ -26,17 +28,10 @@ const AppContextProvider = ({ children }) => {
   }
 
   const setDemoMode = (setToDemoMode) => {
-    console.log('called')
-    let message = null
     setShouldCheckBTStatus(!setToDemoMode)
     setDemoModeToStorage(setToDemoMode)
-    if (setToDemoMode) {
-      message = 'DEMO モードに切り替えます。'
-    } else {
-      message = 'DEMO モードを終了します 👋'
-    }
     _setDemoMode(setToDemoMode)
-
+    const message = setToDemoMode ? 'DEMO モードに切り替えます。' : 'DEMO モードを終了します 👋'
     toast({
       title: message,
       description: `リロードされます。`,
@@ -46,10 +41,7 @@ const AppContextProvider = ({ children }) => {
       duration: 3000,
       isClosable: true
     })
-
-    setTimeout(() => {
-      window.location.reload()
-    }, 500)
+    setTimeout(() => window.location.reload(), 500)
   }
 
   useEffect(() => {
@@ -65,6 +57,9 @@ const AppContextProvider = ({ children }) => {
       _setDemoMode(isDemoMode)
       setShouldCheckBTStatus(false)
     }
+    getFamiliars().then((data) => {
+      setFamiliars(data)
+    })
     setInitialLoading(false)
   }, []) // eslint-disable-line
 
@@ -83,7 +78,8 @@ const AppContextProvider = ({ children }) => {
         shouldShowNewRegistration,
         setShouldShowNewRegistration,
         shouldCheckBTStatus,
-        setShouldCheckBTStatus
+        setShouldCheckBTStatus,
+        familiars
       }}
     >
       {children}
