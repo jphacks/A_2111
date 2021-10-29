@@ -6,10 +6,10 @@ from RpiMotorLib import rpi_dc_lib
 # n は duty(つまり強さ) で、0-100
 
 
-def close_mask():
+def close_mask(t=0.5):
     print("closing")
     MotorOne.forward(100)  # forward と
-    time.sleep(0.5)
+    time.sleep(t)
     MotorOne.stop(0)
 
 
