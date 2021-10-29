@@ -48,10 +48,12 @@ const Home = () => {
 
   const handleMaskChange = () => {
     const nextStatus = !isMaskOpen
-    ch.writeValue(Uint8Array.of(nextStatus ? 1 : 0)).then(() => {
-      console.log(nextStatus ? 'open!' : 'close!')
-      // setLoadingMaskToMove(false)
-    })
+    if (ch) {
+      ch.writeValue(Uint8Array.of(nextStatus ? 1 : 0)).then(() => {
+        console.log(nextStatus ? 'open!' : 'close!')
+        // setLoadingMaskToMove(false)
+      })
+    }
     setMaskOpen(nextStatus)
   }
   const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
