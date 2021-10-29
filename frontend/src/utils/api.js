@@ -8,7 +8,7 @@ export const postNameAndGetId = async (value) => {
   formData.append('value', value)
 
   try {
-    const res = await axios.post(baseUrl + 'name', formData, {
+    const res = await axios.post(baseUrl + 'member', formData, {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
     console.log(res)
