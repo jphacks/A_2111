@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
 
 .Headerlogo {
   position: fixed;
@@ -19,7 +19,7 @@
   .Headerlogo {
     width: 60px;
     height: 60px;
-    border-radius:20px;
+    border-radius: 20px;
     margin-top: 87px;
     margin-left: 20px;
   }
@@ -93,7 +93,7 @@
   font-size: 90px;
   font-weight: 500;
   color: black;
-  font-family: "Russo One", sans-serif;
+  font-family: 'Russo One', sans-serif;
   z-index: 2;
 }
 .title_text {
@@ -104,14 +104,14 @@
 .MAPLE_sub {
   font-size: 18px;
   color: rgb(70, 55, 37);
-  font-family: "Kiwi Maru", serif;
+  font-family: 'Kiwi Maru', serif;
   z-index: 2;
 }
 .MAPLE_sub2 {
   font-size: 18px;
   margin-bottom: 40px;
   color: rgb(70, 55, 37);
-  font-family: "Kiwi Maru", serif;
+  font-family: 'Kiwi Maru', serif;
   z-index: 2;
 }
 .footer {
@@ -143,6 +143,6 @@
     font-size: 15px;
   }
   /* .footer { */
-    /* display: flex; */
+  /* display: flex; */
   /* } */
 }
