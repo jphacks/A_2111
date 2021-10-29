@@ -1,11 +1,11 @@
 # ココノマスク
-![image](https://user-images.githubusercontent.com/38291975/139291197-4a10c142-214d-4494-bf1e-7b793eb06c58.png)
+![image](https://user-images.githubusercontent.com/38291975/139435847-981771ed-dc06-4846-a17f-aae96ee9c854.png)
 
 
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
 ### 製品説明（具体的な製品の説明）
-![image](https://user-images.githubusercontent.com/38291975/139291289-61c07124-b0cb-4f72-8d42-54011f6d163c.png)
+![image](https://user-images.githubusercontent.com/38291975/139435877-484c4f48-e14e-4967-bc1a-b8cfeeac1472.png)
 ### 特長
 #### 1. 特長1　COCOAの電波受信して自動でマスク開閉
 周りに人がいないときには息苦しさから解放されます。
@@ -27,7 +27,7 @@
 
 ## 開発技術
 ### 活用した技術
-![image](https://user-images.githubusercontent.com/38291975/139291137-e9159f3f-a4b3-4559-aa77-21441d0da4cb.png)
+![image](https://user-images.githubusercontent.com/38291975/139435910-7a3bd85b-8189-4b8d-828a-fb2e407c4600.png)
 
 #### API・データ
 * Apple/Google Notification Exposure Notification
