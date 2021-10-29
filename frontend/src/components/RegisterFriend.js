@@ -45,7 +45,7 @@ const RegisterFriend = (props) => {
             name ? (
               <ModalBody textAlign="center" mb="5">
                 <p>{name}さんを追加しますか？</p>
-                <Grid templateColumns="repeat(2, 1fr)" gap={6} mb="8">
+                <Grid templateColumns="repeat(2, 1fr)" gap={6} mt="5" mb="8">
                   <Button colorScheme="teal" size="md" ml="10" onClick={Addfriend}>
                     はい
                   </Button>
