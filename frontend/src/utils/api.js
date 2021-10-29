@@ -19,11 +19,11 @@ export const postNameAndGetId = async (value) => {
   return true
 }
 
-export const getFamiliars = async () => {
+export const getFamiliars = async (user_id) => {
   // TODO: サーバーに取りに行く
   try {
-    //     const res = await axios.get(baseUrl + 'familiar', {params={uuid: <ここに家族を取得するユーザーのid>}})
-    // return res.data
+    const res = await axios.get(baseUrl + 'familiar', {params={uuid: user_id}})
+    return res.data
   } catch (error) {
     alert(error.toString())
   }
