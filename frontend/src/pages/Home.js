@@ -42,6 +42,7 @@ const Home = () => {
   const handleMaskChange = () => {
     setMaskOpen(!isMaskOpen)
   }
+  const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
 
   return (
     <div>
@@ -49,7 +50,7 @@ const Home = () => {
       <NavigateBTInitialize />
       <Header />
       <div className={styles.headerContainer}>
-        <p>**** さん</p>
+        <p>{name}さん</p>
         <hr className={styles.border} />
         <SwitchMode />
       </div>
