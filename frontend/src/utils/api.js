@@ -22,7 +22,7 @@ export const postNameAndGetId = async (value) => {
 export const getFamiliars = async (user_id) => {
   // TODO: サーバーに取りに行く
   try {
-    const res = await axios.get(baseUrl + 'familiar', {params:{uuid: user_id}})
+    const res = await axios.get(baseUrl + 'familiar', { params: { uuid: user_id } })
     return res.data
   } catch (error) {
     alert(error.toString())
