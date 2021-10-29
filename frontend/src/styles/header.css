@@ -1,49 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
 
-.Headerlogo {
-  position: fixed;
-  width: 80px;
-  height: 80px;
-  border-radius: 35px;
-  margin-top: 97px;
-  margin-left: 30px;
-  /* box-shadow: 2px 2px rgb(82, 51, 22); */
+.HeaderLogo {
+  position: absolute;
+  width: 60px;
+  height: 60px;
   z-index: 3;
   user-select: none;
   cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 15px;
 }
-
-/* @media */
-@media screen and (max-width: 400px) {
-  .Headerlogo {
-    width: 60px;
-    height: 60px;
-    border-radius: 20px;
-    margin-top: 87px;
-    margin-left: 20px;
-  }
-}
-
 .about {
   position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 35px;
-  top: 97px;
-  left: 30px;
-  background: #f6d2a7;
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 10px;
+  background: #3074b0;
   transition: all 0.8s ease;
-}
-
-@media screen and (max-width: 400px) {
-  .about {
-    width: 60px;
-    height: 60px;
-    border-radius: 20px;
-    top: 87px;
-    left: 20px;
-  }
+  border-radius: 15px;
 }
 
 .headerOpen {
@@ -54,7 +31,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #f6d2a7;
+  background: #3074b0;
   border-radius: 0px;
   z-index: 2;
 }
@@ -71,6 +48,7 @@
 }
 
 .about_content_show {
+  text-align: center;
   visibility: visible;
   opacity: 1;
   position: fixed;
@@ -89,8 +67,8 @@
 }
 
 .MAPLE_title {
-  margin-top: 100px;
-  font-size: 90px;
+  text-align: center;
+  font-size: 70px;
   font-weight: 500;
   color: black;
   font-family: 'Russo One', sans-serif;
@@ -98,24 +76,23 @@
 }
 .title_text {
   display: inline-block;
-  padding: 0px;
-  margin: 0px;
 }
 .MAPLE_sub {
+  text-align: center;
   font-size: 18px;
   color: rgb(70, 55, 37);
   font-family: 'Kiwi Maru', serif;
   z-index: 2;
 }
 .MAPLE_sub2 {
+  text-align: center;
   font-size: 18px;
   margin-bottom: 40px;
-  color: rgb(70, 55, 37);
+  color: rgb(255, 252, 249);
   font-family: 'Kiwi Maru', serif;
   z-index: 2;
 }
 .footer {
-  /* color: white; */
   text-align: center;
   z-index: 2;
 }
@@ -131,18 +108,4 @@
   font-size: 15px;
   margin-top: 20px;
   color: black;
-}
-@media screen and (max-width: 400px) {
-  .MAPLE_title {
-    font-size: 80px;
-  }
-  .MAPLE_sub {
-    font-size: 15px;
-  }
-  .MAPLE_sub2 {
-    font-size: 15px;
-  }
-  /* .footer { */
-  /* display: flex; */
-  /* } */
 }

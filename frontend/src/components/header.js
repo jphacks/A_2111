@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
       <img
-        className="Headerlogo"
+        className="HeaderLogo"
         src={Logo}
         alt="Logo"
         onClick={() => setHeaderOpen(!headerOpen)}
@@ -29,7 +29,8 @@ const Header = () => {
             background: '#ddd',
             border: '1px solid black',
             padding: '10px',
-            borderRadius: '15px'
+            // borderRadius: '15px'
+            textAlign: 'center'
           }}
           onClick={() => setHeaderOpen(!headerOpen)}
         >
@@ -37,7 +38,7 @@ const Header = () => {
         </button>
         <div className="footer">
           <p className="teamName">A-2111 ガリガリ君</p>
-          <a href="https://github.com/Nano3013/garigarikun" target="blank" rel="noreferrer">
+          <a href="https://github.com/JPHacks/A_2111" target="blank" rel="noreferrer">
             <div className="icon1">
               <FaGithub size={30} color="black" />
             </div>
