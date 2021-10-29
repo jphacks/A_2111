@@ -22,6 +22,7 @@ import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
 import NavigateBTInitialize from '../components/NavigateBTInitialize'
+import Header from '../components/header'
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -39,6 +40,7 @@ const Home = () => {
   return (
     <div>
       <NavigateBTInitialize />
+      <Header />
       <div className={styles.headerContainer}>
         <p>**** さん</p>
         <hr className={styles.border} />

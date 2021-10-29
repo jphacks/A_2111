@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap");
+
+.Headerlogo {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  border-radius: 35px;
+  margin-top: 30px;
+  margin-left: 30px;
+  /* box-shadow: 2px 2px rgb(82, 51, 22); */
+  z-index: 3;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* @media */
+@media screen and (max-width: 400px) {
+  .Headerlogo {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+
+.about {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 35px;
+  background: #cb4d00;
+  transition: all 1s ease;
+}
+
+.headerOpen {
+  transform: translate(-100px, -100px);
+  transition: all 0.6s ease-in-out;
+  top: 0px;
+  left: 0px;
+  width: 150vw;
+  height: 150vh;
+  overflow: hidden;
+  background: #cb4d00;
+  /* border-radius: 30% 70% 38% 62% / 50% 31% 69% 50% ; */
+  border-radius: 250px;
+  z-index: 2;
+}
+
+.about_content {
+  visibility: hidden;
+  transform: translate(-50%, -45%);
+  transition: all 0.6s ease 0s;
+}
+
+.about_content > * {
+  visibility: hidden;
+}
+
+.about_content_show {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* プロパティ名 | 時間 | イージング関数 | 遅延 */
+  transition: all 0.5s ease 0.5s;
+  z-index: 2;
+}
+
+.about_content_show > * {
+  transition: all 0.5s ease 0.5s;
+  visibility: visible;
+  z-index: 2;
+}
+
+.MAPLE_title {
+  margin-top: 100px;
+  font-size: 110px;
+  font-weight: 500;
+  color: rgb(255, 232, 158);
+  font-family: "Russo One", sans-serif;
+  z-index: 2;
+}
+.MAPLE_sub {
+  font-size: 18px;
+  color: rgb(70, 55, 37);
+  font-family: "Kiwi Maru", serif;
+  z-index: 2;
+}
+.MAPLE_sub2 {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: rgb(70, 55, 37);
+  font-family: "Kiwi Maru", serif;
+  z-index: 2;
+}
+.footer {
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+.icon1 {
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px;
+  z-index: 2;
+}
+.teamName {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+  color: #eee;
+}
+@media screen and (max-width: 400px) {
+  .MAPLE_title {
+    font-size: 80px;
+  }
+  .MAPLE_sub {
+    font-size: 15px;
+  }
+  .MAPLE_sub2 {
+    font-size: 15px;
+  }
+  /* .footer { */
+    /* display: flex; */
+  /* } */
+}
