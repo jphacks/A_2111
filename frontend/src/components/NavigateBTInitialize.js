@@ -9,8 +9,12 @@ import {
   Progress,
   Container,
   Code,
-  Input
+  Input,
+  Tag,
+  TagLabel,
+  TagLeftIcon
 } from '@chakra-ui/react'
+import { WarningTwoIcon } from '@chakra-ui/icons'
 import { useToast } from '@chakra-ui/toast'
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../contexts/AppContext'
@@ -25,10 +29,17 @@ const BTSettingLinkSuffix = '://flags/#enable-experimental-web-platform-features
 
 const NavigateBTInitialize = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { demoMode, setDemoMode, initialLoading, waitForReloading, setScanningLE } =
-    useContext(AppContext)
+  const {
+    demoMode,
+    setDemoMode,
+    initialLoading,
+    waitForReloading,
+    setScanningLE,
+    setWasCoconoThere,
+    setMaskName
+  } = useContext(AppContext)
   const [canUseBT, setCanUseBT] = useState(false) // eslint-disable-line
-
+  const [description2, setDescription2] = useState('')
   const [progressValue, setProgressValue] = useState(0)
   const [msg, setMsg] = useState('Title')
   const [description, setDescription] = useState('')
@@ -52,9 +63,13 @@ const NavigateBTInitialize = () => {
         setCanUseBT(true)
         onClose()
         navigator.bluetooth.addEventListener('advertisementreceived', (event) => {
-          // console.log(event)
-          const id = event.device.id
-          console.log(id)
+          // const id = event.device.id
+          if (event.device?.name && event.device?.name[0] === 'C' && event.uuids[0]) {
+            // unsure
+            // console.log(event.uuids[0], event.device?.name)
+            setWasCoconoThere(event.uuids[0])
+            setMaskName(event.device?.name)
+          }
         })
       })
       .catch((e) => setErr(e))
@@ -99,7 +114,8 @@ const NavigateBTInitialize = () => {
         }
         // その指示をどっかで出す
       } else {
-        throw new Error('対応してないブラウザで進めようとしました')
+        // throw new Error('対応してないブラウザで進めようとしました')
+        setMsg()
       }
     } else {
       console.log('requestLEScan exists')
@@ -112,6 +128,7 @@ const NavigateBTInitialize = () => {
             始める
           </Button>
           <div>
+            <p>「許可」を押してください。</p>
             <details>
               <summary>
                 <small>何も起こらない場合(PC)</small>
@@ -134,11 +151,24 @@ const NavigateBTInitialize = () => {
   useEffect(() => {
     if (err) {
       console.log(err.name, err.message)
+      const messageEnd = 'リロードします。'
       if (err.name === 'NotAllowedError') {
-        // サイトの設定で許可しにいく
-        // chrome://settings/content/bluetoothScanning
+        setDescription(
+          <div>
+            <WarningTwoIcon w={6} h={6} color="orange" />
+            このサイトでBluetoothがブロックされています。以下にアクセスし、許可して下さい。
+            <Input value={`chrome://settings/content/bluetoothScanning`} readOnly />
+          </div>
+        )
       } else if (err.name === 'NotFoundError') {
-        // 本体のBTが無効になっている
+        setDescription2('本体の BlueTooth を有効にしてからリロードしてください。')
+        // 本体の BT が無効になっている
+      } else if (err.name === 'InvalidStateError') {
+        // User canceled the permission prompt.
+        setDescription2('キャンセルしちゃいましたね！' + messageEnd)
+        setTimeout(() => {
+          window.location.reload()
+        }, 500)
       }
     }
   }, [err])
@@ -179,6 +209,16 @@ const NavigateBTInitialize = () => {
           <ModalHeader>{msg}</ModalHeader>
           <ModalBody>
             <div>{description}</div>
+            {description2 && (
+              <div>
+                <Tag size="lg" colorScheme="orange">
+                  <TagLeftIcon boxSize="12px" as={WarningTwoIcon} />
+                  <TagLabel>
+                    <small>{description2}</small>
+                  </TagLabel>
+                </Tag>
+              </div>
+            )}
             <Container>
               <Button onClick={handleStartDemoMode} size="sm">
                 デモモードで始める
