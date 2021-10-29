@@ -6,7 +6,7 @@
   width: 80px;
   height: 80px;
   border-radius: 35px;
-  margin-top: 30px;
+  margin-top: 97px;
   margin-left: 30px;
   /* box-shadow: 2px 2px rgb(82, 51, 22); */
   z-index: 3;
@@ -19,38 +19,49 @@
   .Headerlogo {
     width: 60px;
     height: 60px;
-    border-radius: 20px;
-    margin-top: 20px;
+    border-radius:20px;
+    margin-top: 87px;
     margin-left: 20px;
   }
 }
 
 .about {
   position: absolute;
-  top: 30px;
-  left: 30px;
   width: 80px;
   height: 80px;
   border-radius: 35px;
-  background: #cb4d00;
+  top: 97px;
+  left: 30px;
+  background: #f6d2a7;
   transition: all 1s ease;
 }
 
+@media screen and (max-width: 400px) {
+  .about {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    top: 87px;
+    left: 20px;
+    transition: all 1s ease;
+  }
+}
+
 .headerOpen {
-  transform: translate(-100px, -100px);
+  /* transform: translate(-100px, -100px); */
   transition: all 0.6s ease-in-out;
   top: 0px;
   left: 0px;
-  width: 150vw;
-  height: 150vh;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  background: #cb4d00;
-  /* border-radius: 30% 70% 38% 62% / 50% 31% 69% 50% ; */
-  border-radius: 250px;
+  background: #f6d2a7;
+  border-radius: 0px;
   z-index: 2;
 }
 
 .about_content {
+  position: absolute;
   visibility: hidden;
   transform: translate(-50%, -45%);
   transition: all 0.6s ease 0s;
@@ -82,7 +93,7 @@
   margin-top: 100px;
   font-size: 110px;
   font-weight: 500;
-  color: rgb(255, 232, 158);
+  color: black;
   font-family: "Russo One", sans-serif;
   z-index: 2;
 }
@@ -100,7 +111,7 @@
   z-index: 2;
 }
 .footer {
-  color: white;
+  /* color: white; */
   text-align: center;
   z-index: 2;
 }
@@ -115,7 +126,7 @@
   text-align: center;
   font-size: 15px;
   margin-top: 20px;
-  color: #eee;
+  color: black;
 }
 @media screen and (max-width: 400px) {
   .MAPLE_title {
