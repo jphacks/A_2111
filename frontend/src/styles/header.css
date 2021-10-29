@@ -22,7 +22,6 @@
   transition: all 0.8s ease;
   border-radius: 15px;
   z-index: 2;
-
 }
 
 .headerOpen {
@@ -97,7 +96,7 @@
   z-index: 2;
 }
 .footer {
-	margin-top: 100px;
+  margin-top: 100px;
   text-align: center;
   z-index: 2;
 }
