@@ -7,7 +7,8 @@ import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
 
 const Signup = () => {
-  const { shouldShowNewRegistration, setShouldShowNewRegistration, setUserId } = useContext(AppContext)
+  const { shouldShowNewRegistration, setShouldShowNewRegistration, setUserId } =
+    useContext(AppContext)
   const [value, setValue] = useState('')
   const [isSubmitting, setSubmiting] = useState(false)
 
@@ -26,7 +27,7 @@ const Signup = () => {
     console.log(value)
     setSubmiting(true)
     const userId = await postNameAndGetId(value)
-    if (userId){
+    if (userId) {
       setIdToLocalStorage(userId, value)
       setUserId(userId)
       setShouldShowNewRegistration(false)
