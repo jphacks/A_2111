@@ -42,3 +42,8 @@ export const getFamiliars = async (user_id) => {
   ]
   return mockData
 }
+
+export const getNameFromId = async (user_id) => {
+  console.log(user_id)
+  return 'usatyo'
+}
