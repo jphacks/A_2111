@@ -57,6 +57,8 @@ const AppContextProvider = ({ children }) => {
       if (!idFromStorage) {
         setShouldShowNewRegistration(true)
         // これで自動で /signup に遷移する
+      } else {
+        setUserId(idFromStorage)
       }
       const isDemoMode = getDemoModeFromStorage()
       console.log('isdemomode', isDemoMode)
