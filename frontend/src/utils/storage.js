@@ -30,7 +30,7 @@ export const storageAvailable = (type = DEFAULT_STORAGE_TYPE) => {
   }
 }
 
-export const setIdToLocalStorage = (id,value) => {
+export const setIdToLocalStorage = (id, value) => {
   if (!storageAvailable()) {
     throw new Error('there is no local storage')
   }
@@ -38,7 +38,6 @@ export const setIdToLocalStorage = (id,value) => {
   window.localStorage.setItem(DEFAULT_KEY, value)
   return
 }
-
 
 export const getUserIdFromLocalStorage = (key = DEFAULT_KEY) => {
   if (!storageAvailable()) {

@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <div>
-      <RegisterFriend query={query}/>
+      <RegisterFriend query={query} />
       <NavigateBTInitialize />
       <div className={styles.headerContainer}>
         <p>**** さん</p>
@@ -84,7 +84,6 @@ const Home = () => {
                 <ModalQrBody
                   text={'https://garigari-mask.com/qr?from=976fae18-031d-461e-92d7-bcfe1d72d8fe'}
                 />
-
               </ModalBody>
             </ModalContent>
           </Modal>

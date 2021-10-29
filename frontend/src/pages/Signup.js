@@ -26,8 +26,8 @@ const Signup = () => {
     console.log(value)
     setSubmiting(true)
     const userId = await postNameAndGetId()
-    setIdToLocalStorage(userId,value)
-    
+    setIdToLocalStorage(userId, value)
+
     setShouldShowNewRegistration(false)
   }
 
@@ -64,7 +64,6 @@ const Signup = () => {
           進む
         </Button>
       </Container>
-
     </div>
   )
 }

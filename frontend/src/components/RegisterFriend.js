@@ -1,11 +1,4 @@
-import {
-  Button,
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  Grid
-} from '@chakra-ui/react'
+import { Button, Modal, ModalContent, ModalHeader, ModalBody, Grid } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/hooks'
 
 const RegisterFriend = (props) => {
@@ -21,8 +14,10 @@ const RegisterFriend = (props) => {
         <ModalContent>
           <ModalHeader>友達追加</ModalHeader>
           {/* <ModalCloseButton /> */}
-          <ModalBody textAlign="center" mb="5">{id}を登録しますか</ModalBody>
-          <Grid  templateColumns="repeat(2, 1fr)" gap={6} mb="8">
+          <ModalBody textAlign="center" mb="5">
+            {id}を登録しますか
+          </ModalBody>
+          <Grid templateColumns="repeat(2, 1fr)" gap={6} mb="8">
             <Button colorScheme="teal" size="md" ml="10">
               はい
             </Button>
