@@ -48,21 +48,21 @@ const Home = () => {
     <div>
       <RegisterFriend query={query} />
       <NavigateBTInitialize />
-      <Header />
       <div className={styles.headerContainer}>
-        <p>{name}さん</p>
-        <hr className={styles.border} />
-        <SwitchMode />
+      <Header />
+        <p className={styles.userName}>{name}さん</p>
       </div>
+      <SwitchMode />
+
       <p>
         <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
       </p>
 
       <div className={styles.mask}>
         {isMaskOpen ? (
-          <video className={styles.maskPic} src={maskOpenVideo} loop autoPlay muted></video>
+          <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
         ) : (
-          <video className={styles.maskPic} src={maskCloseVideo} loop autoPlay muted></video>
+          <video className={styles.maskPic} src={maskCloseVideo} autoPlay muted></video>
         )}
 
         <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
