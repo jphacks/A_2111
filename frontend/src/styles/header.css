@@ -33,7 +33,7 @@
   top: 97px;
   left: 30px;
   background: #f6d2a7;
-  transition: all 1s ease;
+  transition: all 0.8s ease;
 }
 
 @media screen and (max-width: 400px) {
@@ -43,7 +43,6 @@
     border-radius: 20px;
     top: 87px;
     left: 20px;
-    transition: all 1s ease;
   }
 }
 
@@ -64,7 +63,7 @@
   position: absolute;
   visibility: hidden;
   transform: translate(-50%, -45%);
-  transition: all 0.6s ease 0s;
+  transition: all 0.6s ease;
 }
 
 .about_content > * {
@@ -91,11 +90,16 @@
 
 .MAPLE_title {
   margin-top: 100px;
-  font-size: 110px;
+  font-size: 90px;
   font-weight: 500;
   color: black;
   font-family: "Russo One", sans-serif;
   z-index: 2;
+}
+.title_text {
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
 }
 .MAPLE_sub {
   font-size: 18px;

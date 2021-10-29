@@ -20,7 +20,10 @@ const Header = () => {
         }
       >
         <div>
-          <p className="MAPLE_title">COCONO</p>
+          <p className="MAPLE_title">
+            <span className="title_text">COCONO</span>
+            <span className="title_text">MASK</span>
+          </p>
           <p className="MAPLE_sub"></p>
           <p className="MAPLE_sub2">
             マスクの自動開閉で快適な毎日を
