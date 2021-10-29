@@ -1,18 +1,32 @@
+import axios from 'axios'
+const baseUrl = 'https://a2111-mask.herokuapp.com/'
+
 // TODO: 中身の実装
-export const postNameAndGetId = async () => {
-  var l = 8
-  var c = 'abcdefghijklmnopqrstuvwxyz0123456789'
-  var cl = c.length
-  var r = ''
-  for (var i = 0; i < l; i++) {
-    r += c[Math.floor(Math.random() * cl)]
+export const postNameAndGetId = async (value) => {
+  console.log(value)
+  const formData = new FormData()
+  formData.append('value', value)
+
+  try {
+    const res = await axios.post(baseUrl + 'member', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    })
+    console.log(res)
+    return res
+  } catch (error) {
+    alert(error.toString())
   }
-  console.log(r)
-  return r
+  return true
 }
 
-export const getFamiliars = async () => {
+export const getFamiliars = async (user_id) => {
   // TODO: サーバーに取りに行く
+  try {
+    const res = await axios.get(baseUrl + 'familiar', { params: { uuid: user_id } })
+    return res.data
+  } catch (error) {
+    alert(error.toString())
+  }
   // INFO: サーバー側未実装
   const mockData = [
     {

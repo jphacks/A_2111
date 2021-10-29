@@ -1,5 +1,6 @@
 const DEFAULT_STORAGE_TYPE = 'localStorage'
 const DEFAULT_KEY = 'GARIGARI_MASK_USER_ID_KEY'
+const DEFAULT_NAME_KEY = 'GARIGARI_MASK_USER_NAME_KEY'
 const DEFAULT_BT_STATUS_KEY = 'GARIGARI_MASK_BT_STATUS_CHECKED'
 const DEMO_MODE_KEY = 'GARIGARI_MASK_DEMO_MODE'
 
@@ -30,11 +31,12 @@ export const storageAvailable = (type = DEFAULT_STORAGE_TYPE) => {
   }
 }
 
-export const setIdToLocalStorage = (id) => {
+export const setIdToLocalStorage = (id, value) => {
   if (!storageAvailable()) {
     throw new Error('there is no local storage')
   }
   window.localStorage.setItem(DEFAULT_KEY, id)
+  window.localStorage.setItem(DEFAULT_NAME_KEY, value)
   return
 }
 

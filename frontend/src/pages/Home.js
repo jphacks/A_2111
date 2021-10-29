@@ -22,13 +22,19 @@ import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
 import NavigateBTInitialize from '../components/NavigateBTInitialize'
+import { useLocation } from 'react-router-dom'
+import RegisterFriend from '../components/RegisterFriend'
 import Header from '../components/header'
 
 const Home = () => {
+  function useQuery() {
+    return new URLSearchParams(useLocation().search)
+  }
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, familiars, isScanningLE } =
     useContext(AppContext)
-
+  const query = useQuery()
+  console.log(query.get('register'))
   if (shouldShowNewRegistration) {
     return <Redirect to="/signup" />
   }
@@ -36,19 +42,22 @@ const Home = () => {
   const handleMaskChange = () => {
     setMaskOpen(!isMaskOpen)
   }
+  const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
 
   return (
     <div>
+      <RegisterFriend query={query} />
       <NavigateBTInitialize />
       <Header />
       <div className={styles.headerContainer}>
-        <p>**** さん</p>
+        <p>{name}さん</p>
         <hr className={styles.border} />
         <SwitchMode />
       </div>
       <p>
         <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
       </p>
+
       <div className={styles.mask}>
         {isMaskOpen ? (
           <video className={styles.maskPic} src={maskOpenVideo} loop autoPlay muted></video>
