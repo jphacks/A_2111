@@ -25,21 +25,36 @@ import NavigateBTInitialize from '../components/NavigateBTInitialize'
 import { useLocation } from 'react-router-dom'
 import RegisterFriend from '../components/RegisterFriend'
 import Header from '../components/header'
+import Pairing from '../components/Pairing'
 
 const Home = () => {
   function useQuery() {
     return new URLSearchParams(useLocation().search)
   }
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, familiars, isScanningLE } =
-    useContext(AppContext)
+  const {
+    shouldShowNewRegistration,
+    isMaskOpen,
+    setMaskOpen,
+    familiars,
+    isScanningLE,
+    notPairedYet,
+    ch
+  } = useContext(AppContext)
   const query = useQuery()
   if (shouldShowNewRegistration) {
     return <Redirect to="/signup" />
   }
 
   const handleMaskChange = () => {
-    setMaskOpen(!isMaskOpen)
+    const nextStatus = !isMaskOpen
+    if (ch) {
+      ch.writeValue(Uint8Array.of(nextStatus ? 1 : 0)).then(() => {
+        console.log(nextStatus ? 'open!' : 'close!')
+        // setLoadingMaskToMove(false)
+      })
+    }
+    setMaskOpen(nextStatus)
   }
   const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
 
@@ -56,19 +71,24 @@ const Home = () => {
       <p>
         <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
       </p>
+      {notPairedYet ? (
+        <Pairing />
+      ) : (
+        <>
+          <div className={styles.mask}>
+            {isMaskOpen ? (
+              <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
+            ) : (
+              <video className={styles.maskPic} src={maskCloseVideo} autoPlay muted></video>
+            )}
+            <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
+          </div>
 
-      <div className={styles.mask}>
-        {isMaskOpen ? (
-          <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
-        ) : (
-          <video className={styles.maskPic} src={maskCloseVideo} autoPlay muted></video>
-        )}
-
-        <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
-      </div>
-      <div style={{ textAlign: 'center' }}>
-        <Switch onChange={handleMaskChange} colorScheme="orange" isChecked={!isMaskOpen} />
-      </div>
+          <div style={{ textAlign: 'center' }}>
+            <Switch onChange={handleMaskChange} colorScheme="orange" isChecked={!isMaskOpen} />
+          </div>
+        </>
+      )}
       <div className={styles.friendList}>
         <HStack spacing="50vw">
           <p className={styles.friendListTitle}> 友達一覧</p>

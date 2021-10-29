@@ -1,6 +1,14 @@
-import { Button, Modal, ModalContent, ModalHeader, ModalBody, Grid, Spinner } from '@chakra-ui/react'
+import {
+  Button,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  Grid,
+  Spinner
+} from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/hooks'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { getNameFromId } from '../utils/api'
 
@@ -41,29 +49,27 @@ const RegisterFriend = (props) => {
             <ModalBody textAlign="center" mb="5">
               <Spinner />
             </ModalBody>
+          ) : name ? (
+            <ModalBody textAlign="center" mb="5">
+              <p>{name}さんを追加しますか？</p>
+              <Grid templateColumns="repeat(2, 1fr)" gap={6} mt="5" mb="8">
+                <Button colorScheme="teal" size="md" ml="10" onClick={Addfriend}>
+                  はい
+                </Button>
+                <Button colorScheme="teal" size="md" mr="10" onClick={handleToHomePage}>
+                  いいえ
+                </Button>
+              </Grid>
+            </ModalBody>
           ) : (
-            name ? (
-              <ModalBody textAlign="center" mb="5">
-                <p>{name}さんを追加しますか？</p>
-                <Grid templateColumns="repeat(2, 1fr)" gap={6} mt="5" mb="8">
-                  <Button colorScheme="teal" size="md" ml="10" onClick={Addfriend}>
-                    はい
-                  </Button>
-                  <Button colorScheme="teal" size="md" mr="10" onClick={handleToHomePage}>
-                    いいえ
-                  </Button>
-                </Grid>
-              </ModalBody>
-            ) : (
-              <ModalBody textAlign="center" mb="5">
-                <p>無効なQRコードです</p>
-                <Grid templateColumns="repeat(2, 1fr)" gap={6} mb="8">
-                  <Button colorScheme="teal" size="md" mr="10" onClick={handleToHomePage}>
-                    閉じる
-                  </Button>
-                </Grid>
-              </ModalBody>
-            )
+            <ModalBody textAlign="center" mb="5">
+              <p>無効なQRコードです</p>
+              <Grid templateColumns="repeat(2, 1fr)" gap={6} mb="8">
+                <Button colorScheme="teal" size="md" mr="10" onClick={handleToHomePage}>
+                  閉じる
+                </Button>
+              </Grid>
+            </ModalBody>
           )}
         </ModalContent>
       </Modal>
