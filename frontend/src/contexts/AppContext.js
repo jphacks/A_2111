@@ -57,17 +57,26 @@ const AppContextProvider = ({ children }) => {
       if (!idFromStorage) {
         setShouldShowNewRegistration(true)
         // これで自動で /signup に遷移する
+      } else {
+        setUserId(idFromStorage)
       }
       const isDemoMode = getDemoModeFromStorage()
       console.log('isdemomode', isDemoMode)
       _setDemoMode(isDemoMode)
       setShouldCheckBTStatus(false)
     }
-    getFamiliars().then((data) => {
-      setFamiliars(data)
-    })
     setInitialLoading(false)
   }, []) // eslint-disable-line
+  
+  useEffect(() => {
+    if(userId && !familiars.length){
+      getFamiliars(userId).then((data) => {
+        setFamiliars(data)
+      })
+    }
+  }, [userId])
+
+
 
   return (
     <AppContext.Provider

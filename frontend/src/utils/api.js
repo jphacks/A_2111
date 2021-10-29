@@ -5,18 +5,17 @@ const baseUrl = 'https://a2111-mask.herokuapp.com/'
 export const postNameAndGetId = async (value) => {
   console.log(value)
   const formData = new FormData()
-  formData.append('value', value)
+  formData.append('name', value)
 
   try {
     const res = await axios.post(baseUrl + 'member', formData, {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
     console.log(res)
-    return res
+    return res.data.uuid
   } catch (error) {
     alert(error.toString())
   }
-  return true
 }
 
 export const getFamiliars = async (user_id) => {
@@ -44,6 +43,13 @@ export const getFamiliars = async (user_id) => {
 }
 
 export const getNameFromId = async (user_id) => {
-  console.log(user_id)
-  return 'usatyo'
+  try {
+    const res = await axios.get(baseUrl + 'member', { params: { uuid: user_id } })
+    if (!res.data.data.length) {
+      return null
+    }
+    return res.data.data[0].name
+  } catch (error) {
+    alert(error.toString())
+  }
 }
