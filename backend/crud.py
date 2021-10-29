@@ -30,13 +30,15 @@ async def get_member(uuid: str):
 
 
 async def get_all_familiars():
-    uuid = str(uuid4())
     docs = db.collection("familiars").stream()
+    print(docs)
     data = []
     for doc in docs:
         post = {"id": doc.id, **doc.to_dict()}
         data.append(post)
+    print(data)
     return data
+
 
 async def get_familiar(uuid: str):
     docs = db.collection("familiars").where("start", "==", uuid).stream()
@@ -75,17 +77,21 @@ async def create_familiar(start: str, end: str):
 
 async def update_member(uuid: str, name: str):
     print(1)
-    member_ref = db.collection("members").document(uuid)
+    member_ref = db.collection("members").document(id)
     print(2)
-    await member_ref.update({"name": name})  # ここに問題あり
+    member_ref.update({"name": name}, merge=True)  # ここに問題あり
     print(3)
     return
 
 
 async def remove_member(uuid: str):
     docs = db.collection("members").where("uuid", "==", uuid).stream()
-    print(docs)
-    db.collection("members").document(docs).delete()
+    data = []
+    for doc in docs:
+        post = {"id": doc.id, **doc.to_dict()}
+        data.append(post)
+    result = db.collection("members").document(data[0]['id']).delete()
+    return result
 
     # for doc in docs:
     #     print(f"{doc.id} => {doc.to_dict()}")

@@ -100,18 +100,16 @@ async def put_member(uuid: str, name: str = Form(...)):
     print(5)
     return result
 
-# 何を消したいんだっけ
-
 
 @app.delete("/member")
-async def delete_member(uuid):
-    print(uuid)
+async def delete_member(uuid: str):
     await crud.remove_member(uuid)
-    print(crud.remove_member(uuid))
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
+# TODO: memberをdeleteしたらfamiliarも削除しないといけない
+# TODO: PUTとDELETEについてdataが空ならエラーメッセージ 
 
-@app.delete("familiar")
+@app.delete("/familiar")
 async def delete_familiar():
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
