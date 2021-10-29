@@ -7,10 +7,10 @@ const RegisterFriend = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const id = props.query.get('register')
 
-  const history = useHistory();
+  const history = useHistory()
   const handleToHomePage = () => {
     history.push('/')
-    onClose();
+    onClose()
   }
 
   if (id && !isOpen) {
