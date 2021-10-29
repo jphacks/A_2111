@@ -34,7 +34,6 @@ const Home = () => {
   const { shouldShowNewRegistration, isMaskOpen, setMaskOpen, familiars, isScanningLE } =
     useContext(AppContext)
   const query = useQuery()
-  console.log(query.get('register'))
   if (shouldShowNewRegistration) {
     return <Redirect to="/signup" />
   }

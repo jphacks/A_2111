@@ -25,10 +25,12 @@ const Signup = () => {
     console.log('postするぞ')
     console.log(value)
     setSubmiting(true)
-    const userId = await postNameAndGetId()
-    setIdToLocalStorage(userId, value)
-    setUserId(userId)
-    setShouldShowNewRegistration(false)
+    const userId = await postNameAndGetId(value)
+    if (userId){
+      setIdToLocalStorage(userId, value)
+      setUserId(userId)
+      setShouldShowNewRegistration(false)
+    }
   }
 
   return (

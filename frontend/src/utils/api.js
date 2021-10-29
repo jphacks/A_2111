@@ -43,6 +43,13 @@ export const getFamiliars = async (user_id) => {
 }
 
 export const getNameFromId = async (user_id) => {
-  console.log(user_id)
-  return 'usatyo'
+  try {
+    const res = await axios.get(baseUrl + 'member', { params: { uuid: user_id } })
+    if (!res.data.data.length) {
+      return null
+    }
+    return res.data.data[0].name
+  } catch (error) {
+    alert(error.toString())
+  }
 }
