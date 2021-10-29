@@ -91,14 +91,9 @@ async def post_familiar(
 
 
 @app.put("/member")
-# async def put_member():
-# return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
-# "Form(...)"を付け加えるとqueryがつく。？
 async def put_member(uuid: str, name: str = Form(...)):
-    print(4)
-    result = await crud.update_member(uuid, name)
-    print(5)
-    return result
+    await crud.update_member(uuid, name)
+    return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 
 @app.delete("/member")

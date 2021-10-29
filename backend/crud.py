@@ -8,8 +8,6 @@ from firebase_admin import firestore
 
 tmp_dir_name = "/tmp" if os.environ.get("DYNO") else "./tmp"
 
-# DBの構造が分からないな
-
 
 async def get_all_members():
     docs = db.collection("members").stream()
@@ -53,9 +51,6 @@ async def get_familiar(uuid: str):
     return data
 
 
-# ユーザー新規登録
-
-
 async def create_member(name: str) -> str:
     uuid = str(uuid4())
     doc_ref = db.collection('members').document()
@@ -76,12 +71,16 @@ async def create_familiar(start: str, end: str):
 
 
 async def update_member(uuid: str, name: str):
-    print(1)
-    member_ref = db.collection("members").document(id)
-    print(2)
-    member_ref.update({"name": name}, merge=True)  # ここに問題あり
-    print(3)
-    return
+    docs = db.collection("members").where("uuid", "==", uuid).stream()
+    data = []
+    for doc in docs:
+        post = {"id": doc.id, **doc.to_dict()}
+        data.append(post)
+    print(data)
+    doc_ref = db.collection("members").document(data[0]["id"])
+    print(doc_ref)
+    result = doc_ref.update({"name": name})
+    return result
 
 
 async def remove_member(uuid: str):
@@ -90,7 +89,7 @@ async def remove_member(uuid: str):
     for doc in docs:
         post = {"id": doc.id, **doc.to_dict()}
         data.append(post)
-    result = db.collection("members").document(data[0]['id']).delete()
+    result = db.collection("members").document(data[0]["id"]).delete()
     return result
 
 
@@ -104,6 +103,5 @@ async def remove_familiar(uuid: str):
     for doc in docs2:
         post = {"id": doc.id, **doc.to_dict()}
         data.append(post)
-    print(data)
     result = db.collection('familiars').document(data[0]['id']).delete()
     return result
