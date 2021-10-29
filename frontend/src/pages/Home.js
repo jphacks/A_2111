@@ -49,7 +49,7 @@ const Home = () => {
       <RegisterFriend query={query} />
       <NavigateBTInitialize />
       <div className={styles.headerContainer}>
-      <Header />
+        <Header />
         <p className={styles.userName}>{name}さん</p>
       </div>
       <SwitchMode />

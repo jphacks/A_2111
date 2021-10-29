@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
 
 .HeaderLogo {
-	position:absolute;
+  position: absolute;
   width: 60px;
   height: 60px;
   z-index: 3;
@@ -10,7 +10,7 @@
   cursor: pointer;
   margin-left: 10px;
   margin-top: 10px;
-	border-radius: 15px;
+  border-radius: 15px;
 }
 .about {
   position: absolute;
@@ -18,12 +18,10 @@
   height: 60px;
   top: 10px;
   left: 10px;
-  background: #3074B0;
+  background: #3074b0;
   transition: all 0.8s ease;
-	border-radius: 15px;
+  border-radius: 15px;
 }
-
-
 
 .headerOpen {
   /* transform: translate(-100px, -100px); */
@@ -33,7 +31,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #3074B0;;
+  background: #3074b0;
   border-radius: 0px;
   z-index: 2;
 }
@@ -50,7 +48,7 @@
 }
 
 .about_content_show {
-	text-align: center;
+  text-align: center;
   visibility: visible;
   opacity: 1;
   position: fixed;
@@ -69,7 +67,7 @@
 }
 
 .MAPLE_title {
-	text-align: center;
+  text-align: center;
   font-size: 70px;
   font-weight: 500;
   color: black;
@@ -80,14 +78,14 @@
   display: inline-block;
 }
 .MAPLE_sub {
-	text-align: center;
+  text-align: center;
   font-size: 18px;
   color: rgb(70, 55, 37);
   font-family: 'Kiwi Maru', serif;
   z-index: 2;
 }
 .MAPLE_sub2 {
-	text-align: center;
+  text-align: center;
   font-size: 18px;
   margin-bottom: 40px;
   color: rgb(255, 252, 249);

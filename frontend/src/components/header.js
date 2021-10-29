@@ -30,7 +30,7 @@ const Header = () => {
             border: '1px solid black',
             padding: '10px',
             // borderRadius: '15px'
-            textAlign:"center"
+            textAlign: 'center'
           }}
           onClick={() => setHeaderOpen(!headerOpen)}
         >
