@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../contexts/AppContext'
 
 const Pairing = () => {
-  const [msg, setMsg] = useState('')
   const {
     wasCoconoThere,
     maskName,

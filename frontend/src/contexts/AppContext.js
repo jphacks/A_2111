@@ -25,9 +25,6 @@ const AppContextProvider = ({ children }) => {
   const [wasCoconoThere, setWasCoconoThere] = useState(false)
   const [maskName, setMaskName] = useState(false)
   const [ch, setCh] = useState(undefined)
-  const [openMask, setOpenMask] = useState(undefined)
-  const [closeMask, setCloseMask] = useState(undefined)
-  const [loadingMaskToMove, setLoadingMaskToMove] = useState(false)
 
   const [waitForReloading, setWaitForReloading] = useState(false)
   const [isScanningLE, setScanningLE] = useState(false)
@@ -144,9 +141,7 @@ const AppContextProvider = ({ children }) => {
         maskName,
         setMaskName,
         ch,
-        setCh,
-        openMask,
-        closeMask
+        setCh
       }}
     >
       {children}
