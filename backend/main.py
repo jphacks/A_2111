@@ -110,7 +110,8 @@ async def delete_member(uuid: str):
 # TODO: PUTとDELETEについてdataが空ならエラーメッセージ 
 
 @app.delete("/familiar")
-async def delete_familiar():
+async def delete_familiar(uuid: str):
+    await crud.remove_familiar(uuid)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 

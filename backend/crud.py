@@ -93,11 +93,17 @@ async def remove_member(uuid: str):
     result = db.collection("members").document(data[0]['id']).delete()
     return result
 
-    # for doc in docs:
-    #     print(f"{doc.id} => {doc.to_dict()}")
 
-# async def remove_familiar(familiar_id: str,
-#  ):
-#     familiar = get_familiars(db, familiar_id)
-#     db.delete()
-#     db.commit()
+async def remove_familiar(uuid: str):
+    docs = db.collection("familiars").where("start", "==", uuid).stream()
+    docs2 = db.collection("familiars").where("end", "==", uuid).stream()
+    data = []
+    for doc in docs:
+        post = {"id": doc.id, **doc.to_dict()}
+        data.append(post)
+    for doc in docs2:
+        post = {"id": doc.id, **doc.to_dict()}
+        data.append(post)
+    print(data)
+    result = db.collection('familiars').document(data[0]['id']).delete()
+    return result
