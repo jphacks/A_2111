@@ -57,7 +57,7 @@ const Signup = () => {
           isLoading={isSubmitting}
           spinnerPlacement="end"
           loadingText="進む"
-          disabled={!value.length}
+          disabled={!value.length || isSubmitting}
           mt={20}
           bg={'blue.200'}
           size="lg"

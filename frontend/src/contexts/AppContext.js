@@ -21,6 +21,14 @@ const AppContextProvider = ({ children }) => {
   const [shouldCheckBTStatus, _setShouldCheckBTStatus] = useState(true)
   const [familiars, setFamiliars] = useState([])
 
+  const [notPairedYet, setNotPairedYet] = useState(true)
+  const [wasCoconoThere, setWasCoconoThere] = useState(false)
+  const [maskName, setMaskName] = useState(false)
+  const [ch, setCh] = useState(undefined)
+  const [openMask, setOpenMask] = useState(undefined)
+  const [closeMask, setCloseMask] = useState(undefined)
+  const [loadingMaskToMove, setLoadingMaskToMove] = useState(false)
+
   const [waitForReloading, setWaitForReloading] = useState(false)
   const [isScanningLE, setScanningLE] = useState(false)
 
@@ -67,16 +75,47 @@ const AppContextProvider = ({ children }) => {
     }
     setInitialLoading(false)
   }, []) // eslint-disable-line
-  
+
   useEffect(() => {
-    if(userId && !familiars.length){
+    if (userId && !familiars.length) {
       getFamiliars(userId).then((data) => {
         setFamiliars(data)
       })
     }
-  }, [userId])
+  }, [userId]) // eslint-disable-line
 
+  // useEffect(() => {
+  //   if (ch) {
+  //     setOpenMask(() => {
+  //       setLoadingMaskToMove(true)
+  //       ch.writeValue(Uint8Array.of(1)).then(() => {
+  //         console.log('open!')
+  //         setLoadingMaskToMove(false)
+  //       })
+  //     })
+  //     setCloseMask(() => {
+  //       setLoadingMaskToMove(true)
+  //       ch.writeValue(Uint8Array.of(0)).then(() => {
+  //         console.log('close!')
+  //         setLoadingMaskToMove(false)
+  //       })
+  //     })
+  //   }
+  // }, [ch])
 
+  useEffect(() => {
+    if (!notPairedYet) {
+      toast({
+        title: 'COCONOMASK にペアリングしました',
+        description: ``,
+        // TODO: ここの3秒後、動的に変えたい
+        status: 'info',
+        variant: 'subtle',
+        duration: 3000,
+        isClosable: true
+      })
+    }
+  }, [notPairedYet]) // eslint-disable-line
 
   return (
     <AppContext.Provider
@@ -97,7 +136,17 @@ const AppContextProvider = ({ children }) => {
         waitForReloading,
         isScanningLE,
         setScanningLE,
-        familiars
+        familiars,
+        notPairedYet,
+        setNotPairedYet,
+        wasCoconoThere,
+        setWasCoconoThere,
+        maskName,
+        setMaskName,
+        ch,
+        setCh,
+        openMask,
+        closeMask
       }}
     >
       {children}
