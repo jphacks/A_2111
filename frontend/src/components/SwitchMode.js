@@ -13,7 +13,7 @@ const SwitchMode = () => {
   return (
     <div className={styles.demoMode}>
       <FormControl display="flex" alignItems="center">
-        <FormLabel mt="2" ml="90">
+        <FormLabel mt="2" ml="250px">
           DEMOモード{window.counter}
         </FormLabel>
         <Switch

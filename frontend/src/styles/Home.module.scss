@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Kosugi&display=swap');
 .headerContainer {
   height: 80px;
   text-align: right;
+  z-index: 1;
   .userName {
     font-size: 27px;
     position: absolute;
@@ -16,8 +18,12 @@
 }
 .mask {
   text-align: center;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  .maskStatus {
+    font-family: 'Kosugi', sans-serif;
+    font-size: 40px;
+  }
   .maskPic {
     height: 200px;
     margin: 0 auto;
@@ -29,6 +35,7 @@
   }
 }
 .friendList {
+  margin-top: 70px;
   .friendListTitle {
     font-size: 22px;
     margin-left: 40px;
