@@ -39,12 +39,14 @@ const Home = () => {
     familiars,
     isScanningLE,
     notPairedYet,
-    ch
+    ch,
+    userId
   } = useContext(AppContext)
   const query = useQuery()
   if (shouldShowNewRegistration) {
     return <Redirect to="/signup" />
   }
+  console.log(userId)
 
   const handleMaskChange = () => {
     const nextStatus = !isMaskOpen
@@ -57,10 +59,24 @@ const Home = () => {
     setMaskOpen(nextStatus)
   }
   const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
+  console.log(process.env.PUBLIC_URL)
 
   return (
     <div>
       <RegisterFriend query={query} />
+      <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>マイ QR コード</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <div className={styles.qrcodeSentence}>
+              友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
+            </div>
+            <ModalQrBody text={window.location.origin + '/register=' + userId} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
       <NavigateBTInitialize />
       <div className={styles.headerContainer}>
         <Header />
@@ -83,9 +99,17 @@ const Home = () => {
             )}
             <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
           </div>
+          <div className={styles.mask}>
+            {isMaskOpen ? (
+              <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
+            ) : (
+              <video className={styles.maskPic} src={maskCloseVideo} autoPlay muted></video>
+            )}
 
-          <div style={{ textAlign: 'center' }}>
-            <Switch onChange={handleMaskChange} colorScheme="orange" isChecked={!isMaskOpen} />
+            <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
+          </div>
+          <div style={{ textAlign: 'center', transform: 'scale(3)' }}>
+            <Switch onChange={handleMaskChange} colorScheme="facebook" isChecked={!isMaskOpen} />
           </div>
         </>
       )}
@@ -95,21 +119,6 @@ const Home = () => {
           <Button variant="ghost" onClick={onOpen}>
             <BsPersonPlus size={25} />
           </Button>
-          <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader>マイ QR コード</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                <div className={styles.qrcodeSentence}>
-                  友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
-                </div>
-                <ModalQrBody
-                  text={'https://garigari-mask.com/qr?from=976fae18-031d-461e-92d7-bcfe1d72d8fe'}
-                />
-              </ModalBody>
-            </ModalContent>
-          </Modal>
         </HStack>
         <hr className={styles.border} />
         {/* TODO: コンポーネントに切り出したい↓ */}
