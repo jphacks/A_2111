@@ -1,10 +1,11 @@
-# サンプル（プロダクト名）
+# ココノマスク
+![image](https://user-images.githubusercontent.com/38291975/139291197-4a10c142-214d-4494-bf1e-7b793eb06c58.png)
 
-[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2021/07/JPHACKS2021_ogp.jpg)](https://www.youtube.com/watch?v=LUPQFB4QyVo)
 
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
 ### 製品説明（具体的な製品の説明）
+![image](https://user-images.githubusercontent.com/38291975/139291289-61c07124-b0cb-4f72-8d42-54011f6d163c.png)
 ### 特長
 ####1. 特長1
 ####2. 特長2
@@ -18,17 +19,25 @@
 
 ## 開発技術
 ### 活用した技術
+![image](https://user-images.githubusercontent.com/38291975/139291137-e9159f3f-a4b3-4559-aa77-21441d0da4cb.png)
+
 #### API・データ
-* 
-* 
+* Apple/Google Notification Exposure Notification
+* FastAPI
+
 
 #### フレームワーク・ライブラリ・モジュール
-* 
-* 
+* React
+* Bluetooth Low Energy
+* Web Bluetooth
+* Firebase Hosting
+* Cloud Firestore
+* blender
+* Python
+* pybleno
 
 #### デバイス
-* 
-* 
+* Raspberry Pi Zero
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術

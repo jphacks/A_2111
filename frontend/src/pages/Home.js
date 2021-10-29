@@ -52,6 +52,7 @@ const Home = () => {
       <p>
         <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
       </p>
+
       <div className={styles.mask}>
         {/* @usatyo ここお願い！ */}
         {isMaskOpen ? (
@@ -83,6 +84,7 @@ const Home = () => {
                 <ModalQrBody
                   text={'https://garigari-mask.com/qr?from=976fae18-031d-461e-92d7-bcfe1d72d8fe'}
                 />
+
               </ModalBody>
             </ModalContent>
           </Modal>

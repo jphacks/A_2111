@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+firebase-admin
+google-auth
