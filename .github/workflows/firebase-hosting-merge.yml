@@ -21,3 +21,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_COCONOMASK }}'
           channelId: live
           projectId: coconomask
+          entryPoint: frontend
