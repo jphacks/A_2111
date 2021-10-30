@@ -1,3 +1,4 @@
+import json
 from fastapi import FastAPI, Form, status
 from fastapi.responses import JSONResponse
 import uvicorn
@@ -33,12 +34,20 @@ async def get_members():
     resp = {
         "status": "ok",
         "count": len(members),
-        "data": [
-            {
-                # "id": uuid,
-                # "name": name,
-            }
-        ]
+        "data": members
+    }
+    return resp
+
+
+@app.get("/member")
+async def get_member(uuid: str):
+    member = await crud.get_member(uuid)
+    print("member", member)
+    if len(member) == 0:
+        return JSONResponse(content={"status": "error", "message": "このIDは見つかりません"}, status_code=status.HTTP_404_NOT_FOUND)
+    resp = {
+        "status": "ok",
+        "data": member
     }
     return resp
 
@@ -49,12 +58,19 @@ async def get_familiars():
     resp = {
         "status": "ok",
         "count": len(familiars),
-        "data": [
-            {
-                # "id": uuid,
-                # "name": name,
-            }
-        ],
+        "data": familiars
+    }
+    return resp
+
+
+@app.get("/familiar")
+async def get_familiar(uuid: str):
+    member = await crud.get_familiar(uuid)
+    if len(member) == 0:
+        return JSONResponse(content={"status": "error", "message": "このIDは見つかりません"}, status_code=status.HTTP_404_NOT_FOUND)
+    resp = {
+        "status": "ok",
+        "data": member
     }
     return resp
 
@@ -69,36 +85,30 @@ async def post_member(
 
 @app.post("/familiar")
 async def post_familiar(
-    # 書き方合っているのか？
     start: str = Form(...),
-    end:  str = Form(...),
+    end: str = Form(...),
 ):
+    await crud.existed_familiar(start, end)
+    await crud.create_familiar(start, end)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
-
-# class Item(BaseModel):
-#     name: str
-#     description: Optional[str] = None
-#     price: float
-#     tax: Optional[float] = None
-
+    
 
 @app.put("/member")
-# async def put_member():
-# return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
-async def create_item(item_id: int, item, q: Optional[str] = None):
-    result = {"item_id": item_id, **item.dict()}
-    if q:
-        result.update({"q": q})
-    return result
+async def put_member(uuid: str, name: str = Form(...)):
+    await crud.update_member(uuid, name)
+    return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 
 @app.delete("/member")
-async def delete_member():
+async def delete_member(uuid: str):
+    await crud.remove_member(uuid)
+    await crud.remove_familiar_related_member(uuid)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 
-@app.delete("familiar")
-async def delete_familiar():
+@app.delete("/familiar")
+async def delete_familiar(start: str, end: str):
+    await crud.remove_familiar(start, end)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 

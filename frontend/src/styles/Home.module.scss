@@ -1,23 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Kosugi&display=swap');
 .headerContainer {
-  height: 45px;
-  border: 2px black;
+  height: 80px;
   text-align: right;
-  p {
-    margin-right: 10px;
-    font-size: 25px;
+  z-index: 1;
+  .userName {
+    font-size: 27px;
+    position: absolute;
+    right: 20px;
+    top: 25px;
   }
 }
 .border {
-  position: relative;
-  height: 2px;
+  height: 3px;
   border-width: 0;
-  background-image: -webkit-linear-gradient(left, transparent 0%, #ffd085 50%, transparent 100%);
-  background-image: linear-gradient(90deg, transparent 0%, #fbba40 50%, transparent 100%);
+  background-image: -webkit-linear-gradient(left, transparent 0%, #5d65b4 50%, transparent 100%);
+  background-image: linear-gradient(90deg, transparent 0%, #406cfb 50%, transparent 100%);
 }
 .mask {
   text-align: center;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  .maskStatus {
+    font-family: 'Kosugi', sans-serif;
+    font-size: 40px;
+  }
   .maskPic {
     height: 200px;
     margin: 0 auto;
@@ -29,6 +35,7 @@
   }
 }
 .friendList {
+  margin-top: 70px;
   .friendListTitle {
     font-size: 22px;
     margin-left: 40px;
@@ -39,4 +46,14 @@
     text-align: center;
     border-bottom: 2px black;
   }
+}
+.qrcodeSentence {
+  text-align: center;
+}
+.qrcode {
+  margin: 0 auto;
+}
+.demoMode {
+  text-align: center;
+  // background-color: aqua;
 }
