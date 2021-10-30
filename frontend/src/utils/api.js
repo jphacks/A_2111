@@ -24,7 +24,7 @@ export const getFamiliars = async (user_id) => {
     const res = await axios.get(baseUrl + 'familiar', { params: { uuid: user_id } })
     return res.data
   } catch (error) {
-    alert(error.toString())
+    console.error(error.toString())
   }
   // INFO: サーバー側未実装
   const mockData = [
