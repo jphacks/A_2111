@@ -26,6 +26,7 @@ import { useLocation } from 'react-router-dom'
 import RegisterFriend from '../components/RegisterFriend'
 import Header from '../components/header'
 import Pairing from '../components/Pairing'
+import { getNameFromId } from '../utils/api'
 
 const Home = () => {
   function useQuery() {
@@ -59,7 +60,6 @@ const Home = () => {
     setMaskOpen(nextStatus)
   }
   const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
-  console.log(process.env.PUBLIC_URL)
 
   return (
     <div>
@@ -99,15 +99,6 @@ const Home = () => {
             )}
             <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
           </div>
-          <div className={styles.mask}>
-            {isMaskOpen ? (
-              <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
-            ) : (
-              <video className={styles.maskPic} src={maskCloseVideo} autoPlay muted></video>
-            )}
-
-            <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
-          </div>
           <div style={{ textAlign: 'center', transform: 'scale(3)' }}>
             <Switch onChange={handleMaskChange} colorScheme="facebook" isChecked={!isMaskOpen} />
           </div>
@@ -122,7 +113,7 @@ const Home = () => {
         </HStack>
         <hr className={styles.border} />
         {/* TODO: コンポーネントに切り出したい↓ */}
-        {familiars.length
+        {familiars?.length
           ? familiars.map((person, i) => (
               <Box
                 key={i}
@@ -132,7 +123,9 @@ const Home = () => {
                 marginBottom="1.5px"
                 _hover={{ background: 'gray.200' }}
               >
-                <p className={styles.friendName}>{person.name}</p>
+                <p className={styles.friendName}>
+                  {person}
+                </p>
               </Box>
             ))
           : null}

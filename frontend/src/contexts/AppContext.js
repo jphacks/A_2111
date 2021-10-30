@@ -1,6 +1,6 @@
 import { useToast } from '@chakra-ui/toast'
 import React, { createContext, useEffect, useState } from 'react'
-import { getFamiliars } from '../utils/api'
+import { getFamiliars, getNameFromId } from '../utils/api'
 import {
   getDemoModeFromStorage,
   getUserIdFromLocalStorage,
@@ -76,7 +76,15 @@ const AppContextProvider = ({ children }) => {
   useEffect(() => {
     if (userId && !familiars.length) {
       getFamiliars(userId).then((data) => {
-        setFamiliars(data)
+        console.log(data.data)
+        const familiarIds = data.data.map((value) => {
+          return (value.start === userId) ? value.end : value.start
+        })
+        const familiarPeople = Promise.all(familiarIds.map(val=>(getNameFromId(val)))).then((res)=>{
+          console.log("namae tati")
+          console.log(res)
+          setFamiliars(res)
+        })
       })
     }
   }, [userId]) // eslint-disable-line

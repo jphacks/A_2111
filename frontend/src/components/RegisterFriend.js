@@ -8,12 +8,14 @@ import {
   Spinner
 } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/hooks'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router'
-import { getNameFromId } from '../utils/api'
+import { getNameFromId, makeNewFamiliar } from '../utils/api'
+import { AppContext } from '../contexts/AppContext'
 
 const RegisterFriend = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const {userId} = useContext(AppContext)
   const idFromQuery = props.query.get('register')
   const [name, setName] = useState('')
   const [isLoading, setIsLoading] = useState(true)
@@ -37,6 +39,7 @@ const RegisterFriend = (props) => {
   }
   const Addfriend = () => {
     handleToHomePage()
+    makeNewFamiliar(userId, idFromQuery)
     onClose()
   }
 

@@ -53,3 +53,18 @@ export const getNameFromId = async (user_id) => {
     alert(error.toString())
   }
 }
+
+export const makeNewFamiliar = async (myId, targetId) => {
+  const formData = new FormData()
+  formData.append('start', myId)
+  formData.append('end', targetId)
+
+  try {
+    const res = await axios.post(baseUrl + 'familiar', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    })
+    console.log(res)
+  } catch (error) {
+    alert(error.toString())
+  }
+}
