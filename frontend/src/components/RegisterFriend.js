@@ -15,7 +15,7 @@ import { AppContext } from '../contexts/AppContext'
 
 const RegisterFriend = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const {userId} = useContext(AppContext)
+  const { userId } = useContext(AppContext)
   const idFromQuery = props.query.get('register')
   const [name, setName] = useState('')
   const [isLoading, setIsLoading] = useState(true)

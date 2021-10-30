@@ -122,9 +122,7 @@ const Home = () => {
                 marginBottom="1.5px"
                 _hover={{ background: 'gray.200' }}
               >
-                <p className={styles.friendName}>
-                  {person}
-                </p>
+                <p className={styles.friendName}>{person}</p>
               </Box>
             ))
           : null}
