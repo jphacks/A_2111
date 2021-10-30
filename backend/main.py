@@ -68,7 +68,6 @@ async def get_familiar(uuid: str):
     member = await crud.get_familiar(uuid)
     if len(member) == 0:
         return JSONResponse(content={"status": "error", "message": "このIDは見つかりません"}, status_code=status.HTTP_404_NOT_FOUND)
-    print(f"familiars of {uuid}: ", member)
     resp = {
         "status": "ok",
         "data": member
