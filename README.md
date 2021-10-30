@@ -33,7 +33,7 @@ withコロナ時代におけるマスクを常時着用しなければいけな�
 
 ## 開発技術
 ### 活用した技術
-![image](https://user-images.githubusercontent.com/38291975/139435910-7a3bd85b-8189-4b8d-828a-fb2e407c4600.png)
+![image](https://user-images.githubusercontent.com/38291975/139519420-880ae7ab-b3e4-44b0-85f8-c834613d6aa4.png)
 
 #### API・データ
 * Apple/Google Notification Exposure Notification
