@@ -52,7 +52,7 @@ with コロナ時代におけるマスクを常時着用しなければいけな
 
 #### API・データ
 
-- Apple/Google Notification Exposure Notification
+- Apple/Google Notification Exposure Notification(APIは経由せず、受信信号を使用)
 - FastAPI
 
 #### フレームワーク・ライブラリ・モジュール
