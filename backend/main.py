@@ -12,6 +12,7 @@ origins = [
     # TODO: フロントエンドデプロイしたらそのURLも入れる
     "http://localhost:3000",
     "http://localhost",
+    "https://coconomask.web.app",
 ]
 
 app.add_middleware(
