@@ -1,5 +1,12 @@
 from bluepy import btle
-#import motor
+import motor
+import numpy as np
+AGE = 20
+
+
+def AGE2Power(age):
+  return np.log(age)/np.log(20)
+
 scanner = btle.Scanner(0)
 while(True):
   devices = scanner.scan(0.5)
@@ -9,10 +16,8 @@ while(True):
         print("cocoa detected")
         print("   rssi:",device.rssi)
         print("   Servicedata:",list(device.getScanData()[1])[2])
-        '''
-        motor.open_mask():
+        motor.open_mask(AGE2Power(AGE))
       else:
         motor.close_mask()
-        '''
     except:
       pass
