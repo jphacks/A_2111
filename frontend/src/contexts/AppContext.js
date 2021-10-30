@@ -89,25 +89,6 @@ const AppContextProvider = ({ children }) => {
     }
   }, [userId]) // eslint-disable-line
 
-  // useEffect(() => {
-  //   if (ch) {
-  //     setOpenMask(() => {
-  //       setLoadingMaskToMove(true)
-  //       ch.writeValue(Uint8Array.of(1)).then(() => {
-  //         console.log('open!')
-  //         setLoadingMaskToMove(false)
-  //       })
-  //     })
-  //     setCloseMask(() => {
-  //       setLoadingMaskToMove(true)
-  //       ch.writeValue(Uint8Array.of(0)).then(() => {
-  //         console.log('close!')
-  //         setLoadingMaskToMove(false)
-  //       })
-  //     })
-  //   }
-  // }, [ch])
-
   useEffect(() => {
     if (!notPairedYet) {
       toast({
