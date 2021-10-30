@@ -17,7 +17,6 @@ const Signup = () => {
   }
 
   const handleInputChange = (e) => {
-    console.log(e)
     let inputValue = e.target.value
     setValue(inputValue)
   }
