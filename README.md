@@ -2,7 +2,7 @@
 
 ![https://youtu.be/Ja4EomWBJzQ](https://user-images.githubusercontent.com/38291975/139435847-981771ed-dc06-4846-a17f-aae96ee9c854.png)
 
-[![YouTube](http://img.youtube.com/vi/Ja4EomWBJzQ/0.jpg)](https://www.youtube.com/watch?v=Ja4EomWBJzQ)
+[![YouTube](http://img.youtube.com/vi/a1cLADMHmT0/0.jpg)](https://www.youtube.com/watch?v=a1cLADMHmT0)
 
 ## 製品概要
 
