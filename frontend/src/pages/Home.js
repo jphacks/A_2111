@@ -26,7 +26,6 @@ import { useLocation } from 'react-router-dom'
 import RegisterFriend from '../components/RegisterFriend'
 import Header from '../components/header'
 import Pairing from '../components/Pairing'
-import { getNameFromId } from '../utils/api'
 
 const Home = () => {
   function useQuery() {

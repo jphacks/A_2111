@@ -78,10 +78,10 @@ const AppContextProvider = ({ children }) => {
       getFamiliars(userId).then((data) => {
         console.log(data.data)
         const familiarIds = data.data.map((value) => {
-          return (value.start === userId) ? value.end : value.start
+          return value.start === userId ? value.end : value.start
         })
-        const familiarPeople = Promise.all(familiarIds.map(val=>(getNameFromId(val)))).then((res)=>{
-          console.log("namae tati")
+        Promise.all(familiarIds.map((val) => getNameFromId(val))).then((res) => {
+          console.log('namae tati')
           console.log(res)
           setFamiliars(res)
         })
