@@ -29,12 +29,10 @@ async def get_member(uuid: str):
 
 async def get_all_familiars():
     docs = db.collection("familiars").stream()
-    print(docs)
     data = []
     for doc in docs:
         post = {"id": doc.id, **doc.to_dict()}
         data.append(post)
-    print(data)
     return data
 
 
@@ -70,15 +68,32 @@ async def create_familiar(start: str, end: str):
     return True
 
 
+# アルゴリズム問題？
+async def existed_familiar(start: str, end: str):
+    docs = db.collection("familiars").where("start", "==", start).where("end", "==", end).stream()
+    docs2 = db.collection("familiars").where("start", "==", end).where("end", "==", start).stream()
+    data = []
+    for doc in docs:
+        post = {"id": doc.id, **doc.to_dict()}
+        data.append(post)
+        
+    for doc in docs2:
+        post = {"id": doc.id, **doc.to_dict()}
+        data.append(post)
+
+    if len(data) != 0:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="このIDはすでに登録されています")
+
+
 async def update_member(uuid: str, name: str):
     docs = db.collection("members").where("uuid", "==", uuid).stream()
     data = []
     for doc in docs:
         post = {"id": doc.id, **doc.to_dict()}
         data.append(post)
-    print(data)
+    if len(data) == 0:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="あなたのIDが見つかりませんでした")
     doc_ref = db.collection("members").document(data[0]["id"])
-    print(doc_ref)
     result = doc_ref.update({"name": name})
     return result
 
@@ -89,11 +104,13 @@ async def remove_member(uuid: str):
     for doc in docs:
         post = {"id": doc.id, **doc.to_dict()}
         data.append(post)
+    if len(data) == 0:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="あなたのIDが見つかりませんでした")
     result = db.collection("members").document(data[0]["id"]).delete()
     return result
 
 
-async def remove_familiar(uuid: str):
+async def remove_familiar_related_member(uuid: str):
     docs = db.collection("familiars").where("start", "==", uuid).stream()
     docs2 = db.collection("familiars").where("end", "==", uuid).stream()
     data = []
@@ -103,5 +120,28 @@ async def remove_familiar(uuid: str):
     for doc in docs2:
         post = {"id": doc.id, **doc.to_dict()}
         data.append(post)
-    result = db.collection('familiars').document(data[0]['id']).delete()
+
+    i = 0
+    while True:
+        if i > len(data) - 1:
+            break
+        db.collection("familiars").document(data[i]["id"]).delete()
+        i += 1
+    return True
+
+
+async def remove_familiar(start: str, end: str):
+    docs = db.collection("familiars").where("start", "==", start).where("end", "==", end).stream()
+    docs2 = db.collection("familiars").where("start", "==", end).where("end", "==", start).stream()
+
+    data = []
+    for doc in docs:
+        post = {"id": doc.id, **doc.to_dict()}
+        data.append(post)
+    for doc in docs2:
+        post = {"id": doc.id, **doc.to_dict()}
+        data.append(post)
+    if len(data) == 0:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="登録しているIDがありません")
+    result = db.collection("familiars").document(data[0]["id"]).delete()
     return result
