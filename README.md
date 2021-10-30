@@ -17,6 +17,7 @@
 ### 特長
 
 #### 1. 特長 1 　 COCOA の電波受信して自動でマスク開閉
+![](https://github.com/jphacks/A_2111/blob/main/mask-open-closegif.gif?raw=true)
 
 周りに人がいないときには息苦しさから解放されます。
 
