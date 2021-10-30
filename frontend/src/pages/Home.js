@@ -72,7 +72,7 @@ const Home = () => {
             <div className={styles.qrcodeSentence}>
               友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
             </div>
-            <ModalQrBody text={window.location.origin + '/register=' + userId} />
+            <ModalQrBody text={window.location.origin + '?register=' + userId} />
           </ModalBody>
         </ModalContent>
       </Modal>
