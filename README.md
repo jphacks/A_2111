@@ -92,5 +92,5 @@ with コロナ時代におけるマスクを常時着用しなければいけな
 - 各ディレクトリ内の README も良ければご覧ください。
   - [frontend](frontend/README.md)
   - [backend](backend/README.md)
-  - [device](blt/README.md)
+  - [device](device/README.md)
 - [質問コーナー](faq.md)
