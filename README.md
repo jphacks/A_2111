@@ -1,18 +1,18 @@
 # ココノマスク
 
-![https://youtu.be/Ja4EomWBJzQ](https://user-images.githubusercontent.com/38291975/139435847-981771ed-dc06-4846-a17f-aae96ee9c854.png)
+![image](https://user-images.githubusercontent.com/38291975/139435847-981771ed-dc06-4846-a17f-aae96ee9c854.png)
 
-- 動画
+### 動画
 
 [![YouTube](http://img.youtube.com/vi/a1cLADMHmT0/0.jpg)](https://www.youtube.com/watch?v=a1cLADMHmT0)
 
-- プレゼンテーション
+### プレゼンテーション
 
 https://docs.google.com/presentation/d/e/2PACX-1vSDdz9wtoaqWwp9J3if5AZR-36ecevJdxNyXyJ7Ji4ghFfAptug0QxjFISP8JmJCWudaysbajGu4hpY/pub?start=false&loop=false&delayms=3000
 
 ## 製品概要
 
-### 背景(製品開発のきっかけ、課題等）
+### 背景（製品開発のきっかけ、課題等）
 
 2021 年現在、コロナ禍でマスクの着用が事実上義務化されている。その中で、マスクを着用することによる息苦しさが注目されるようになってきた。本製品では、COCOA という既存の信号を受信することで、マスクの不要な場面を判断し、快適な呼吸を促すことを目的とする。
 
@@ -22,17 +22,17 @@ https://docs.google.com/presentation/d/e/2PACX-1vSDdz9wtoaqWwp9J3if5AZR-36ecevJd
 
 ### 特長
 
-#### 1. 特長 1 　 COCOA の電波受信して自動でマスク開閉
+#### 特長 1 　 COCOA の電波受信して自動でマスク開閉
 
 ![](https://github.com/jphacks/A_2111/blob/main/mask-open-closegif.gif?raw=true)
 
 周りに人がいないときには息苦しさから解放されます。
 
-#### 2. 特長 2 　紐の自動調節
+#### 特長 2 　紐の自動調節
 
 紐の長さを顔に自動でフィットさせます。
 
-#### 3. 特長 3 　家族の登録
+#### 特長 3 　家族の登録
 
 家族同士で QR を読み込んで家族登録すると、家族と、家族からの COCOA の信号を受信してもマスクを開けっぱなしにできます。
 
