@@ -1,10 +1,10 @@
 ## バックエンド
 
-githubにpushするとherokuに自動でデプロイされます。
+backend ブランチに push すると heroku に自動でデプロイされます。  
 ローカル環境での実行は`uvicorn main:app --host=0.0.0.0 --port=${PORT:-5000}`で可能です。
 
-
 ## エンドポイント一覧
+
 ```
 {
     "openapi": "3.0.2",

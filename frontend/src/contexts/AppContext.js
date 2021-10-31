@@ -1,6 +1,6 @@
 import { useToast } from '@chakra-ui/toast'
 import React, { createContext, useEffect, useState } from 'react'
-import { getFamiliars } from '../utils/api'
+import { getFamiliars, getNameFromId } from '../utils/api'
 import {
   getDemoModeFromStorage,
   getUserIdFromLocalStorage,
@@ -76,29 +76,22 @@ const AppContextProvider = ({ children }) => {
   useEffect(() => {
     if (userId && !familiars.length) {
       getFamiliars(userId).then((data) => {
-        setFamiliars(data)
+        console.log(data?.data)
+        const familiarIds =
+          data?.data?.length &&
+          data?.data.map((value) => {
+            return value.start === userId ? value.end : value.start
+          })
+        if (familiarIds?.length) {
+          Promise.all(familiarIds?.map((val) => getNameFromId(val))).then((res) => {
+            console.log('namae tati')
+            console.log(res)
+            setFamiliars(res)
+          })
+        }
       })
     }
   }, [userId]) // eslint-disable-line
-
-  // useEffect(() => {
-  //   if (ch) {
-  //     setOpenMask(() => {
-  //       setLoadingMaskToMove(true)
-  //       ch.writeValue(Uint8Array.of(1)).then(() => {
-  //         console.log('open!')
-  //         setLoadingMaskToMove(false)
-  //       })
-  //     })
-  //     setCloseMask(() => {
-  //       setLoadingMaskToMove(true)
-  //       ch.writeValue(Uint8Array.of(0)).then(() => {
-  //         console.log('close!')
-  //         setLoadingMaskToMove(false)
-  //       })
-  //     })
-  //   }
-  // }, [ch])
 
   useEffect(() => {
     if (!notPairedYet) {

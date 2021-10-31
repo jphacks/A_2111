@@ -24,7 +24,7 @@ export const getFamiliars = async (user_id) => {
     const res = await axios.get(baseUrl + 'familiar', { params: { uuid: user_id } })
     return res.data
   } catch (error) {
-    alert(error.toString())
+    console.error(error.toString())
   }
   // INFO: サーバー側未実装
   const mockData = [
@@ -49,6 +49,21 @@ export const getNameFromId = async (user_id) => {
       return null
     }
     return res.data.data[0].name
+  } catch (error) {
+    alert(error.toString())
+  }
+}
+
+export const makeNewFamiliar = async (myId, targetId) => {
+  const formData = new FormData()
+  formData.append('start', myId)
+  formData.append('end', targetId)
+
+  try {
+    const res = await axios.post(baseUrl + 'familiar', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    })
+    console.log(res)
   } catch (error) {
     alert(error.toString())
   }
