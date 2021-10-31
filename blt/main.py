@@ -5,6 +5,7 @@ while(True):
   devices = scanner.scan(0.5)
   for device in devices:
     try:
+       # cocoaのservice uuidかどうかの判定。公式資料より、cocoaのadvertiseにはfd6fを使用している。
       if(list(device.getScanData()[0])[2][4:8]=="fd6f"):
         print("cocoa detected")
         print("   rssi:",device.rssi)
