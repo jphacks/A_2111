@@ -23,6 +23,7 @@ https://docs.google.com/presentation/d/e/2PACX-1vSDdz9wtoaqWwp9J3if5AZR-36ecevJd
 ### 特長
 
 #### 1. 特長 1 　 COCOA の電波受信して自動でマスク開閉
+
 ![](https://github.com/jphacks/A_2111/blob/main/mask-open-closegif.gif?raw=true)
 
 周りに人がいないときには息苦しさから解放されます。
@@ -58,7 +59,7 @@ with コロナ時代におけるマスクを常時着用しなければいけな
 
 #### API・データ
 
-- Apple/Google Notification Exposure Notification(APIは経由せず、受信信号を使用)
+- Apple/Google Notification Exposure Notification(API は経由せず、受信信号を使用)
 - FastAPI
 
 #### フレームワーク・ライブラリ・モジュール
@@ -81,9 +82,9 @@ with コロナ時代におけるマスクを常時着用しなければいけな
 #### ハッカソンで開発した独自機能・技術
 
 - 電動スライダー(Motorized Slide Potentiometer)とワイヤーを用いた動力変換機構
-![image](https://user-images.githubusercontent.com/38291975/139562527-45087b38-b113-4212-8371-10bc76d05a08.png)
+  ![image](https://user-images.githubusercontent.com/38291975/139562527-45087b38-b113-4212-8371-10bc76d05a08.png)
 
-- COCOAのAPIは一般人は許可なく利用できなかったため、GAEN APIを利用せず、bluetoothのservice uuidを直接解析して通信。
+- COCOA の API は一般人は許可なく利用できなかったため、GAEN API を利用せず、bluetooth の service uuid を直接解析して通信。
 <!-- - 特に力を入れた部分をファイルリンク、または commit_id を記載してください。 -->
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
