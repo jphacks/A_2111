@@ -56,6 +56,11 @@ https://docs.google.com/presentation/d/e/2PACX-1vSDdz9wtoaqWwp9J3if5AZR-36ecevJd
 
 - web bluetooth を用いた開発・通信
 - QR コードによる家族登録の簡略化
+- CI/CD の整備による開発体験の向上（良く実感できました！）
+  - `frontend` `backend` 共にブランチへの push で自動デプロイがされます。（[frontend_commit](https://github.com/jphacks/A_2111/commit/3d6e045e7f468189539d3eae92b6ac4364f3365c)）（バックエンドは、Heroku から GUI による設定）
+  - フロントエンドは、PR 時に自動でフォーマッターをかけ、commit をしてくれます。（[commit](https://github.com/jphacks/A_2111/commit/ebf6f3c81f3c925b4eb5342ea1f0acad78dae846)）（[自動フォーマット・コミットの例](https://github.com/jphacks/A_2111/commit/ac675cf1c97963aa3b8122f794c6f78de5d9021b)）
+  - codeQL による脆弱性自動検出（[commit](https://github.com/jphacks/A_2111/blob/main/.github/workflows/codeql-analysis.yml)）（[脆弱性を指摘された例](https://github.com/jphacks/A_2111/runs/4058233223)）
+  - `main` への merge には "一人以上からのコードレビュー・approve" && "CI が全て成功する" を必須にし、コードレビューをし合えただけでなく、事故を防止できました。
 
 ## 開発技術
 
