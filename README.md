@@ -36,6 +36,8 @@ https://docs.google.com/presentation/d/e/2PACX-1vSDdz9wtoaqWwp9J3if5AZR-36ecevJd
 
 家族同士で QR を読み込んで家族登録すると、家族と、家族からの COCOA の信号を受信してもマスクを開けっぱなしにできます。
 
+![image](https://user-images.githubusercontent.com/55702777/139567695-c9291ab4-d96d-4831-9178-81ed302e9840.png)
+
 ### 解決出来ること
 
 コロナ禍でマスクを常時使用を強いられることにより発生する息苦しさから解放されます。
@@ -59,7 +61,7 @@ with コロナ時代におけるマスクを常時着用しなければいけな
 
 #### API・データ
 
-- Google/Apple Notification Exposure Notification(API は経由せず、受信信号を使用)
+- Google/Apple Notification Exposure Notification（API は経由せず、受信信号を使用）
 - FastAPI
 
 #### フレームワーク・ライブラリ・モジュール
@@ -89,8 +91,8 @@ with コロナ時代におけるマスクを常時着用しなければいけな
 
 ### その他
 
-- 各ディレクトリ内の README も良ければご覧ください。
-  - [frontend](frontend/README.md)
-  - [backend](backend/README.md)
-  - [device](device/README.md)
-- [質問コーナー](faq.md)
+- よくある質問をまとめました。→ [質問コーナー](faq.md)
+- 各パートの README も **ぜひご覧ください！**
+  - [frontend](frontend)　 → UI の紹介
+  - [backend](backend)　 → API 仕様
+  - [device](device/) 　 → 部品リスト・製作費など
