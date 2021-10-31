@@ -87,7 +87,10 @@ with コロナ時代におけるマスクを常時着用しなければいけな
 - COCOA の API は一般人は許可なく利用できなかったため、GAEN API を利用せず、bluetooth の service uuid を直接解析して通信。
 <!-- - 特に力を入れた部分をファイルリンク、または commit_id を記載してください。 -->
 
-#### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
+### その他
 
--
--
+- 各ディレクトリ内の README も良ければご覧ください。
+  - [frontend](frontend/README.md)
+  - [backend](backend/README.md)
+  - [device](blt/README.md)
+- [質問コーナー](faq.md)

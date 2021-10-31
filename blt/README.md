@@ -1,3 +1,5 @@
+# COCONOMASK デバイス
+
 ## 説明
 
 ### `main.py`
@@ -16,3 +18,15 @@ BLE でペアリングし、モーターを動作させます。
 `docker build -t blt:latest .`
 
 `docker run -v /home:/home --privileged -it --net host python:3.8 /bin/bash`
+
+## ハードについて
+
+- 制御：raspberry pi zero
+- モーター制御：L298N
+- 電動スライダー：RSA0N11M9A0J
+- ワイヤー（φ1mm 汎用品 左右約 400mm ずつ）
+- その他部品（百均など）
+
+動作には、電動フェーダー等で使われる部品を用い、raspberry pi で制御しました。
+
+![image](images/components.png)
