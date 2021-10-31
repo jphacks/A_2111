@@ -81,6 +81,9 @@ with コロナ時代におけるマスクを常時着用しなければいけな
 #### ハッカソンで開発した独自機能・技術
 
 - 電動スライダー(Motorized Slide Potentiometer)とワイヤーを用いた動力変換機構
+![image](https://user-images.githubusercontent.com/38291975/139562527-45087b38-b113-4212-8371-10bc76d05a08.png)
+
+- COCOAのAPIは一般人は許可なく利用できなかったため、GAEN APIを利用せず、bluetoothのservice uuidを直接解析して通信。
 <!-- - 特に力を入れた部分をファイルリンク、または commit_id を記載してください。 -->
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
