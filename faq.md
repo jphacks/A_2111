@@ -2,7 +2,7 @@
 
 ### COCOA の電波って分かるんですか？
 
-Google と Apple が仕様を公開しています。
+Google と Apple が仕様を公開しています。仕様より、Service UUID が16進数で`fd6f`であるBluetooth LE信号がCOCOAの電波であると分かります。
 
 https://www.google.com/covid19/exposurenotifications/
 
