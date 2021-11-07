@@ -41,6 +41,7 @@ https://docs.google.com/presentation/d/e/2PACX-1vSDdz9wtoaqWwp9J3if5AZR-36ecevJd
 ### 解決出来ること
 
 コロナ禍でマスクを常時使用を強いられることにより発生する息苦しさから解放されます。
+また、マスクの紐を耳にかけることによって生じる痛みからも逃れることができます。
 
 ### 今後の展望
 
