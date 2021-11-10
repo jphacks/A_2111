@@ -46,6 +46,8 @@ async def get_familiar(uuid: str):
 
 
 async def create_member(name: str, size: str) -> str:
+    if size != "S" and size != "M" and size != "L":
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="S、M、Lのいずれかを入力してください")
     uuid = str(uuid4())
     doc_ref = db.collection("members").document()
     doc_ref.set({
@@ -53,13 +55,7 @@ async def create_member(name: str, size: str) -> str:
         "name": name,
         "size": size
     })
-    
-    if size != "S" and size != "M" and size != "L":
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="S、M、Lのいずれかを入力してください")
     return uuid
-
-
-
 
 
 async def create_familiar(start: str, end: str):
@@ -89,7 +85,9 @@ async def existed_familiar(start: str, end: str):
 
 
 
-async def update_member(uuid: str, name: str):
+async def update_member(uuid: str, name: str, size: str):
+    if size != "S" and size != "M" and size != "L":
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="S、M、Lのいずれかを入力してください")
     docs = db.collection("members").where("uuid", "==", uuid).stream()
     data = []
     for doc in docs:
@@ -98,7 +96,7 @@ async def update_member(uuid: str, name: str):
     if len(data) == 0:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="あなたのIDが見つかりませんでした")
     doc_ref = db.collection("members").document(data[0]["id"])
-    result = doc_ref.update({"name": name})
+    result = doc_ref.update({"name": name, "size": size})
     return result
 
 

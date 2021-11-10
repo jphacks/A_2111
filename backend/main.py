@@ -95,8 +95,8 @@ async def post_familiar(
 
 
 @app.put("/member")
-async def put_member(uuid: str, name: str = Form(...)):
-    await crud.update_member(uuid, name)
+async def put_member(uuid: str, name: str = Form(...), size: str = Form(...),):
+    await crud.update_member(uuid, name, size)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 
