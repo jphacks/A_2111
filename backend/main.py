@@ -44,7 +44,7 @@ async def get_members():
 
 # 特定の登録情報を取得
 @app.get("/member")
-async def get_member(uuid: str):
+async def get_member(uuid: str = Form(...)):
     member = await crud.get_member(uuid)
     resp = {
         "status": "ok",
@@ -67,7 +67,7 @@ async def get_familiars():
 
 # 特定のリレーションを取得
 @app.get("/familiar")
-async def get_familiar(uuid: str):
+async def get_familiar(uuid: str = Form(...)):
     member = await crud.get_familiar(uuid)
     if len(member) == 0:
         return JSONResponse(content={"status": "error", "message": "このIDは見つかりません"}, status_code=status.HTTP_404_NOT_FOUND)
@@ -92,7 +92,7 @@ async def post_member(
 @app.post("/familiar")
 async def post_familiar(
     start: str = Form(...),
-    end: str = Form(...),
+    end: str = Form(...)
 ):
     await crud.existed_familiar(start, end)
     await crud.create_familiar(start, end)
@@ -101,14 +101,18 @@ async def post_familiar(
 
 # 登録情報を更新
 @app.put("/member")
-async def put_member(uuid: str, name: str = Form(...), size: str = Form(...),):
+async def put_member(
+    uuid: str = Form(...),
+    name: str = Form(...),
+    size: str = Form(...)
+):
     await crud.update_member(uuid, name, size)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 
 # 登録情報を削除
 @app.delete("/member")
-async def delete_member(uuid: str):
+async def delete_member(uuid: str = Form(...)):
     await crud.remove_member(uuid)
     await crud.remove_familiar_related_member(uuid)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
@@ -116,7 +120,10 @@ async def delete_member(uuid: str):
 
 # 特定のリレーションを削除
 @app.delete("/familiar")
-async def delete_familiar(start: str, end: str):
+async def delete_familiar(
+    start: str = Form(...),
+    end: str = Form(...)
+):
     await crud.remove_familiar(start, end)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
