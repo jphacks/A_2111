@@ -43,7 +43,6 @@ async def get_members():
 @app.get("/member")
 async def get_member(uuid: str):
     member = await crud.get_member(uuid)
-    print("member", member)
     if len(member) == 0:
         return JSONResponse(content={"status": "error", "message": "このIDは見つかりません"}, status_code=status.HTTP_404_NOT_FOUND)
     resp = {
@@ -79,9 +78,10 @@ async def get_familiar(uuid: str):
 @app.post("/member")
 async def post_member(
     name: str = Form(...),
+    size: str = Form(...)
 ):
-    uuid = await crud.create_member(name)
-    return JSONResponse(content={"status": "ok", "uuid": uuid, "name": name}, status_code=status.HTTP_201_CREATED)
+    uuid = await crud.create_member(name, size)
+    return JSONResponse(content={"status": "ok", "uuid": uuid, "name": name, "size": size}, status_code=status.HTTP_201_CREATED)
 
 
 @app.post("/familiar")
@@ -92,7 +92,7 @@ async def post_familiar(
     await crud.existed_familiar(start, end)
     await crud.create_familiar(start, end)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
-    
+
 
 @app.put("/member")
 async def put_member(uuid: str, name: str = Form(...)):

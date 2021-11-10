@@ -1,12 +1,8 @@
 from fastapi import HTTPException, status
 import os
 from uuid import uuid4
-# from firebase import bucket
 from firebase import db
 from firebase_admin import firestore
-
-
-tmp_dir_name = "/tmp" if os.environ.get("DYNO") else "./tmp"
 
 
 async def get_all_members():
@@ -49,18 +45,25 @@ async def get_familiar(uuid: str):
     return data
 
 
-async def create_member(name: str) -> str:
+async def create_member(name: str, size: str) -> str:
     uuid = str(uuid4())
-    doc_ref = db.collection('members').document()
+    doc_ref = db.collection("members").document()
     doc_ref.set({
-        'uuid': uuid,
-        'name': name
+        "uuid": uuid,
+        "name": name,
+        "size": size
     })
+    
+    if size != "S" and size != "M" and size != "L":
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="S、M、Lのいずれかを入力してください")
     return uuid
 
 
+
+
+
 async def create_familiar(start: str, end: str):
-    doc_ref = db.collection('familiars').document()
+    doc_ref = db.collection("familiars").document()
     doc_ref.set({
         "start": start,
         "end": end
@@ -68,7 +71,6 @@ async def create_familiar(start: str, end: str):
     return True
 
 
-# アルゴリズム問題？
 async def existed_familiar(start: str, end: str):
     docs = db.collection("familiars").where("start", "==", start).where("end", "==", end).stream()
     docs2 = db.collection("familiars").where("start", "==", end).where("end", "==", start).stream()
@@ -83,6 +85,8 @@ async def existed_familiar(start: str, end: str):
 
     if len(data) != 0:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="このIDはすでに登録されています")
+    return True
+
 
 
 async def update_member(uuid: str, name: str):
