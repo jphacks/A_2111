@@ -25,10 +25,17 @@ class EchoCharacteristic(Characteristic):
 
         print('EchoCharacteristic - %s - onWriteRequest: value = %s' % (self['uuid'], [hex(c) for c in self._value]))
         print([hex(c) for c in self._value])
-        if([hex(c) for c in self._value]==['0x1']):
-            motor.open_mask()
         if([hex(c) for c in self._value]==['0x0']):
-            motor.close_mask()
+            motor.open_mask()
+        #小さく閉じる
+        elif([hex(c) for c in self._value]==['0x1']):
+            motor.close_mask(0.2)
+        #普通ぐらい閉じる
+        elif([hex(c) for c in self._value]==['0x2']):
+            motor.close_mask(0.3)
+        #キツく閉じる
+        elif([hex(c) for c in self._value]==['0x3']):
+            motor.close_mask(0.5)
         if self._updateValueCallback:
             print('EchoCharacteristic - onWriteRequest: notifying');
             
