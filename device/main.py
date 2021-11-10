@@ -17,7 +17,7 @@ while(True):
         print("   rssi:",device.rssi)
         print("   Servicedata:",list(device.getScanData()[1])[2])
         motor.open_mask(AGE2Power(AGE))
-        motor.open_mask():
+        motor.open_mask()
       else:
         motor.close_mask()
     except:
