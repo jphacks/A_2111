@@ -24,11 +24,13 @@ app.add_middleware(
 )
 
 
+# ルート
 @app.get("/")
 async def root():
     return {"message": "this is root"}
 
 
+# 登録情報を全て取得
 @app.get("/members")
 async def get_members():
     members = await crud.get_all_members()
@@ -40,11 +42,10 @@ async def get_members():
     return resp
 
 
+# 特定の登録情報を取得
 @app.get("/member")
 async def get_member(uuid: str):
     member = await crud.get_member(uuid)
-    if len(member) == 0:
-        return JSONResponse(content={"status": "error", "message": "このIDは見つかりません"}, status_code=status.HTTP_404_NOT_FOUND)
     resp = {
         "status": "ok",
         "data": member
@@ -52,6 +53,7 @@ async def get_member(uuid: str):
     return resp
 
 
+# リレーションを全て取得
 @app.get("/familiars")
 async def get_familiars():
     familiars = await crud.get_all_familiars()
@@ -63,6 +65,7 @@ async def get_familiars():
     return resp
 
 
+# 特定のリレーションを取得
 @app.get("/familiar")
 async def get_familiar(uuid: str):
     member = await crud.get_familiar(uuid)
@@ -75,6 +78,7 @@ async def get_familiar(uuid: str):
     return resp
 
 
+# メンバー登録
 @app.post("/member")
 async def post_member(
     name: str = Form(...),
@@ -84,6 +88,7 @@ async def post_member(
     return JSONResponse(content={"status": "ok", "uuid": uuid, "name": name, "size": size}, status_code=status.HTTP_201_CREATED)
 
 
+# リレーション登録
 @app.post("/familiar")
 async def post_familiar(
     start: str = Form(...),
@@ -94,12 +99,14 @@ async def post_familiar(
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 
+# 登録情報を更新
 @app.put("/member")
 async def put_member(uuid: str, name: str = Form(...), size: str = Form(...),):
     await crud.update_member(uuid, name, size)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 
+# 登録情報を削除
 @app.delete("/member")
 async def delete_member(uuid: str):
     await crud.remove_member(uuid)
@@ -107,11 +114,13 @@ async def delete_member(uuid: str):
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 
+# 特定のリレーションを削除
 @app.delete("/familiar")
 async def delete_familiar(start: str, end: str):
     await crud.remove_familiar(start, end)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
 
 
+# 起動
 if __name__ == '__main__':
     uvicorn.run("main:app", reload=True)
