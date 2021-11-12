@@ -1,5 +1,5 @@
 import styles from '../styles/Signup.module.scss'
-import { Input, Button, Heading, Container } from '@chakra-ui/react'
+import { Input, Button, Heading, Container , Select} from '@chakra-ui/react'
 import { useContext, useState } from 'react'
 import { postNameAndGetId } from '../utils/api'
 import { setIdToLocalStorage } from '../utils/storage'
@@ -10,6 +10,7 @@ const Signup = () => {
   const { shouldShowNewRegistration, setShouldShowNewRegistration, setUserId } =
     useContext(AppContext)
   const [value, setValue] = useState('')
+  const [maskSize, setMaskSize] = useState('')
   const [isSubmitting, setSubmiting] = useState(false)
 
   if (!shouldShowNewRegistration) {
@@ -19,6 +20,11 @@ const Signup = () => {
   const handleInputChange = (e) => {
     let inputValue = e.target.value
     setValue(inputValue)
+  }
+
+  const handleSelectChange = (e) => {
+    let inputSize = e.target.value
+    setMaskSize(inputSize)
   }
 
   const handlePost = async () => {
@@ -37,9 +43,9 @@ const Signup = () => {
     <div className={styles.signupContainer}>
       <Container centerContent>
         <Heading as="h3" size="lg" mt={'100px'}>
-          cocoamask へようこそ！
+          coconomask へようこそ！
           <br />
-          ニックネームを登録しよう！
+          ニックネームとマスクのサイズを登録しよう！
         </Heading>
       </Container>
       <Container>
@@ -52,12 +58,25 @@ const Signup = () => {
           maxWidth={'80'}
           boxShadow="base blue"
         />
+        <Select
+          placeholder="サイズ"
+          onChange={handleSelectChange}
+          value={maskSize}
+          size="lg"
+          mt={10}
+          maxWidth={'80'}
+          boxShadow="base blue"
+        >
+          <option value="s">S</option>
+          <option value="m">M</option>
+          <option value="l">L</option>
+        </Select>
         <br />
         <Button
           isLoading={isSubmitting}
           spinnerPlacement="end"
           loadingText="進む"
-          disabled={!value.length || isSubmitting}
+          disabled={!value.length || !maskSize.length || isSubmitting}
           mt={20}
           bg={'blue.200'}
           size="lg"
