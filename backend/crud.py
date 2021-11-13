@@ -53,8 +53,9 @@ async def get_familiar(uuid: str):
 
 # メンバー登録
 async def create_member(name: str, size: str) -> str:
-    if size != "S" and size != "M" and size != "L":
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="S、M、Lのいずれかを入力してください")
+    size_width = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    if size not in size_width:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="1～10のいずれかの整数を半角で入力してください")
     uuid = str(uuid4())
     doc_ref = db.collection("members").document()
     doc_ref.set({
@@ -95,8 +96,9 @@ async def existed_familiar(start: str, end: str):
 
 # 登録情報を更新
 async def update_member(uuid: str, name: str, size: str):
-    if size != "S" and size != "M" and size != "L":
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="S、M、Lのいずれかを入力してください")
+    size_width = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    if size not in size_width:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="1～10のいずれかの整数を半角で入力してください")
     docs = db.collection("members").where("uuid", "==", uuid).stream()
     data = []
     for doc in docs:
