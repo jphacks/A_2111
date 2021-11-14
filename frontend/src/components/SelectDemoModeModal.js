@@ -6,19 +6,13 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  Progress,
-  Container,
-  Tag,
-  TagLabel,
-  TagLeftIcon
+  Container
 } from '@chakra-ui/react'
-import { WarningTwoIcon } from '@chakra-ui/icons'
-import { useToast } from '@chakra-ui/toast'
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 
 const SelectDemoModeModal = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure() // eslint-disable-line
   const { demoMode, setDemoMode, setInitialLoading } = useContext(AppContext)
   // isOpen={isOpen}
   const handleSelectDemo = (isDemo) => {
