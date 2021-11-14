@@ -14,6 +14,7 @@ const AppContextProvider = ({ children }) => {
   const toast = useToast()
 
   const [showSplash, setShowSplash] = useState(true)
+  const [signedInUser, setSignedInUser] = useState(null)
 
   const [initialLoading, setInitialLoading] = useState(true)
   const [localStorageAvailable, setLocalStorageAvailable] = useState(false)
@@ -40,22 +41,22 @@ const AppContextProvider = ({ children }) => {
     setWaitForReloading(true)
     setShouldCheckBTStatus(!setToDemoMode)
     setDemoModeToStorage(setToDemoMode)
-    const message = setToDemoMode ? 'DEMO モードに切り替えます。' : 'DEMO モードを終了します 👋'
+    // const message = setToDemoMode ? 'DEMO モードに切り替えます。' : 'DEMO モードを終了します 👋'
 
-    toast({
-      title: message,
-      description: `リロードされます。`,
-      // TODO: ここの3秒後、動的に変えたい
-      status: 'info',
-      variant: 'subtle',
-      duration: 3000,
-      isClosable: true
-    })
+    // toast({
+    //   title: message,
+    //   description: `リロードされます。`,
+    //   // TODO: ここの3秒後、動的に変えたい
+    //   status: 'info',
+    //   variant: 'subtle',
+    //   duration: 3000,
+    //   isClosable: true
+    // })
     _setDemoMode(setToDemoMode)
-    setTimeout(() => {
-      setShouldCheckBTStatus(!setToDemoMode)
-      window.location.reload()
-    }, 500)
+    setShouldCheckBTStatus(!setToDemoMode)
+    // setTimeout(() => {
+    //   window.location.reload()
+    // }, 500)
   }
 
   useEffect(() => {
@@ -70,10 +71,10 @@ const AppContextProvider = ({ children }) => {
       }
       const isDemoMode = getDemoModeFromStorage()
       console.log('isdemomode', isDemoMode)
-      _setDemoMode(isDemoMode)
+      // _setDemoMode(isDemoMode)
       setShouldCheckBTStatus(false)
     }
-    setInitialLoading(false)
+    // setInitialLoading(false)
   }, []) // eslint-disable-line
 
   useEffect(() => {
@@ -139,7 +140,9 @@ const AppContextProvider = ({ children }) => {
         ch,
         setCh,
         showSplash,
-        setShowSplash
+        setShowSplash,
+        signedInUser,
+        setSignedInUser
       }}
     >
       {children}

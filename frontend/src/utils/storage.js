@@ -81,3 +81,14 @@ export const resetLocalStorage = () => {
   window.localStorage.removeItem(DEFAULT_KEY)
   resetBTStatusStorage()
 }
+
+// TODO: 今ログインしてるユーザーIDを取得するやつ
+
+export const getPeopleAtLeastOnceSignedInBefore = () => {
+  // TODO: 実装
+  // TODO: これまでにログインしたことがあるIDをちゃんと見せる
+  return [
+    '3182b6cb-b681-4793-818c-66f928ccc513', // あかね さんのID
+    '0e8e5ee3-9f97-4cff-8993-1a076b405986' // たなか さんのID
+  ]
+}

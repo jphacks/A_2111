@@ -80,6 +80,7 @@ const Pairing = () => {
               isLoading={onGoing}
               spinnerPlacement="end"
               loadingText="ペアリングする"
+              // TODO: デモのときはそうと分かるような表示出す
             >
               ペアリングする
             </Button>
