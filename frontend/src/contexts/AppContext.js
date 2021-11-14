@@ -12,6 +12,9 @@ export const AppContext = createContext()
 
 const AppContextProvider = ({ children }) => {
   const toast = useToast()
+
+  const [showSplash, setShowSplash] = useState(true)
+
   const [initialLoading, setInitialLoading] = useState(true)
   const [localStorageAvailable, setLocalStorageAvailable] = useState(false)
   const [userId, setUserId] = useState(undefined)
@@ -134,7 +137,9 @@ const AppContextProvider = ({ children }) => {
         maskName,
         setMaskName,
         ch,
-        setCh
+        setCh,
+        showSplash,
+        setShowSplash
       }}
     >
       {children}
