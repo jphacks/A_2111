@@ -23,7 +23,7 @@ const Pairing = () => {
 
   const startParing = () => {
     setOnGoing(true)
-    if (wasCoconoThere && !demoMode && !onGoing) {
+    if (wasCoconoThere && demoMode === false && !onGoing) {
       navigator.bluetooth
         .requestDevice({
           acceptAllDevices: false,

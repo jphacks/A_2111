@@ -7,12 +7,12 @@ import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
 
 const Signup = () => {
-  const { shouldShowNewRegistration, setShouldShowNewRegistration, setUserId } =
+  const { shouldShowNewRegistration, setShouldShowNewRegistration, setUserId, demoMode } =
     useContext(AppContext)
   const [value, setValue] = useState('')
   const [isSubmitting, setSubmiting] = useState(false)
 
-  if (!shouldShowNewRegistration) {
+  if (!shouldShowNewRegistration || demoMode === undefined) {
     return <Redirect to="/" />
   }
 
