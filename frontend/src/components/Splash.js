@@ -21,7 +21,7 @@ const Splash = () => {
     <div className={shouldAnimateStart ? 'shouldAnimateStart' : 'playingVideo'}>
       {/* <h1 style={{ fontSize: '36px' }}>splash screen~</h1> */}
       <video
-        className='splashVideo'
+        className="splashVideo"
         // style={{ border: '2px solid grey' }}
         // src={shouldAnimateStart ? '' : splashDemo}
         src={splashDemo}
