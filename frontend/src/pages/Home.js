@@ -44,10 +44,6 @@ const Home = () => {
     signedInUser
   } = useContext(AppContext)
   const query = useQuery()
-  if (shouldShowNewRegistration) {
-    return <Redirect to="/signup" />
-  }
-  console.log(userId)
 
   const handleMaskChange = () => {
     const nextStatus = !isMaskOpen
@@ -68,6 +64,10 @@ const Home = () => {
         <SelectDemoModeModal />
       </>
     )
+  }
+
+  if (shouldShowNewRegistration) {
+    return <Redirect to="/signup" />
   }
 
   return (

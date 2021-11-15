@@ -4,10 +4,11 @@ import { getPeopleAtLeastOnceSignedInBefore } from '../utils/storage'
 
 const SelectUserScreen = () => {
   const members = getPeopleAtLeastOnceSignedInBefore()
-  const { setSignedInUser } = useContext(AppContext)
+  const { setSignedInUser, setShouldShowNewRegistration } = useContext(AppContext)
 
   const signInwithThis = (member) => {
     setSignedInUser(member)
+    setShouldShowNewRegistration(false)
   }
 
   return (
