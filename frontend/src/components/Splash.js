@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import splashDemo from '../assets/logo_video.mp4'
-import '../styles/Splash.scss'
+import styles from '../styles/Splash.module.scss'
 
 const Splash = () => {
   const { setShowSplash } = useContext(AppContext)
@@ -18,12 +18,9 @@ const Splash = () => {
   }
 
   return (
-    <div className={shouldAnimateStart ? 'shouldAnimateStart' : 'playingVideo'}>
-      {/* <h1 style={{ fontSize: '36px' }}>splash screen~</h1> */}
+    <div className={shouldAnimateStart ? styles.shouldAnimateStart : styles.playingVideo}>
       <video
-        className='splashVideo'
-        // style={{ border: '2px solid grey' }}
-        // src={shouldAnimateStart ? '' : splashDemo}
+        className={styles.splashVideo}
         src={splashDemo}
         loop={false}
         muted
