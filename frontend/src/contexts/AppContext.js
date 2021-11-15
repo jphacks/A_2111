@@ -41,22 +41,8 @@ const AppContextProvider = ({ children }) => {
     setWaitForReloading(true)
     setShouldCheckBTStatus(!setToDemoMode)
     setDemoModeToStorage(setToDemoMode)
-    // const message = setToDemoMode ? 'DEMO モードに切り替えます。' : 'DEMO モードを終了します 👋'
-
-    // toast({
-    //   title: message,
-    //   description: `リロードされます。`,
-    //   // TODO: ここの3秒後、動的に変えたい
-    //   status: 'info',
-    //   variant: 'subtle',
-    //   duration: 3000,
-    //   isClosable: true
-    // })
     _setDemoMode(setToDemoMode)
     setShouldCheckBTStatus(!setToDemoMode)
-    // setTimeout(() => {
-    //   window.location.reload()
-    // }, 500)
   }
 
   useEffect(() => {
