@@ -3,7 +3,6 @@ import os
 from uuid import uuid4
 from firebase import db
 from firebase_admin import firestore
-from PIL import Image
 import numpy as np
 
 
