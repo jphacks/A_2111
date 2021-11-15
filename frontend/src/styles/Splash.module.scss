@@ -1,0 +1,55 @@
+.playingVideo {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 35vh;
+  background: #8aba43;
+}
+
+.shouldAnimateStart {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 35vh;
+  background: #8aba43;
+}
+
+.shouldAnimateStart::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  // animation-name duration function delay times
+  // 切り替える前に flash しないように 1.2s よりちょっと長めに
+  animation: endsplash 1.25s ease 0s 1;
+  background: white;
+}
+
+@keyframes endsplash {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+.splashVideo {
+  margin: auto;
+  width: 90%;
+}
+
+@media screen and (min-width: 481px) {
+  .playingVideo {
+    padding-top: 25vh;
+  }
+
+  .shouldAnimateStart {
+    padding-top: 25vh;
+  }
+
+  .splashVideo {
+    width: 50%;
+  }
+}
