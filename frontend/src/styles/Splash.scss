@@ -1,7 +1,17 @@
+.playingVideo{
+  height: 100vh;
+  width: 100vw;
+  padding-top: 25%;
+  background: #8aba43;
+}
+
 .shouldAnimateStart {
   position: relative;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 25%;
+  background: #8aba43;
+
 }
 
 .shouldAnimateStart::after {
@@ -9,12 +19,12 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   // animation-name duration function delay times
   // 切り替える前に flash しないように 1.2s よりちょっと長めに
   animation: endsplash 1.25s ease 0s 1;
-  background: greenyellow;
+  background: white;
 }
 
 @keyframes endsplash {
@@ -24,7 +34,12 @@
   60% {
     opacity: 1;
   }
-  100% {
-    background: white;
-  }
+  // 100% {
+  //   background: white;
+  // }
+}
+
+.splashVideo {
+  margin: auto;
+  width: 50%;
 }

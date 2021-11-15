@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { AppContext } from '../contexts/AppContext'
-import splashDemo from '../assets/komachi-breathing-for-splash-demo.mp4'
+import splashDemo from '../assets/logo_video.mp4'
 import '../styles/Splash.scss'
 
 const Splash = () => {
@@ -18,10 +18,12 @@ const Splash = () => {
   }
 
   return (
-    <div className={shouldAnimateStart ? 'shouldAnimateStart' : ''}>
-      <h1 style={{ fontSize: '36px' }}>splash screen~</h1>
+    <div className={shouldAnimateStart ? 'shouldAnimateStart' : 'playingVideo'}>
+      {/* <h1 style={{ fontSize: '36px' }}>splash screen~</h1> */}
       <video
-        style={{ border: '2px solid grey' }}
+        className='splashVideo'
+        // style={{ border: '2px solid grey' }}
+        // src={shouldAnimateStart ? '' : splashDemo}
         src={splashDemo}
         loop={false}
         muted
