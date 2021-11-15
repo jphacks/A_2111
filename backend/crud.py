@@ -1,4 +1,4 @@
-from fastapi import HTTPException, UploadFile, status
+from fastapi import HTTPException, status
 import os
 from uuid import uuid4
 from firebase import db

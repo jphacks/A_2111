@@ -1,5 +1,5 @@
 import json
-from fastapi import FastAPI, UploadFile, Form, status
+from fastapi import FastAPI, Form, status
 from fastapi.responses import JSONResponse
 import uvicorn
 import crud
