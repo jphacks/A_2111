@@ -23,7 +23,7 @@ const Pairing = () => {
 
   const startParing = () => {
     setOnGoing(true)
-    if (wasCoconoThere && !demoMode && !onGoing) {
+    if (wasCoconoThere && demoMode === false && !onGoing) {
       navigator.bluetooth
         .requestDevice({
           acceptAllDevices: false,
@@ -80,6 +80,7 @@ const Pairing = () => {
               isLoading={onGoing}
               spinnerPlacement="end"
               loadingText="ペアリングする"
+              // TODO: デモのときはそうと分かるような表示出す
             >
               ペアリングする
             </Button>

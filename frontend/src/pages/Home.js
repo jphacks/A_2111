@@ -16,7 +16,6 @@ import {
 } from '@chakra-ui/react'
 import { BsPersonPlus } from 'react-icons/bs'
 import { useDisclosure } from '@chakra-ui/hooks'
-import SwitchMode from '../components/SwitchMode'
 import ModalQrBody from '../components/ModalQrBody'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
@@ -26,11 +25,12 @@ import { useLocation } from 'react-router-dom'
 import RegisterFriend from '../components/RegisterFriend'
 import Header from '../components/header'
 import Pairing from '../components/Pairing'
+import SelectDemoModeModal from '../components/SelectDemoModeModal'
+import SelectUserScreen from './SelectUserScreen'
+
+const useQuery = () => new URLSearchParams(useLocation().search)
 
 const Home = () => {
-  function useQuery() {
-    return new URLSearchParams(useLocation().search)
-  }
   const { isOpen, onOpen, onClose } = useDisclosure()
   const {
     shouldShowNewRegistration,
@@ -40,7 +40,8 @@ const Home = () => {
     isScanningLE,
     notPairedYet,
     ch,
-    userId
+    userId,
+    signedInUser
   } = useContext(AppContext)
   const query = useQuery()
   if (shouldShowNewRegistration) {
@@ -60,8 +61,18 @@ const Home = () => {
   }
   const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
 
+  if (!signedInUser) {
+    return (
+      <>
+        <SelectUserScreen />
+        <SelectDemoModeModal />
+      </>
+    )
+  }
+
   return (
     <div>
+      <SelectDemoModeModal />
       <RegisterFriend query={query} />
       <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
         <ModalOverlay />
@@ -81,7 +92,6 @@ const Home = () => {
         <Header />
         <p className={styles.userName}>{name}さん</p>
       </div>
-      <SwitchMode />
 
       <p>
         <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
