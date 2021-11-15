@@ -3,4 +3,5 @@
 ### 実行方法
 
 `docker build -t runonnx:latest .`
+
 `docker run -v /home/pi:/home -it  runonnx /bin/bash`
