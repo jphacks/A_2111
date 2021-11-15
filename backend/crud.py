@@ -1,8 +1,10 @@
-from fastapi import HTTPException, status
+from fastapi import HTTPException, UploadFile, status
 import os
 from uuid import uuid4
 from firebase import db
 from firebase_admin import firestore
+from PIL import Image
+import numpy as np
 
 
 # 全ての登録情報を取得
@@ -52,7 +54,7 @@ async def get_familiar(uuid: str):
 
 
 # メンバー登録
-async def create_member(name: str, size: str) -> str:
+async def create_member(name: str, size: str, vector: str) -> str:
     if size != "S" and size != "M" and size != "L":
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="S、M、Lのいずれかを入力してください")
     uuid = str(uuid4())
@@ -60,7 +62,8 @@ async def create_member(name: str, size: str) -> str:
     doc_ref.set({
         "uuid": uuid,
         "name": name,
-        "size": size
+        "size": size,
+        "vector": vector
     })
     return uuid
 
@@ -159,3 +162,19 @@ async def remove_familiar(start: str, end: str):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="登録しているIDがありません")
     result = db.collection("familiars").document(data[0]["id"]).delete()
     return result
+
+
+# cos類似度を計算
+async def cosine_similarity(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+
+# もらったベクトルとDBに登録されているベクトルを照合
+async def login(uuid: str, vector: str):
+    already_registered_vector = db.collection("members").where("uuid", "==", uuid).select("vector").stream()
+    cosine_result = cosine_similarity(vector, already_registered_vector)
+    return cosine_result
+
+
+
+
