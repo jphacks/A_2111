@@ -21,7 +21,6 @@ const Splash = () => {
     <div className={shouldAnimateStart ? styles.shouldAnimateStart : styles.playingVideo}>
       <video
         className={styles.splashVideo}
-        className="splashVideo"
         src={splashDemo}
         loop={false}
         muted
