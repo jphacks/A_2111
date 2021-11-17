@@ -7,7 +7,6 @@ import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
 import komachi from '../assets/komachi.png'
 
-
 const RegisterUserName = () => {
   const { shouldShowNewRegistration, setShouldShowNewRegistration, setUserId, demoMode } =
     useContext(AppContext)

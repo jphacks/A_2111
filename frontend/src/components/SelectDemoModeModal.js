@@ -26,7 +26,7 @@ const SelectDemoModeModal = () => {
         <ModalContent>
           <ModalHeader>モードを選んでね</ModalHeader>
           <ModalBody>
-            <Container textAlign={"center"}>
+            <Container textAlign={'center'}>
               <Button
                 onClick={() => {
                   handleSelectDemo(true)
@@ -46,7 +46,6 @@ const SelectDemoModeModal = () => {
                 size="md"
                 colorScheme="orange"
                 variant="outline"
-
                 marginBottom={5}
               >
                 リアルモードで始める
