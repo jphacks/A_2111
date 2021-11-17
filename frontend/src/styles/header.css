@@ -18,7 +18,7 @@
   height: 60px;
   top: 10px;
   left: 10px;
-  background: #3074b0;
+  background: #82c041;
   transition: all 0.8s ease;
   border-radius: 15px;
   z-index: 2;
@@ -32,7 +32,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #3074b0;
+  background: #82c041;
   border-radius: 0px;
   z-index: 2;
 }

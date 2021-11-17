@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import AppContextProvider, { AppContext } from './contexts/AppContext'
 import Home from './pages/Home'
-import Signup from './pages/Signup'
+import RegisterUserName from './components/RegisterUserName'
 import { ChakraProvider } from '@chakra-ui/react'
 import ErrorFallback from './pages/ErrorBoundary'
 import NotFound from './pages/NotFound'
@@ -21,7 +21,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/signup" component={RegisterUserName} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

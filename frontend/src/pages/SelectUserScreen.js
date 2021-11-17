@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { getPeopleAtLeastOnceSignedInBefore } from '../utils/storage'
+import styles from '../styles/Signup.module.scss'
+import { Box } from '@chakra-ui/react'
 
 const SelectUserScreen = () => {
   const members = getPeopleAtLeastOnceSignedInBefore()
@@ -16,20 +18,22 @@ const SelectUserScreen = () => {
       <div>
         {members ? (
           <>
+            <p className={styles.signInSentence}>どのユーザーでログインしますか？</p>
             {members.map((member) => {
               return (
-                <p key={member} style={{ margin: '100px' }}>
+                <Box key={member} style={{ margin: '50px' }} bg={'blue.100'}>
+                  {/* Todo:Box中を白にして外側灰色にしたい */}
                   <button
                     onClick={() => {
                       signInwithThis(member)
                     }}
                   >
-                    {member} でログイン
+                    {member}
                   </button>
-                </p>
+                </Box>
               )
             })}
-            <p>それか、新規登録してね</p>
+            <p>ユーザーを追加</p>
           </>
         ) : (
           <p>

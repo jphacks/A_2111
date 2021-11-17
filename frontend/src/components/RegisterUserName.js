@@ -5,8 +5,9 @@ import { postNameAndGetId } from '../utils/api'
 import { setIdToLocalStorage } from '../utils/storage'
 import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
+import komachi from '../assets/komachi.png'
 
-const Signup = () => {
+const RegisterUserName = () => {
   const { shouldShowNewRegistration, setShouldShowNewRegistration, setUserId, demoMode } =
     useContext(AppContext)
   const [value, setValue] = useState('')
@@ -65,9 +66,10 @@ const Signup = () => {
         >
           進む
         </Button>
+        <img className={styles.komachiPic} src={komachi} alt="未来　小町"></img>
       </Container>
     </div>
   )
 }
 
-export default Signup
+export default RegisterUserName

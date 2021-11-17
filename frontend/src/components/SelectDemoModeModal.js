@@ -24,15 +24,17 @@ const SelectDemoModeModal = () => {
       <Modal isOpen={demoMode === undefined} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>モードを</ModalHeader>
+          <ModalHeader>モードを選んでね</ModalHeader>
           <ModalBody>
-            <div>選んでね</div>
-            <Container>
+            <Container textAlign={'center'}>
               <Button
                 onClick={() => {
                   handleSelectDemo(true)
                 }}
-                size="sm"
+                size="md"
+                colorScheme="orange"
+                variant="outline"
+                marginBottom={10}
               >
                 デモモードで始める
               </Button>
@@ -41,7 +43,10 @@ const SelectDemoModeModal = () => {
                 onClick={() => {
                   handleSelectDemo(false)
                 }}
-                size="sm"
+                size="md"
+                colorScheme="orange"
+                variant="outline"
+                marginBottom={5}
               >
                 リアルモードで始める
               </Button>
