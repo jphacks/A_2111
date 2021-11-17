@@ -20,13 +20,13 @@ import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
 import NavigateBTInitialize from '../components/NavigateBTInitialize'
-import { useLocation } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
 import Header from '../components/header'
 import Pairing from '../components/Pairing'
 import SelectDemoModeModal from '../components/SelectDemoModeModal'
 import SelectUserScreen from './SelectUserScreen'
 
-const useQuery = () => new URLSearchParams(useLocation().search)
+// const useQuery = () => new URLSearchParams(useLocation().search)
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -38,10 +38,8 @@ const Home = () => {
     isScanningLE,
     notPairedYet,
     ch,
-    userId,
     signedInUser
   } = useContext(AppContext)
-  const query = useQuery()
 
   const handleMaskChange = () => {
     const nextStatus = !isMaskOpen
