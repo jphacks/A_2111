@@ -1,5 +1,5 @@
 import '../styles/header.css'
-import Logo from '../assets/icon.png'
+import Logo from '../assets/newIcon.png'
 import { useState } from 'react'
 import { FaGithub } from 'react-icons/fa'
 

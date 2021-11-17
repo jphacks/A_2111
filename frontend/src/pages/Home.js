@@ -16,13 +16,11 @@ import {
 } from '@chakra-ui/react'
 import { BsPersonPlus } from 'react-icons/bs'
 import { useDisclosure } from '@chakra-ui/hooks'
-import ModalQrBody from '../components/ModalQrBody'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
 import NavigateBTInitialize from '../components/NavigateBTInitialize'
 import { useLocation } from 'react-router-dom'
-import RegisterFriend from '../components/RegisterFriend'
 import Header from '../components/header'
 import Pairing from '../components/Pairing'
 import SelectDemoModeModal from '../components/SelectDemoModeModal'
@@ -73,7 +71,6 @@ const Home = () => {
   return (
     <div>
       <SelectDemoModeModal />
-      <RegisterFriend query={query} />
       <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
         <ModalOverlay />
         <ModalContent>
@@ -83,7 +80,6 @@ const Home = () => {
             <div className={styles.qrcodeSentence}>
               友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
             </div>
-            <ModalQrBody text={window.location.origin + '?register=' + userId} />
           </ModalBody>
         </ModalContent>
       </Modal>
