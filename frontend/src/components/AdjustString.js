@@ -1,6 +1,17 @@
 import styles from '../styles/Signup.module.scss'
-import { Slider, SliderTrack, SliderFilledTrack, SliderThumb, Box, Button } from '@chakra-ui/react'
-import { Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton } from '@chakra-ui/react'
+import {
+  Slider,
+  SliderTrack,
+  SliderFilledTrack,
+  SliderThumb,
+  Box,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalCloseButton
+} from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/hooks'
 import komachi from '../assets/komachi.png'
 

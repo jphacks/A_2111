@@ -22,7 +22,7 @@ const SelectUserScreen = () => {
             {members.map((member) => {
               return (
                 <Box key={member} style={{ margin: '50px' }} bg={'blue.100'}>
-                  {/* Box中を白にして外側灰色にしたい */}
+                  {/* Todo:Box中を白にして外側灰色にしたい */}
                   <button
                     onClick={() => {
                       signInwithThis(member)
