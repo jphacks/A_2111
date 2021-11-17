@@ -19,14 +19,14 @@ import { useDisclosure } from '@chakra-ui/hooks'
 import ModalQrBody from '../components/ModalQrBody'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useLocation } from 'react-router-dom'
 import NavigateBTInitialize from '../components/NavigateBTInitialize'
-import { useLocation } from 'react-router-dom'
 import RegisterFriend from '../components/RegisterFriend'
 import Header from '../components/header'
 import Pairing from '../components/Pairing'
 import SelectDemoModeModal from '../components/SelectDemoModeModal'
 import SelectUserScreen from './SelectUserScreen'
+import { Bar, Line } from 'react-chartjs-2';
 
 const useQuery = () => new URLSearchParams(useLocation().search)
 
@@ -70,6 +70,46 @@ const Home = () => {
     return <Redirect to="/signup" />
   }
 
+  // TODO グラフのデータ本物にする
+  const data = {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  }
+  
+  const options = {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  }
+ 
   return (
     <div>
       <SelectDemoModeModal />
@@ -113,30 +153,8 @@ const Home = () => {
           </div>
         </>
       )}
-      <div className={styles.friendList}>
-        <HStack spacing="50vw">
-          <p className={styles.friendListTitle}> 友達一覧</p>
-          <Button variant="ghost" onClick={onOpen}>
-            <BsPersonPlus size={25} />
-          </Button>
-        </HStack>
-        <hr className={styles.border} />
-        {/* TODO: コンポーネントに切り出したい↓ */}
-        {familiars?.length
-          ? familiars.map((person, i) => (
-              <Box
-                key={i}
-                boxShadow="xs"
-                w="100%"
-                p={3}
-                marginBottom="1.5px"
-                _hover={{ background: 'gray.200' }}
-              >
-                <p className={styles.friendName}>{person}</p>
-              </Box>
-            ))
-          : null}
-      </div>
+      <Line data={data} options={options} />
+      <Bar data={data} options={options} />
     </div>
   )
 }

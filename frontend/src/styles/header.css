@@ -8,19 +8,17 @@
   z-index: 3;
   user-select: none;
   cursor: pointer;
-  margin-left: 10px;
-  margin-top: 10px;
-  border-radius: 15px;
+  margin-left: 15px;
+  margin-top: 15px;
 }
 .about {
   position: absolute;
   width: 60px;
   height: 60px;
-  top: 10px;
-  left: 10px;
-  background: #3074b0;
+  top: 15px;
+  left: 15px;
+  background: #82c040;
   transition: all 0.8s ease;
-  border-radius: 15px;
   z-index: 2;
 }
 
@@ -32,8 +30,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #3074b0;
-  border-radius: 0px;
+  background: #82c040;
   z-index: 2;
 }
 

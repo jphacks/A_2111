@@ -62,6 +62,8 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.4.1"
+    "chart.js": "^3.6.0",
+    "prettier": "^2.4.1",
+    "react-chartjs-2": "^3.3.0"
   }
 }
