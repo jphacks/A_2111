@@ -18,8 +18,8 @@
 }
 .mask {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   .maskStatus {
     font-family: 'Kosugi', sans-serif;
     font-size: 40px;
@@ -27,35 +27,25 @@
   .maskPic {
     // height: 200px;
     width: 90vw;
-    margin: 0 5vw;
+    margin: 0 4vw;
     border: 1px solid #F15A24;
+    border-radius: 6vw;
   }
   p {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 30px;
     font-weight: 500;
   }
 }
-.friendList {
-  margin-top: 70px;
-  .friendListTitle {
-    font-size: 22px;
-    margin-left: 40px;
-    font-weight: 600;
-  }
-  .friendName {
-    font-size: 18px;
-    text-align: center;
-    border-bottom: 2px black;
-  }
+.bothChart{
+  margin: 4vw;
+  padding: 2% 5%;
+  border: 1px solid black;
+  border-radius: 6vw;
 }
-.qrcodeSentence {
-  text-align: center;
-}
-.qrcode {
-  margin: 0 auto;
-}
-.demoMode {
-  text-align: center;
-  // background-color: aqua;
-}
+// .lineChart{
+  
+// }
+// .barChart{
+  
+// }
