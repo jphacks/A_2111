@@ -103,8 +103,8 @@ const Home = () => {
             )}
             <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
           </div>
-          <div style={{ textAlign: 'center', transform: 'scale(3)' }}>
-            {/* <Switch onChange={handleMaskChange} colorScheme="facebook" isChecked={!isMaskOpen} /> */}
+          <div style={{ textAlign: 'center', transform: 'scale(1)' }}>
+            <Switch onChange={handleMaskChange} colorScheme="facebook" size='lg' isChecked={!isMaskOpen} />
           </div>
         </>
       )}

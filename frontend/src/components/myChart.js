@@ -58,14 +58,22 @@ const MyChart = () => {
   }
 
   const lineOptions = {
+    // maintainAspectRatio: false,
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
+      y: {
+        grid: {
+          drawBorder: false,
         },
-      ],
+        ticks: {
+          beginAtZero: true,
+          stepSize: 10,
+        }
+      },
+      x: {
+        grid: {
+          display: false,
+        }
+      },
     },
     plugins: {
       title: {
@@ -78,14 +86,19 @@ const MyChart = () => {
     }
   }
   const barOptions = {
+    // maintainAspectRatio: false,
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
+      y: {
+        ticks: {
+          beginAtZero: true,
+          stepSize: 10,
         },
-      ],
+      },
+      x: {
+        grid: {
+          display: false,
+        }
+      },
     },
     plugins: {
       title: {
@@ -101,12 +114,16 @@ const MyChart = () => {
   return (
     <div>
       <Line
-        className={`${styles.lineChart} ${styles.bothChart}`}
+        className={styles.bothChart}
+        width='400'
+        height='400'
         data={lineData}
         options={lineOptions}
       />
       <Bar
-        className={`${styles.barChart} ${styles.bothChart}`}
+        className={styles.bothChart}
+        width='400'
+        height='400'
         data={barData}
         options={barOptions}
       />
