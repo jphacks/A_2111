@@ -13,19 +13,11 @@ COCOA の信号を受信し、マスクの開閉を行います。COCOA の API 
 
 ### 部品
 
-- 制御：raspberry pi zero
+- 制御：raspberry pi 3
 - モーター制御：L298N
 - 電動スライダー：RSA0N11M9A0J
 - ワイヤー（φ1mm 汎用品 左右約 400mm ずつ）
 - その他部品（百均など）
 
-### 製作費
-
-- 部品・材料代：2000 円程度
-  - raspi zero 600 円
-  - 電動スライダー 1000 円
-  - モータードライバー 200 円
-  - 外装 400 円
-  - 残りはその他部品
 
 ![image](images/components.png)
