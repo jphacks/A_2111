@@ -4,7 +4,7 @@ const RegisterUserFace = () => {
   return (
     <div>
       <p>顔を登録してね！</p>
-      {/* Todo:カメラの起動か写真のアップロード */}
+      {/* Todo:カメラの起動*/}
     </div>
   )
 }
