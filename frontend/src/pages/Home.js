@@ -24,6 +24,8 @@ import SelectDemoModeModal from '../components/SelectDemoModeModal'
 import SelectUserScreen from './SelectUserScreen'
 import MyChart from '../components/myChart'
 
+// const useQuery = () => new URLSearchParams(useLocation().search)
+
 const Home = () => {
   const { isOpen, onClose } = useDisclosure()
   const {
