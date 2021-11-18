@@ -82,10 +82,12 @@ async def get_familiar(uuid: str = Form(...)):
 @app.post("/member")
 async def post_member(
     name: str = Form(...),
-    size: str = Form(...)
+    size: str = Form(...),
+    vector: str = Form(...)
 ):
-    uuid = await crud.create_member(name, size)
-    return JSONResponse(content={"status": "ok", "uuid": uuid, "name": name, "size": size}, status_code=status.HTTP_201_CREATED)
+    vector = list(map(float, vector[1:-1].split(",")))
+    uuid = await crud.create_member(name, size, vector)
+    return JSONResponse(content={"status": "ok", "uuid": uuid, "name": name, "size": size, "vector": vector}, status_code=status.HTTP_201_CREATED)
 
 
 # リレーション登録
@@ -126,6 +128,17 @@ async def delete_familiar(
 ):
     await crud.remove_familiar(start, end)
     return JSONResponse(content={"status": "ok"}, status_code=status.HTTP_201_CREATED)
+
+
+# ログイン用
+@app.post("/login")
+async def login(
+    uuid: str = Form(...),
+    vector: str = Form(...)
+):
+    vector = list(map(float, vector[1:-1].split(",")))
+    cosine_similarity = await crud.login(uuid, vector)
+    return JSONResponse(content={"status": "ok", "uuid": uuid, "cosine": cosine_similarity}, status_code=status.HTTP_202_ACCEPTED)
 
 
 # 起動
