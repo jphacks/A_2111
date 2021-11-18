@@ -15,9 +15,9 @@
   position: absolute;
   width: 60px;
   height: 60px;
-  top: 15px;
-  left: 15px;
-  background: #82c040;
+  top: 10px;
+  left: 10px;
+  background: #82c041;
   transition: all 0.8s ease;
   z-index: 2;
 }
@@ -30,7 +30,8 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #82c040;
+  background: #82c041;
+  border-radius: 0px;
   z-index: 2;
 }
 
