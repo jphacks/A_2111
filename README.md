@@ -89,6 +89,7 @@ withロナ時代におけるマスクを常時着用しなければいけない�
 - Cloud Firestore
 - blender
 - Python
+- numpy
 - pybleno
 - pybluez
 
@@ -114,3 +115,4 @@ withロナ時代におけるマスクを常時着用しなければいけない�
   - [frontend](frontend)　 → UI の紹介
   - [backend](backend)　 → API 仕様
   - [device](device/) 　 → 部品リスト・製作費など
+  - [Machine Learning](ML/) 　 → 使用したモデルなど
