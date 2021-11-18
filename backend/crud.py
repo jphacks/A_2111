@@ -53,7 +53,7 @@ async def get_familiar(uuid: str):
 
 
 # メンバー登録
-async def create_member(name: str, size: str, vector: str) -> str:
+async def create_member(name: str, size: str, vector: list):
     if size != "S" and size != "M" and size != "L":
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="S、M、Lのいずれかを入力してください")
     uuid = str(uuid4())
@@ -169,11 +169,12 @@ async def cosine_similarity(a, b):
 
 
 # もらったベクトルとDBに登録されているベクトルを照合
-async def login(uuid: str, vector: str):
-    already_registered_vector = db.collection("members").where("uuid", "==", uuid).select("vector").stream()
-    cosine_result = cosine_similarity(vector, already_registered_vector)
+async def login(uuid: str, vector: list):
+    already_registered_vector = db.collection("members").where("uuid", "==", uuid).stream()
+    for vec in already_registered_vector:
+        post = {"id": vec.id, **vec.to_dict()}
+    cosine_result = await cosine_similarity(vector, post["vector"])
     return cosine_result
-
 
 
 
