@@ -15,7 +15,7 @@ import { useDisclosure } from '@chakra-ui/hooks'
 import ModalQrBody from '../components/ModalQrBody'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
-import { Redirect, useLocation } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import NavigateBTInitialize from '../components/NavigateBTInitialize'
 // import { useLocation } from 'react-router-dom'
 import Header from '../components/header'
@@ -23,8 +23,6 @@ import Pairing from '../components/Pairing'
 import SelectDemoModeModal from '../components/SelectDemoModeModal'
 import SelectUserScreen from './SelectUserScreen'
 import MyChart from '../components/myChart'
-
-const useQuery = () => new URLSearchParams(useLocation().search)
 
 const Home = () => {
   const { isOpen, onClose } = useDisclosure()
@@ -38,7 +36,6 @@ const Home = () => {
     userId,
     signedInUser
   } = useContext(AppContext)
-  const query = useQuery()
 
   const handleMaskChange = () => {
     const nextStatus = !isMaskOpen
@@ -68,7 +65,6 @@ const Home = () => {
   return (
     <div>
       <SelectDemoModeModal />
-      <RegisterFriend query={query} />
       <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
         <ModalOverlay />
         <ModalContent>
