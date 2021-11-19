@@ -98,9 +98,5 @@ export const getPeopleAtLeastOnceSignedInBefore = async () => {
   for (let i = 0; i < ids.length; i++) {
     names[i] = await getNameFromId(ids[i])
   }
-  //   const UserNames = ids.map(async(id) => {
-  //     return await getNameFromId(id)
-  //   })
-  //   console.log(names)
   return names
 }
