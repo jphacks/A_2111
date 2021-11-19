@@ -81,6 +81,7 @@ const Home = () => {
       <div className={styles.headerContainer}>
         <Header />
         <p className={styles.userName}>{name}さん</p>
+        {/* TODO:名前を表示させる */}
       </div>
 
       <p>
