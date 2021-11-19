@@ -22,7 +22,7 @@ const PictureModal = () => {
     const imageSrc = webcamRef.current.getScreenshot()
     setImgSrc(imageSrc)
     toast({
-      title: '写真を撮影しました',
+      title: '認証しました！',
       description: ``,
       status: 'info',
       variant: 'subtle',
@@ -37,10 +37,13 @@ const PictureModal = () => {
       <Modal isOpen={!imgSrc} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>顔の写真を撮るよ</ModalHeader>
+          <ModalHeader>顔認証によるログイン</ModalHeader>
+          <p style={{ marginLeft: '10%', color: 'grey' }}>
+            ※デモモードのため、画像は保存されません。
+          </p>
           <ModalBody>
             <Container>
-              <Webcam audio={false} ref={webcamRef} screenshotFormat="image/png" />
+              <Webcam mirrored audio={false} ref={webcamRef} screenshotFormat="image/png" />
               <Button
                 onClick={capture}
                 size="md"
@@ -51,7 +54,7 @@ const PictureModal = () => {
                 transform="translateX(-50%)"
                 margin="20px 0"
               >
-                撮影
+                認証する
               </Button>
             </Container>
           </ModalBody>
