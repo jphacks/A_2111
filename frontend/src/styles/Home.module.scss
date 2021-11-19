@@ -37,9 +37,22 @@
     font-weight: 500;
   }
 }
+.chartTitle{
+  position: absolute;
+  margin-top: 5vw;
+  left: 9vw;
+  .chartLogo{
+    display: inline-block;
+    width: 25px;
+  }
+  .chartString{
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
 .bothChart {
   margin: 4vw;
-  padding: 5% 5%;
+  padding: 20% 15% 10% 15%;
   border: 1px solid black;
   border-radius: 6vw;
 }

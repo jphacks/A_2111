@@ -1,5 +1,6 @@
-import { Bar, Line } from 'react-chartjs-2'
+import { Bar, Line, defaults } from 'react-chartjs-2'
 import styles from '../styles/Home.module.scss'
+import Logo from '../assets/newIcon.png'
 
 const MyChart = () => {
   // TODO グラフのデータ本物にする
@@ -9,23 +10,10 @@ const MyChart = () => {
       {
         label: 'data',
         data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)'
-        ],
-        borderColor: [
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)'
-        ],
-        borderWidth: 0.5
+        // backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        borderColor: 'rgba(0, 0, 0, 0.4)',
+        borderWidth: 3,
+        pointRadius: 0,
       }
     ]
   }
@@ -35,27 +23,14 @@ const MyChart = () => {
       {
         label: 'data',
         data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)',
-          'rgba(0, 0, 0, 0.2)'
-        ],
-        borderColor: [
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)',
-          'rgba(0, 0, 0, 1)'
-        ],
-        borderWidth: 0.5
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        // borderColor: 'rgba(0, 0, 0, 0.4)',
+        borderWidth: 0,
       }
     ]
   }
 
+  defaults.font.size = 20
   const lineOptions = {
     // maintainAspectRatio: false,
     scales: {
@@ -75,10 +50,6 @@ const MyChart = () => {
       }
     },
     plugins: {
-      title: {
-        display: true,
-        text: 'line data'
-      },
       legend: {
         display: false
       }
@@ -88,6 +59,9 @@ const MyChart = () => {
     // maintainAspectRatio: false,
     scales: {
       y: {
+        grid: {
+          drawBorder: false
+        },
         ticks: {
           beginAtZero: true,
           stepSize: 10
@@ -100,10 +74,6 @@ const MyChart = () => {
       }
     },
     plugins: {
-      title: {
-        display: true,
-        text: 'bar data'
-      },
       legend: {
         display: false
       }
@@ -112,19 +82,27 @@ const MyChart = () => {
 
   return (
     <div>
-      <Line
-        className={styles.bothChart}
-        width="400"
-        height="400"
-        data={lineData}
-        options={lineOptions}
-      />
+      <div className={styles.chartTitle}>
+        <img  className={styles.chartLogo} src={Logo} alt="chart logo" />
+        <p className={styles.chartString}>接触人数</p>
+      </div>
       <Bar
         className={styles.bothChart}
         width="400"
         height="400"
         data={barData}
         options={barOptions}
+      />
+      <div className={styles.chartTitle}>
+        <img  className={styles.chartLogo} src={Logo} alt="chart logo" />
+        <p className={styles.chartString}>ON/OFF</p>
+      </div>
+      <Line
+        className={styles.bothChart}
+        width="400"
+        height="400"
+        data={lineData}
+        options={lineOptions}
       />
     </div>
   )
