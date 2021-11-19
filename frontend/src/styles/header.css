@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kosugi&family=M+PLUS+1&family=Rajdhani:wght@600&display=swap');
 
 .HeaderLogo {
   position: absolute;
@@ -69,8 +70,8 @@
 
 .MAPLE_title {
   text-align: center;
-  font-size: 70px;
-  font-weight: 500;
+  font-size: 60px;
+  font-weight: 400;
   color: black;
   font-family: 'Russo One', sans-serif;
   z-index: 2;

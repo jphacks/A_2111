@@ -17,7 +17,7 @@
   margin-bottom: 10px;
   .maskStatus {
     font-family: 'Kosugi', sans-serif;
-    font-size: 40px;
+    font-size: 10px;
   }
   .maskPic {
     height: 350px;
@@ -26,11 +26,11 @@
     margin: 0 auto;
     margin-bottom: 40px;
     border: 1px solid #dddddd;
-    border-radius: 15px;
+    // border-radius: 15px;
   }
   p {
     margin-top: 20px;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 500;
   }
 }
@@ -49,18 +49,18 @@
     font-weight: 700;
   }
   .chartString_2 {
-    margin-left: 80px;
+    margin-left: 90px;
     font-size: 15px;
   }
   .chartString_3 {
-    font-size: 27px;
+    font-size: 25px;
   }
   .chartString_4 {
     margin-left: 170px;
     font-size: 15px;
   }
   .chartString_5 {
-    font-size: 27px;
+    font-size: 25px;
   }
 }
 .bothChart {
@@ -187,6 +187,7 @@
 *,
 *::before,
 *::after {
+    // z-index: -1;
   box-sizing: border-box;
   position: relative;
 }
