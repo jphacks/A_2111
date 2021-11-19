@@ -51,7 +51,14 @@ const SelectUserScreen = () => {
               )
             })}
             <div className={styles.SelectUserButton}>
-              <Button width={'52'} height={'50'} marginTop={20} colorScheme="teal" variant="outline"  leftIcon={<BsPersonPlusFill />}>
+              <Button
+                width={'52'}
+                height={'50'}
+                marginTop={20}
+                colorScheme="teal"
+                variant="outline"
+                leftIcon={<BsPersonPlusFill />}
+              >
                 ユーザーを追加
               </Button>
             </div>
