@@ -1,31 +1,49 @@
 import { Bar, Line, defaults } from 'react-chartjs-2'
 import styles from '../styles/Home.module.scss'
-import Logo from '../assets/newIcon.png'
+import { IoIosMan } from 'react-icons/io'
+import { RiSurgicalMaskLine } from 'react-icons/ri'
+const logoSize = 20
+const logoColor = '#777777'
 
 const MyChart = () => {
   // TODO グラフのデータ本物にする
   const lineData = {
-    labels: ['1', '2', '3', '4', '5', '6'],
+    labels: ['', '', '', '', '', ''],
     datasets: [
       {
         label: 'data',
+        type: 'line',
         data: [12, 19, 3, 5, 2, 3],
-        // backgroundColor: 'rgba(0, 0, 0, 0.2)',
         borderColor: 'rgba(0, 0, 0, 0.4)',
+        borderWidth: 3,
+        pointRadius: 0,
+      },
+      {
+        label: 'average',
+        type: 'line',
+        data: [7, 7, 7, 7, 7, 7],
+        borderColor: 'rgba(255, 0, 0, 1)',
         borderWidth: 3,
         pointRadius: 0,
       }
     ]
   }
   const barData = {
-    labels: ['1', '2', '3', '4', '5', '6'],
+    labels: ['', '', '', '', '', ''],
     datasets: [
       {
         label: 'data',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: 'rgba(0, 0, 0, 0.2)',
-        // borderColor: 'rgba(0, 0, 0, 0.4)',
         borderWidth: 0,
+      },
+      {
+        label: 'average',
+        type: 'line',
+        data: [7, 7, 7, 7, 7, 7],
+        borderColor: 'rgba(255, 0, 0, 1)',
+        borderWidth: 3,
+        pointRadius: 0,
       }
     ]
   }
@@ -83,7 +101,7 @@ const MyChart = () => {
   return (
     <div>
       <div className={styles.chartTitle}>
-        <img  className={styles.chartLogo} src={Logo} alt="chart logo" />
+        <IoIosMan className={styles.chartLogo} size={logoSize} color={logoColor}/>
         <p className={styles.chartString}>接触人数</p>
       </div>
       <Bar
@@ -94,7 +112,7 @@ const MyChart = () => {
         options={barOptions}
       />
       <div className={styles.chartTitle}>
-        <img  className={styles.chartLogo} src={Logo} alt="chart logo" />
+        <RiSurgicalMaskLine className={styles.chartLogo} size={logoSize} color={logoColor}/>
         <p className={styles.chartString}>ON/OFF</p>
       </div>
       <Line
