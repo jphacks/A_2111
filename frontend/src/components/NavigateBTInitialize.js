@@ -212,11 +212,6 @@ const NavigateBTInitialize = () => {
                 </Tag>
               </div>
             )}
-            <Container>
-              <Button onClick={handleStartDemoMode} size="sm">
-                デモモードで始める
-              </Button>
-            </Container>
           </ModalBody>
         </ModalContent>
       </Modal>
