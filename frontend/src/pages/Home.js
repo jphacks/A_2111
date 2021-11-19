@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.scss'
 // import maskPic from '../assets/mask.png'
-import maskOpenVideo from '../assets/maskOpen2.mp4'
-import maskCloseVideo from '../assets/maskClose2.mp4'
+import maskOpenVideo from '../assets/maskOpen.mp4'
+import maskCloseVideo from '../assets/maskClose.mp4'
 import {
   Modal,
   ModalOverlay,
