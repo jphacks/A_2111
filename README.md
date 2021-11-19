@@ -1,6 +1,6 @@
 # ココノマスク
 
-![image](https://user-images.githubusercontent.com/38291975/142407319-40ad3671-2623-4855-90ec-a09dd28aa677.png)
+![image](https://user-images.githubusercontent.com/38291975/142687042-432f950e-36f3-4b2e-aca8-ae591185f5c4.png)
 
 ### 動画
 
@@ -19,8 +19,7 @@ https://www.canva.com/design/DAEv-7H1qU4/view?embed
 
 ### 製品説明（具体的な製品の説明）
 
-![image](https://user-images.githubusercontent.com/38291975/142407258-df729dbf-8727-4da0-a6fd-cf9329ad6230.png)
-
+![image](https://user-images.githubusercontent.com/38291975/142687552-7220ed3a-ce7c-4707-8801-a175fa20e62a.png)
 ### 特長
 
 #### 特長 1 　 COCOA の電波受信して自動でマスク開閉
@@ -104,7 +103,7 @@ withコロナ時代におけるマスクを常時着用しなければいけな�
 #### ハッカソンで開発した独自機能・技術
 
 - 電動スライダー（Motorized Slide Potentiometer）とワイヤーを用いた動力変換機構
-  ![image](https://user-images.githubusercontent.com/38291975/139562527-45087b38-b113-4212-8371-10bc76d05a08.png)
+  ![image](https://user-images.githubusercontent.com/38291975/142687178-3cb6a7a8-3411-4e04-b53f-39739f79ba5b.png)
 
 - COCOA の API は一般人は許可なく利用できなかったため、GAEN API を利用せず、bluetooth の service uuid を直接解析して通信。
 <!-- - 特に力を入れた部分をファイルリンク、または commit_id を記載してください。 -->
