@@ -1,4 +1,4 @@
-import { Bar, Line, defaults } from 'react-chartjs-2'
+import { Line, defaults } from 'react-chartjs-2'
 import styles from '../styles/Home.module.scss'
 import { IoIosMan } from 'react-icons/io'
 import { RiSurgicalMaskLine } from 'react-icons/ri'
