@@ -47,7 +47,7 @@ const Home = () => {
     }
     setMaskOpen(nextStatus)
   }
-  const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
+  // const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
 
   if (!signedInUser) {
     return (
@@ -80,8 +80,7 @@ const Home = () => {
       <NavigateBTInitialize />
       <div className={styles.headerContainer}>
         <Header />
-        <p className={styles.userName}>{name}さん</p>
-        {/* TODO:名前を表示させる */}
+        <p className={styles.userName}>{signedInUser}さん</p>
       </div>
 
       <p>
