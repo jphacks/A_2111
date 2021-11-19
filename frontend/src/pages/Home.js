@@ -111,7 +111,11 @@ const Home = () => {
           ></div>
           <script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
 
-          <div id="app" style={{marginBottom:"60px" , marginTop:"20px"}} onChange={handleMaskChange}>
+          <div
+            id="app"
+            style={{ marginBottom: '60px', marginTop: '20px' }}
+            onChange={handleMaskChange}
+          >
             <label className={styles.checker}>
               <input className={styles.checkbox} type="checkbox" />
               <div className={styles.checkbg}></div>
