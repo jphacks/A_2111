@@ -8,6 +8,7 @@
 
 ### プレゼンテーション
 以下のリンクより確認可能です。
+
 https://www.canva.com/design/DAEv-7H1qU4/view?embed
 
 ## 製品概要
