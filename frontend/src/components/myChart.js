@@ -2,8 +2,7 @@ import { Line, defaults } from 'react-chartjs-2'
 import styles from '../styles/Home.module.scss'
 import { IoIosMan } from 'react-icons/io'
 import { RiSurgicalMaskLine } from 'react-icons/ri'
-const logoSize = 20
-const logoColor = '#79B23C'
+
 
 const MyChart = () => {
   // TODO グラフのデータ本物にする
