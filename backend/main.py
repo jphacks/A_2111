@@ -44,7 +44,7 @@ async def get_members():
 
 # 特定の登録情報を取得
 @app.get("/member")
-async def get_member(uuid: str = Form(...)):
+async def get_member(uuid: str):
     member = await crud.get_member(uuid)
     resp = {
         "status": "ok",
