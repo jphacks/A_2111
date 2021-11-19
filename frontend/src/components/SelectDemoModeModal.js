@@ -49,7 +49,7 @@ const SelectDemoModeModal = () => {
                 size="md"
                 colorScheme="orange"
                 variant="outline"
-                width='80%'
+                width="80%"
                 left="50%"
                 transform="translateX(-50%)"
                 marginBottom={5}

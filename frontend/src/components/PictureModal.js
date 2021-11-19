@@ -9,7 +9,7 @@ import {
   Container,
   useToast
 } from '@chakra-ui/react'
-import Webcam from "react-webcam"
+import Webcam from 'react-webcam'
 import { useRef, useState, useCallback } from 'react'
 
 const PictureModal = () => {
@@ -40,20 +40,16 @@ const PictureModal = () => {
           <ModalHeader>顔の写真を撮るよ</ModalHeader>
           <ModalBody>
             <Container>
-              <Webcam
-                audio={false}
-                ref={webcamRef}
-                screenshotFormat="image/png"
-              />
+              <Webcam audio={false} ref={webcamRef} screenshotFormat="image/png" />
               <Button
                 onClick={capture}
                 size="md"
                 colorScheme="orange"
                 variant="outline"
-                width='80%'
+                width="80%"
                 left="50%"
                 transform="translateX(-50%)"
-                margin='20px 0'
+                margin="20px 0"
               >
                 撮影
               </Button>
