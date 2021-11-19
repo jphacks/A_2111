@@ -1,3 +1,5 @@
+import { getNameFromId } from './api'
+
 const DEFAULT_STORAGE_TYPE = 'localStorage'
 const DEFAULT_KEY = 'GARIGARI_MASK_USER_ID_KEY'
 const DEFAULT_NAME_KEY = 'GARIGARI_MASK_USER_NAME_KEY'
@@ -84,11 +86,17 @@ export const resetLocalStorage = () => {
 
 // TODO: 今ログインしてるユーザーIDを取得するやつ
 
-export const getPeopleAtLeastOnceSignedInBefore = () => {
+export const getPeopleAtLeastOnceSignedInBefore = async () => {
   // TODO: 実装
   // TODO: これまでにログインしたことがあるIDをちゃんと見せる
-  return [
+
+  const ids = [
     '3182b6cb-b681-4793-818c-66f928ccc513', // あかね さんのID
     '0e8e5ee3-9f97-4cff-8993-1a076b405986' // たなか さんのID
   ]
+  const names = []
+  for (let i = 0; i < ids.length; i++) {
+    names[i] = await getNameFromId(ids[i])
+  }
+  return names
 }
