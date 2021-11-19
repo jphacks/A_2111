@@ -7,7 +7,6 @@ import {
   ModalHeader,
   ModalBody,
   Progress,
-  Container,
   Code,
   Input,
   Tag,
@@ -29,7 +28,7 @@ const BTSettingLinkSuffix = '://flags/#enable-experimental-web-platform-features
 
 const NavigateBTInitialize = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { demoMode, setDemoMode, initialLoading, setScanningLE, setWasCoconoThere, setMaskName } =
+  const { demoMode, initialLoading, setScanningLE, setWasCoconoThere, setMaskName } =
     useContext(AppContext)
   const [canUseBT, setCanUseBT] = useState(false) // eslint-disable-line
   const [description2, setDescription2] = useState('')
@@ -172,11 +171,6 @@ const NavigateBTInitialize = () => {
     if (!isOpen && demoMode === false && !canUseBT) {
       onOpen()
     }
-  }
-
-  const handleStartDemoMode = () => {
-    setDemoMode(true)
-    onClose()
   }
 
   const handleOverlayClick = () => {
