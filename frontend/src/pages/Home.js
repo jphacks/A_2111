@@ -3,9 +3,6 @@ import styles from '../styles/Home.module.scss'
 import maskOpenVideo from '../assets/maskOpen.mp4'
 import maskCloseVideo from '../assets/maskClose.mp4'
 import {
-  Box,
-  HStack,
-  Button,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -14,7 +11,6 @@ import {
   ModalCloseButton,
   Switch
 } from '@chakra-ui/react'
-import { BsPersonPlus } from 'react-icons/bs'
 import { useDisclosure } from '@chakra-ui/hooks'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
@@ -25,16 +21,16 @@ import Header from '../components/header'
 import Pairing from '../components/Pairing'
 import SelectDemoModeModal from '../components/SelectDemoModeModal'
 import SelectUserScreen from './SelectUserScreen'
+import MyChart from '../components/myChart'
 
 // const useQuery = () => new URLSearchParams(useLocation().search)
 
 const Home = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onClose } = useDisclosure()
   const {
     shouldShowNewRegistration,
     isMaskOpen,
     setMaskOpen,
-    familiars,
     isScanningLE,
     notPairedYet,
     ch,
@@ -102,35 +98,17 @@ const Home = () => {
             )}
             <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
           </div>
-          <div style={{ textAlign: 'center', transform: 'scale(3)' }}>
-            <Switch onChange={handleMaskChange} colorScheme="facebook" isChecked={!isMaskOpen} />
+          <div style={{ textAlign: 'center', transform: 'scale(1)' }}>
+            <Switch
+              onChange={handleMaskChange}
+              colorScheme="facebook"
+              size="lg"
+              isChecked={!isMaskOpen}
+            />
           </div>
         </>
       )}
-      <div className={styles.friendList}>
-        <HStack spacing="50vw">
-          <p className={styles.friendListTitle}> 友達一覧</p>
-          <Button variant="ghost" onClick={onOpen}>
-            <BsPersonPlus size={25} />
-          </Button>
-        </HStack>
-        <hr className={styles.border} />
-        {/* TODO: コンポーネントに切り出したい↓ */}
-        {familiars?.length
-          ? familiars.map((person, i) => (
-              <Box
-                key={i}
-                boxShadow="xs"
-                w="100%"
-                p={3}
-                marginBottom="1.5px"
-                _hover={{ background: 'gray.200' }}
-              >
-                <p className={styles.friendName}>{person}</p>
-              </Box>
-            ))
-          : null}
-      </div>
+      <MyChart />
     </div>
   )
 }
