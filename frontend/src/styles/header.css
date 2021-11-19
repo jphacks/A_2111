@@ -15,8 +15,8 @@
   position: absolute;
   width: 60px;
   height: 60px;
-  top: 10px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
   background: #82c041;
   transition: all 0.8s ease;
   z-index: 2;

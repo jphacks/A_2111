@@ -26,7 +26,8 @@ const SelectUserScreen = () => {
     <div>
       <div>
         {members ? (
-          <>
+          <div style={{ height: '100vh' }}>
+            <div style={{ height: '150px' }}></div>
             <p className={styles.signInSentence}>どのユーザーでログインしますか？</p>
             {members.map((member) => {
               return (
@@ -36,7 +37,8 @@ const SelectUserScreen = () => {
                     marginTop={5}
                     width={'52'}
                     height={'50'}
-                    bg={'blue.100'}
+                    bg={'green.600'}
+                    variant="outline"
                     textAlign={'center'}
                     onClick={() => {
                       signInwithThis(member)
@@ -54,7 +56,7 @@ const SelectUserScreen = () => {
                 ユーザーを追加
               </Button>
             </div>
-          </>
+          </div>
         ) : (
           <p>
             <button onClick={() => alert('未実装！')}>ユーザー新規登録はこちら！</button>
