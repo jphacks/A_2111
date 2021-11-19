@@ -47,7 +47,7 @@ const Home = () => {
     }
     setMaskOpen(nextStatus)
   }
-  const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
+  // const name = localStorage.getItem('GARIGARI_MASK_USER_NAME_KEY')
 
   if (!signedInUser) {
     return (
