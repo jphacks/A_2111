@@ -3,40 +3,27 @@
 
 ## 説明
 
-### `main.py`
-
+### BLE機能
 COCOA の信号を受信し、マスクの開閉を行います。COCOA の API は認証された組織しか使用できないため、API を経由せず直接 Service UUID を読み込んで判断しています。公式 Docs より、COCOA の Service UUID は１６進数で`fd6f`です。また、変数 age によってマスクの長さを調節します。
 
 - 出典：https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf/
   ![image](https://user-images.githubusercontent.com/38291975/139562187-42336a13-7507-4942-8bce-fe982d58ced1.png)
 
-### `pair.py`
+### BLuetooth機能
+スマートフォンとはBLuetoothでペアリングし通信します。
 
-BLE でペアリングし、モーターを動作させます。
-
-## 実行方法
-
-`docker build -t blt:latest .`
-
-`docker run -v /home:/home --privileged -it --net host python:3.8 /bin/bash`
+### 顔認証機能
+モデルについては`A_2111/ML`ディレクトリに記載してあります。デバイス上では推論に最適化されたONNXRuntimeにより実行しています。
 
 ## ハードについて
 
 ### 部品
 
-- 制御：raspberry pi zero
+- 制御：raspberry pi 3
 - モーター制御：L298N
 - 電動スライダー：RSA0N11M9A0J
 - ワイヤー（φ1mm 汎用品 左右約 400mm ずつ）
 - その他部品（百均など）
 
-### 製作費
-
-- 部品・材料代：2000 円程度
-  - raspi zero 600 円
-  - 電動スライダー 1000 円
-  - モータードライバー 200 円
-  - 外装 400 円
-  - 残りはその他部品
 
 ![image](images/components.png)

@@ -1,9 +1,20 @@
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { getPeopleAtLeastOnceSignedInBefore } from '../utils/storage'
+import styles from '../styles/Signup.module.scss'
+import { Button } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
+import { BsPersonPlusFill } from 'react-icons/bs'
 
 const SelectUserScreen = () => {
-  const members = getPeopleAtLeastOnceSignedInBefore()
+  const [members, setmembers] = useState([])
+
+  useEffect(() => {
+    getPeopleAtLeastOnceSignedInBefore().then((res) => {
+      setmembers(res)
+    })
+  }, [])
+
   const { setSignedInUser, setShouldShowNewRegistration } = useContext(AppContext)
 
   const signInwithThis = (member) => {
@@ -16,20 +27,33 @@ const SelectUserScreen = () => {
       <div>
         {members ? (
           <>
+            <p className={styles.signInSentence}>どのユーザーでログインしますか？</p>
             {members.map((member) => {
               return (
-                <p key={member} style={{ margin: '100px' }}>
-                  <button
+                <div className={styles.SelectUserButton}>
+                  <Button
+                    key={member}
+                    marginTop={5}
+                    width={'52'}
+                    height={'50'}
+                    bg={'blue.100'}
+                    textAlign={'center'}
                     onClick={() => {
                       signInwithThis(member)
                     }}
                   >
-                    {member} でログイン
-                  </button>
-                </p>
+                    {/* Todo:Box中を白にして外側灰色にしたい */}
+
+                    {member}
+                  </Button>
+                </div>
               )
             })}
-            <p>それか、新規登録してね</p>
+            <div className={styles.SelectUserButton}>
+              <Button width={'52'} height={'50'} marginTop={20} leftIcon={<BsPersonPlusFill />}>
+                ユーザーを追加
+              </Button>
+            </div>
           </>
         ) : (
           <p>

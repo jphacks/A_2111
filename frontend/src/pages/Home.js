@@ -12,7 +12,6 @@ import {
   Switch
 } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/hooks'
-import ModalQrBody from '../components/ModalQrBody'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
@@ -35,7 +34,6 @@ const Home = () => {
     isScanningLE,
     notPairedYet,
     ch,
-    userId,
     signedInUser
   } = useContext(AppContext)
 
@@ -76,7 +74,6 @@ const Home = () => {
             <div className={styles.qrcodeSentence}>
               友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
             </div>
-            <ModalQrBody text={window.location.origin + '?register=' + userId} />
           </ModalBody>
         </ModalContent>
       </Modal>

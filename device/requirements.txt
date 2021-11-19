@@ -1,5 +1,0 @@
-bluepy
-pybleno
-RpiMotorLib
-numpy
-

@@ -1,16 +1,14 @@
 .playingVideo {
   height: 100vh;
   width: 100vw;
-  padding-top: 35vh;
-  background: #8aba43;
+  background: black;
 }
 
 .shouldAnimateStart {
   position: relative;
   height: 100vh;
   width: 100vw;
-  padding-top: 35vh;
-  background: #8aba43;
+  background: black;
 }
 
 .shouldAnimateStart::after {
@@ -36,8 +34,13 @@
 }
 
 .splashVideo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin: auto;
-  width: 90%;
+  width: 100vw;
 }
 
 @media screen and (min-width: 481px) {
