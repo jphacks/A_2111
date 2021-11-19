@@ -37,7 +37,7 @@ const SelectUserScreen = () => {
                     marginTop={5}
                     width={'52'}
                     height={'50'}
-                    bg={'green.600'}
+                    bg={'green.500'}
                     variant="outline"
                     textAlign={'center'}
                     onClick={() => {

@@ -108,7 +108,9 @@ const Home = () => {
           </div>
         </>
       )}
-      <MyChart />
+      <div style={{ height: '105vh' }}>
+        <MyChart />
+      </div>
     </div>
   )
 }
