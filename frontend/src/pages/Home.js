@@ -80,7 +80,7 @@ const Home = () => {
       <NavigateBTInitialize />
       <div className={styles.headerContainer}>
         <Header />
-        <p className={styles.userName}>{name}さん</p>
+        <p className={styles.userName}>{signedInUser}さん</p>
       </div>
 
       <p>
