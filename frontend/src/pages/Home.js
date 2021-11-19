@@ -77,7 +77,7 @@ const Home = () => {
             ) : (
               <video className={styles.maskPic} src={maskCloseVideo} autoPlay muted></video>
             )}
-            <p >マスク{isMaskOpen ? '外し中' : '着用中'}</p>
+            <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
           </div>
           <div
             href="https://youtu.be/VOmlp4k5T0A"
