@@ -12,4 +12,4 @@ vggface2(https://arxiv.org/abs/1710.08092)
 InceptionResnetV1
 
 モデル概要図
-![](https://github.com/jphacks/A_2111/blob/readme/ML/pic.png?raw=true)
+![](https://github.com/jphacks/A_2111/blob/main/ML/pic.png?raw=true)

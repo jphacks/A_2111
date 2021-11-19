@@ -2,16 +2,6 @@ import styles from '../styles/Home.module.scss'
 // import maskPic from '../assets/mask.png'
 import maskOpenVideo from '../assets/maskOpen.mp4'
 import maskCloseVideo from '../assets/maskClose.mp4'
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  Switch
-} from '@chakra-ui/react'
-import { useDisclosure } from '@chakra-ui/hooks'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
@@ -23,11 +13,11 @@ import SelectDemoModeModal from '../components/SelectDemoModeModal'
 import SelectUserScreen from './SelectUserScreen'
 import MyChart from '../components/myChart'
 import AdjustString from '../components/AdjustString'
+import PictureModal from '../components/PictureModal'
 
 // const useQuery = () => new URLSearchParams(useLocation().search)
 
 const Home = () => {
-  const { isOpen, onClose } = useDisclosure()
   const {
     shouldShowNewRegistration,
     isMaskOpen,
@@ -66,20 +56,8 @@ const Home = () => {
 
   return (
     <div>
-      <SelectDemoModeModal />
+      {/* <SelectDemoModeModal /> */}
       <AdjustString />
-      <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>マイ QR コード</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <div className={styles.qrcodeSentence}>
-              友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
-            </div>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
       <NavigateBTInitialize />
       <div className={styles.headerContainer}>
         <Header />
@@ -89,7 +67,8 @@ const Home = () => {
           }}
           className={styles.userName}
         >
-          {signedInUser}さん
+          {signedInUser}
+          <span style={{ fontSize: '20px' }}> さん</span>
         </p>
       </div>
 
@@ -100,6 +79,7 @@ const Home = () => {
         <Pairing />
       ) : (
         <>
+          <PictureModal />
           <div className={styles.mask}>
             {isMaskOpen ? (
               <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
@@ -108,17 +88,42 @@ const Home = () => {
             )}
             <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
           </div>
-          <div style={{ textAlign: 'center', transform: 'scale(1)' }}>
-            <Switch
-              onChange={handleMaskChange}
-              colorScheme="facebook"
-              size="lg"
-              isChecked={!isMaskOpen}
-            />
+          <div
+            href="https://youtu.be/VOmlp4k5T0A"
+            target="_blank"
+            rel="noreferrer"
+            data-keyframers-credit
+            style={{ color: '#444' }}
+          ></div>
+          <script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
+
+          <div
+            id="app"
+            style={{ marginBottom: '100px', marginTop: '40px' }}
+            onChange={handleMaskChange}
+          >
+            <label className={styles.checker}>
+              <input className={styles.checkbox} type="checkbox" />
+              <div className={styles.checkbg}></div>
+              <div className={styles.checkmark}>
+                <svg viewBox="0 0 100 100">
+                  <path
+                    d="M20,55 L40,75 L77,27"
+                    fill="none"
+                    stroke="#FFF"
+                    stroke-width="15"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </label>
           </div>
         </>
       )}
-      <MyChart />
+      <div style={{ height: '110vh' }}>
+        <MyChart />
+      </div>
     </div>
   )
 }
