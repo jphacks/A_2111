@@ -3,7 +3,6 @@ import styles from '../styles/Home.module.scss'
 import { IoIosMan } from 'react-icons/io'
 import { RiSurgicalMaskLine } from 'react-icons/ri'
 
-
 const MyChart = () => {
   // TODO グラフのデータ本物にする
   const barData = {
