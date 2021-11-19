@@ -8,8 +8,6 @@ import {
   ModalBody,
   Container
 } from '@chakra-ui/react'
-import { useContext } from 'react'
-import { AppContext } from '../contexts/AppContext'
 
 const SelectDemoModeModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure() // eslint-disable-line
@@ -26,7 +24,6 @@ const SelectDemoModeModal = () => {
         <ModalContent>
           <ModalHeader>モードを選んでね</ModalHeader>
           <ModalBody>
-            {/* <Container textAlign={'center'}> */}
             <Container>
               <Button
                 onClick={() => {
