@@ -19,6 +19,9 @@ const Pairing = () => {
     if (!initialLoading && demoMode) {
       setWasCoconoThere(true)
     }
+    if (demoMode === true) {
+      startParing()
+    }
   }, [initialLoading]) //eslint-disable-line
 
   const startParing = () => {
@@ -63,6 +66,7 @@ const Pairing = () => {
       }, 1600)
     }
   }
+
   return (
     <div>
       <Container bg="gray.100" color="gray.700" borderRadius="16px" pt="20px" pb="20px">
@@ -80,7 +84,7 @@ const Pairing = () => {
               isLoading={onGoing}
               spinnerPlacement="end"
               loadingText="ペアリングする"
-              // TODO: デモのときはそうと分かるような表示出す
+            // TODO: デモのときはそうと分かるような表示出す
             >
               ペアリングする
             </Button>
