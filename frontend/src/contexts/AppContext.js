@@ -16,6 +16,8 @@ const AppContextProvider = ({ children }) => {
   const [showSplash, setShowSplash] = useState(true)
   const [signedInUser, setSignedInUser] = useState(null)
 
+  const [openAdjustString, setOpenAdjustString] = useState(false)
+
   const [initialLoading, setInitialLoading] = useState(true)
   const [localStorageAvailable, setLocalStorageAvailable] = useState(false)
   const [userId, setUserId] = useState(undefined)
@@ -30,7 +32,6 @@ const AppContextProvider = ({ children }) => {
   const [maskName, setMaskName] = useState(false)
   const [ch, setCh] = useState(undefined)
 
-  const [waitForReloading, setWaitForReloading] = useState(false)
   const [isScanningLE, setScanningLE] = useState(false)
 
   const setShouldCheckBTStatus = (status) => {
@@ -38,7 +39,6 @@ const AppContextProvider = ({ children }) => {
   }
 
   const setDemoMode = (setToDemoMode) => {
-    setWaitForReloading(true)
     setShouldCheckBTStatus(!setToDemoMode)
     setDemoModeToStorage(setToDemoMode)
     _setDemoMode(setToDemoMode)
@@ -113,7 +113,6 @@ const AppContextProvider = ({ children }) => {
         setShouldShowNewRegistration,
         shouldCheckBTStatus,
         setShouldCheckBTStatus,
-        waitForReloading,
         isScanningLE,
         setScanningLE,
         familiars,
@@ -128,7 +127,9 @@ const AppContextProvider = ({ children }) => {
         showSplash,
         setShowSplash,
         signedInUser,
-        setSignedInUser
+        setSignedInUser,
+        openAdjustString,
+        setOpenAdjustString
       }}
     >
       {children}

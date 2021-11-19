@@ -5,6 +5,7 @@ import styles from '../styles/Signup.module.scss'
 import { Button } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { BsPersonPlusFill } from 'react-icons/bs'
+import Triangle from '../components/Triangle'
 
 const SelectUserScreen = () => {
   const [members, setmembers] = useState([])
@@ -25,20 +26,23 @@ const SelectUserScreen = () => {
   return (
     <div>
       <div>
+        <Triangle />
+        <Triangle />
+        <Triangle />
+        <div className={styles.triangle}></div>
         {members ? (
           <div style={{ height: '100vh' }}>
             <div style={{ height: '150px' }}></div>
             <p className={styles.signInSentence}>どのユーザーでログインしますか？</p>
             {members.map((member) => {
               return (
-                <div className={styles.SelectUserButton}>
+                <div className={styles.SelectUserButton} key={member}>
                   <Button
                     key={member}
                     marginTop={5}
                     width={'52'}
                     height={'50'}
-                    bg={'green.500'}
-                    variant="outline"
+                    bg={'orange.300'}
                     textAlign={'center'}
                     onClick={() => {
                       signInwithThis(member)
@@ -52,7 +56,14 @@ const SelectUserScreen = () => {
               )
             })}
             <div className={styles.SelectUserButton}>
-              <Button width={'52'} height={'50'} marginTop={20} leftIcon={<BsPersonPlusFill />}>
+              <Button
+                width={'52'}
+                height={'50'}
+                marginTop={20}
+                colorScheme="teal"
+                variant="outline"
+                leftIcon={<BsPersonPlusFill />}
+              >
                 ユーザーを追加
               </Button>
             </div>

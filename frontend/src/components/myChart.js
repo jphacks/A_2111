@@ -13,7 +13,7 @@ const MyChart = () => {
         label: 'average',
         type: 'line',
         data: [7, 7, 7, 7, 7, 7, 7, 7, 7],
-        borderColor: ' rgba(255, 0, 0, 1)',
+        borderColor: ' rgba(255, 0, 0, 0.6)',
         borderWidth: 6,
         pointRadius: 0
       },
@@ -21,7 +21,7 @@ const MyChart = () => {
         label: 'data',
         type: 'bar',
         data: [null, 12, 19, 3, 5, 2, 3, 20, null],
-        backgroundColor: 'rgba(176,196,222,0.9)',
+        backgroundColor: 'rgba(176,196,222,0.7)',
         borderWidth: 0,
         borderRadius: 8,
         borderSkipped: false
@@ -35,7 +35,7 @@ const MyChart = () => {
         label: 'average',
         type: 'line',
         data: [14, 14, 14, 14, 14, 14, 14, 14, 14],
-        borderColor: 'rgba(255, 0, 0, 1)',
+        borderColor: 'rgba(255, 0, 0, 0.6)',
         borderWidth: 6,
         pointRadius: 0
       },
@@ -43,7 +43,7 @@ const MyChart = () => {
         label: 'data',
         type: 'bar',
         data: [null, 12, 16, 5, 2, 10, 2, 10, null],
-        backgroundColor: 'rgba(176,196,222,0.9)',
+        backgroundColor: 'rgba(176,196,222,0.7)',
         borderWidth: 0,
         borderRadius: 8,
         borderSkipped: false
@@ -122,7 +122,7 @@ const MyChart = () => {
       <div className={styles.chartTitle}>
         <RiSurgicalMaskLine className={styles.chartLogo} size={25} color={'orange'} />
         <p className={styles.chartString}>装着時間</p>
-        <div>
+        <div style={{ textAlign: 'right' }}>
           <span className={styles.chartString_2}>1日の平均 </span>
           <span className={styles.chartString_3}>20時間38分</span>
         </div>

@@ -29,15 +29,8 @@ const BTSettingLinkSuffix = '://flags/#enable-experimental-web-platform-features
 
 const NavigateBTInitialize = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const {
-    demoMode,
-    setDemoMode,
-    initialLoading,
-    waitForReloading,
-    setScanningLE,
-    setWasCoconoThere,
-    setMaskName
-  } = useContext(AppContext)
+  const { demoMode, setDemoMode, initialLoading, setScanningLE, setWasCoconoThere, setMaskName } =
+    useContext(AppContext)
   const [canUseBT, setCanUseBT] = useState(false) // eslint-disable-line
   const [description2, setDescription2] = useState('')
   const [progressValue, setProgressValue] = useState(0)
@@ -176,7 +169,7 @@ const NavigateBTInitialize = () => {
   if (initialLoading) {
     return null
   } else {
-    if (!isOpen && demoMode === false && !canUseBT && !waitForReloading) {
+    if (!isOpen && demoMode === false && !canUseBT) {
       onOpen()
     }
   }

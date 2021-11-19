@@ -18,10 +18,10 @@ const Pairing = () => {
   useEffect(() => {
     if (!initialLoading && demoMode) {
       setWasCoconoThere(true)
-    }
-    if (demoMode === true) {
       startParing()
     }
+    // console.log("demoMode", demoMode)
+    // if (demoMode === true) {}
   }, [initialLoading]) //eslint-disable-line
 
   const startParing = () => {
