@@ -61,7 +61,7 @@ const Home = () => {
   if (shouldShowNewRegistration) {
     return <Redirect to="/signup" />
   }
- 
+
   return (
     <div>
       <SelectDemoModeModal />
@@ -99,7 +99,12 @@ const Home = () => {
             <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
           </div>
           <div style={{ textAlign: 'center', transform: 'scale(1)' }}>
-            <Switch onChange={handleMaskChange} colorScheme="facebook" size='lg' isChecked={!isMaskOpen} />
+            <Switch
+              onChange={handleMaskChange}
+              colorScheme="facebook"
+              size="lg"
+              isChecked={!isMaskOpen}
+            />
           </div>
         </>
       )}
