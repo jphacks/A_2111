@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kosugi&family=M+PLUS+1&family=Rajdhani:wght@600&display=swap');
 
 .HeaderLogo {
-  position: absolute;
+  position: fixed;
   width: 60px;
   height: 60px;
   z-index: 3;
@@ -13,7 +13,7 @@
   margin-top: 15px;
 }
 .about {
-  position: absolute;
+  position: fixed;
   width: 60px;
   height: 60px;
   top: 15px;

@@ -1,10 +1,12 @@
 import '../styles/header.css'
 import Logo from '../assets/newIcon.png'
-import { useState } from 'react'
+import { useContext } from 'react'
 import { FaGithub } from 'react-icons/fa'
+import { AppContext } from '../contexts/AppContext'
 
 const Header = () => {
-  const [headerOpen, setHeaderOpen] = useState(false)
+  const { headerOpen, setHeaderOpen } = useContext(AppContext)
+
   return (
     <>
       <img
