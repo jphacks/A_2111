@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Kosugi&family=M+PLUS+1&display=swap');
 
-.triangle{
+.triangle {
   animation: rotation 40s linear infinite;
 }
 @keyframes rotation {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .signupContainer {
   text-align: center;
@@ -40,4 +44,3 @@
 .SelectUserButton {
   text-align: center;
 }
-

@@ -132,7 +132,7 @@ const AppContextProvider = ({ children }) => {
         openAdjustString,
         setOpenAdjustString,
         headerOpen,
-        setHeaderOpen,
+        setHeaderOpen
       }}
     >
       {children}

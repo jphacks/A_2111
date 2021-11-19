@@ -27,7 +27,7 @@ const Home = () => {
     ch,
     signedInUser,
     setOpenAdjustString,
-    headerOpen,
+    headerOpen
   } = useContext(AppContext)
 
   const handleMaskChange = () => {
@@ -72,7 +72,7 @@ const Home = () => {
           <span style={{ fontSize: '20px' }}> さん</span>
         </p>
       </div>
-      <div style={{display: headerOpen ? 'none' : ''}}>
+      <div style={{ display: headerOpen ? 'none' : '' }}>
         <p>
           <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
         </p>

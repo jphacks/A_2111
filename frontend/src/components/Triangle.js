@@ -12,7 +12,7 @@ const Triangle = () => {
     <div
       className={styles.triangle}
       style={{
-        transformOrigin: (left + size) + 'px ' + (top + size) + 'px',
+        transformOrigin: left + size + 'px ' + (top + size) + 'px'
       }}
     >
       <div
@@ -24,10 +24,9 @@ const Triangle = () => {
           borderBottom: size + 'px solid ' + color,
           borderLeft: size + 'px solid ' + backColor,
           borderRight: size + 'px solid ' + backColor,
-          transform: 'rotate(' + angle + 'deg)',
+          transform: 'rotate(' + angle + 'deg)'
         }}
-      >
-      </div>
+      ></div>
     </div>
   )
 }
