@@ -8,6 +8,7 @@
 
 ### プレゼンテーション
 以下のリンクより確認可能です。
+
 https://www.canva.com/design/DAEv-7H1qU4/view?embed
 
 ## 製品概要
@@ -49,7 +50,7 @@ https://www.canva.com/design/DAEv-7H1qU4/view?embed
 また、マスクの紐を耳にかけることによって生じる痛みからも逃れることができます。
 
 ### 今後の展望
-withロナ時代におけるマスクを常時着用しなければいけないという懸念を除去します。
+withコロナ時代におけるマスクを常時着用しなければいけないという懸念を除去します。
 
 ### 注力したこと（こだわり等）
 
@@ -67,7 +68,7 @@ withロナ時代におけるマスクを常時着用しなければいけない�
 
 ### 活用した技術
 
-![image](https://user-images.githubusercontent.com/38291975/142406632-ee7b487c-e8b7-43ad-abec-866bf564257c.png)
+![image](https://user-images.githubusercontent.com/38291975/142573502-7fc69ebd-356f-4542-98bc-0f99e673533e.png)
 
 #### API・データ
 
