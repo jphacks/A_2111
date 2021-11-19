@@ -122,7 +122,7 @@ const MyChart = () => {
       <div className={styles.chartTitle}>
         <RiSurgicalMaskLine className={styles.chartLogo} size={25} color={'orange'} />
         <p className={styles.chartString}>装着時間</p>
-        <div>
+        <div style={{textAlign:'right'}}>
           <span className={styles.chartString_2}>1日の平均 </span>
           <span className={styles.chartString_3}>20時間38分</span>
         </div>

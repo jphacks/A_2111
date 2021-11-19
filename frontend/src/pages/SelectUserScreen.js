@@ -37,8 +37,7 @@ const SelectUserScreen = () => {
                     marginTop={5}
                     width={'52'}
                     height={'50'}
-                    bg={'green.500'}
-                    variant="outline"
+                    bg={'orange.300'}
                     textAlign={'center'}
                     onClick={() => {
                       signInwithThis(member)
@@ -52,7 +51,7 @@ const SelectUserScreen = () => {
               )
             })}
             <div className={styles.SelectUserButton}>
-              <Button width={'52'} height={'50'} marginTop={20} leftIcon={<BsPersonPlusFill />}>
+              <Button width={'52'} height={'50'} marginTop={20} colorScheme="teal" variant="outline"  leftIcon={<BsPersonPlusFill />}>
                 ユーザーを追加
               </Button>
             </div>

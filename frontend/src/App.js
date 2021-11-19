@@ -17,7 +17,7 @@ function App() {
   }
 
   return (
-    <div className="App" style={{ backgroundColor: '#D3D3D3' }}>
+    <div className="App" style={{ backgroundColor: 'rgba(220,220,220,0.4)' }}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
