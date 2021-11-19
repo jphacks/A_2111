@@ -2,15 +2,6 @@ import styles from '../styles/Home.module.scss'
 // import maskPic from '../assets/mask.png'
 import maskOpenVideo from '../assets/maskOpen.mp4'
 import maskCloseVideo from '../assets/maskClose.mp4'
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton
-} from '@chakra-ui/react'
-import { useDisclosure } from '@chakra-ui/hooks'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
@@ -26,7 +17,6 @@ import PictureModal from '../components/PictureModal'
 // const useQuery = () => new URLSearchParams(useLocation().search)
 
 const Home = () => {
-  const { isOpen, onClose } = useDisclosure()
   const {
     shouldShowNewRegistration,
     isMaskOpen,
@@ -64,19 +54,6 @@ const Home = () => {
 
   return (
     <div>
-      <SelectDemoModeModal />
-      <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>マイ QR コード</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <div className={styles.qrcodeSentence}>
-              友達がこのQRコードをスキャンすると、あなたを友達に追加できます。
-            </div>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
       <NavigateBTInitialize />
       <div className={styles.headerContainer}>
         <Header />
@@ -113,7 +90,7 @@ const Home = () => {
 
           <div
             id="app"
-            style={{ marginBottom: '60px', marginTop: '20px' }}
+            style={{ marginBottom: '100px', marginTop: '40px' }}
             onChange={handleMaskChange}
           >
             <label className={styles.checker}>
