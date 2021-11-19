@@ -22,6 +22,7 @@ import Pairing from '../components/Pairing'
 import SelectDemoModeModal from '../components/SelectDemoModeModal'
 import SelectUserScreen from './SelectUserScreen'
 import MyChart from '../components/myChart'
+import PictureModal from '../components/PictureModal'
 
 // const useQuery = () => new URLSearchParams(useLocation().search)
 
@@ -90,6 +91,7 @@ const Home = () => {
         <Pairing />
       ) : (
         <>
+          <PictureModal />
           <div className={styles.mask}>
             {isMaskOpen ? (
               <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
