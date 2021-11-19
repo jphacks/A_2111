@@ -22,6 +22,7 @@ import Pairing from '../components/Pairing'
 import SelectDemoModeModal from '../components/SelectDemoModeModal'
 import SelectUserScreen from './SelectUserScreen'
 import MyChart from '../components/myChart'
+import AdjustString from '../components/AdjustString'
 
 // const useQuery = () => new URLSearchParams(useLocation().search)
 
@@ -34,7 +35,8 @@ const Home = () => {
     isScanningLE,
     notPairedYet,
     ch,
-    signedInUser
+    signedInUser,
+    setOpenAdjustString
   } = useContext(AppContext)
 
   const handleMaskChange = () => {
@@ -65,6 +67,7 @@ const Home = () => {
   return (
     <div>
       <SelectDemoModeModal />
+      <AdjustString />
       <Modal isOpen={isOpen} onClose={onClose} size={'sm'}>
         <ModalOverlay />
         <ModalContent>
@@ -80,7 +83,14 @@ const Home = () => {
       <NavigateBTInitialize />
       <div className={styles.headerContainer}>
         <Header />
-        <p className={styles.userName}>{signedInUser}さん</p>
+        <p
+          onClick={() => {
+            setOpenAdjustString(true)
+          }}
+          className={styles.userName}
+        >
+          {signedInUser}さん
+        </p>
       </div>
 
       <p>

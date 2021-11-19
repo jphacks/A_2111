@@ -31,7 +31,7 @@ const SelectUserScreen = () => {
             <p className={styles.signInSentence}>どのユーザーでログインしますか？</p>
             {members.map((member) => {
               return (
-                <div className={styles.SelectUserButton}>
+                <div className={styles.SelectUserButton} key={member}>
                   <Button
                     key={member}
                     marginTop={5}
