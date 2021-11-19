@@ -67,7 +67,7 @@ withロナ時代におけるマスクを常時着用しなければいけない�
 
 ### 活用した技術
 
-![image](https://user-images.githubusercontent.com/38291975/142406632-ee7b487c-e8b7-43ad-abec-866bf564257c.png)
+![image](https://user-images.githubusercontent.com/38291975/142573502-7fc69ebd-356f-4542-98bc-0f99e673533e.png)
 
 #### API・データ
 
