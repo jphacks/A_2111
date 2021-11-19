@@ -17,7 +17,7 @@ const MyChart = () => {
         backgroundColor: 'rgba(0, 0, 0, 0.2)',
         borderWidth: 0,
         borderRadius: 20,
-        borderSkipped: false,
+        borderSkipped: false
       },
       {
         label: 'average',
@@ -25,7 +25,7 @@ const MyChart = () => {
         data: [7, 7, 7, 7, 7, 7, 7, 7],
         borderColor: 'rgba(255, 0, 0, 1)',
         borderWidth: 3,
-        pointRadius: 0,
+        pointRadius: 0
       }
     ]
   }
@@ -39,7 +39,7 @@ const MyChart = () => {
         backgroundColor: 'rgba(0, 0, 0, 0.2)',
         borderWidth: 0,
         borderRadius: 20,
-        borderSkipped: false,
+        borderSkipped: false
       },
       {
         label: 'average',
@@ -47,7 +47,7 @@ const MyChart = () => {
         data: [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4],
         borderColor: 'rgba(255, 0, 0, 1)',
         borderWidth: 3,
-        pointRadius: 0,
+        pointRadius: 0
       }
     ]
   }
@@ -101,11 +101,11 @@ const MyChart = () => {
       }
     }
   }
-  
+
   return (
     <div>
       <div className={styles.chartTitle}>
-        <IoIosMan className={styles.chartLogo} size={logoSize} color={logoColor}/>
+        <IoIosMan className={styles.chartLogo} size={logoSize} color={logoColor} />
         <p className={styles.chartString}>接触人数</p>
       </div>
       <Line
@@ -116,7 +116,7 @@ const MyChart = () => {
         options={barOptions}
       />
       <div className={styles.chartTitle}>
-        <RiSurgicalMaskLine className={styles.chartLogo} size={logoSize} color={logoColor}/>
+        <RiSurgicalMaskLine className={styles.chartLogo} size={logoSize} color={logoColor} />
         <p className={styles.chartString}>ON/OFF</p>
       </div>
       <Line
