@@ -26,7 +26,8 @@ const Home = () => {
     notPairedYet,
     ch,
     signedInUser,
-    setOpenAdjustString
+    setOpenAdjustString,
+    headerOpen,
   } = useContext(AppContext)
 
   const handleMaskChange = () => {
@@ -71,58 +72,59 @@ const Home = () => {
           <span style={{ fontSize: '20px' }}> さん</span>
         </p>
       </div>
+      <div style={{display: headerOpen ? 'none' : ''}}>
+        <p>
+          <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
+        </p>
+        {notPairedYet ? (
+          <Pairing />
+        ) : (
+          <>
+            <PictureModal />
+            <div className={styles.mask}>
+              {isMaskOpen ? (
+                <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
+              ) : (
+                <video className={styles.maskPic} src={maskCloseVideo} autoPlay muted></video>
+              )}
+              <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
+            </div>
+            <div
+              href="https://youtu.be/VOmlp4k5T0A"
+              target="_blank"
+              rel="noreferrer"
+              data-keyframers-credit
+              style={{ color: '#444' }}
+            ></div>
+            <script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
 
-      <p>
-        <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
-      </p>
-      {notPairedYet ? (
-        <Pairing />
-      ) : (
-        <>
-          <PictureModal />
-          <div className={styles.mask}>
-            {isMaskOpen ? (
-              <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
-            ) : (
-              <video className={styles.maskPic} src={maskCloseVideo} autoPlay muted></video>
-            )}
-            <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
-          </div>
-          <div
-            href="https://youtu.be/VOmlp4k5T0A"
-            target="_blank"
-            rel="noreferrer"
-            data-keyframers-credit
-            style={{ color: '#444' }}
-          ></div>
-          <script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
-
-          <div
-            id="app"
-            style={{ marginBottom: '100px', marginTop: '40px' }}
-            onChange={handleMaskChange}
-          >
-            <label className={styles.checker}>
-              <input className={styles.checkbox} type="checkbox" />
-              <div className={styles.checkbg}></div>
-              <div className={styles.checkmark}>
-                <svg viewBox="0 0 100 100">
-                  <path
-                    d="M20,55 L40,75 L77,27"
-                    fill="none"
-                    stroke="#FFF"
-                    stroke-width="15"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </label>
-          </div>
-        </>
-      )}
-      <div style={{ height: '110vh' }}>
-        <MyChart />
+            <div
+              id="app"
+              style={{ marginBottom: '100px', marginTop: '40px' }}
+              onChange={handleMaskChange}
+            >
+              <label className={styles.checker}>
+                <input className={styles.checkbox} type="checkbox" />
+                <div className={styles.checkbg}></div>
+                <div className={styles.checkmark}>
+                  <svg viewBox="0 0 100 100">
+                    <path
+                      d="M20,55 L40,75 L77,27"
+                      fill="none"
+                      stroke="#FFF"
+                      stroke-width="15"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </label>
+            </div>
+          </>
+        )}
+        <div style={{ height: '110vh' }}>
+          <MyChart />
+        </div>
       </div>
     </div>
   )

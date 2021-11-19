@@ -121,6 +121,7 @@
   left: 0;
   opacity: 0.4;
   visibility: hidden;
+  z-index: 1;
 
   &:checked {
     ~ .checkmark {
