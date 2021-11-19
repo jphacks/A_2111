@@ -176,7 +176,7 @@ const NavigateBTInitialize = () => {
   if (initialLoading) {
     return null
   } else {
-    if (!isOpen && !demoMode && !canUseBT && !waitForReloading) {
+    if (!isOpen && demoMode === false && !canUseBT && !waitForReloading) {
       onOpen()
     }
   }

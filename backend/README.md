@@ -1,8 +1,9 @@
 ## バックエンド
 
-githubにpushするとherokuに自動でデプロイされます。
+backend ブランチに push すると heroku に自動でデプロイされます。  
 ローカル環境での実行は`uvicorn main:app --host=0.0.0.0 --port=${PORT:-5000}`で可能です。
 
+DBはCloud Store を使用。
 
 ## エンドポイント一覧
 ```
@@ -351,12 +352,17 @@ githubにpushするとherokuに自動でデプロイされます。
             "Body_post_member_member_post": {
                 "title": "Body_post_member_member_post",
                 "required": [
-                    "name"
+                    "name",
+                    "size"
                 ],
                 "type": "object",
                 "properties": {
                     "name": {
                         "title": "Name",
+                        "type": "string"
+                    },
+                    "size": {
+                        "title": "Size",
                         "type": "string"
                     }
                 }
@@ -364,12 +370,17 @@ githubにpushするとherokuに自動でデプロイされます。
             "Body_put_member_member_put": {
                 "title": "Body_put_member_member_put",
                 "required": [
-                    "name"
+                    "name",
+                    "size"
                 ],
                 "type": "object",
                 "properties": {
                     "name": {
                         "title": "Name",
+                        "type": "string"
+                    },
+                    "size": {
+                        "title": "Size",
                         "type": "string"
                     }
                 }

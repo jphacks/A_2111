@@ -1,5 +1,9 @@
 # フロントエンド
 
+![image](documents/images/pairing-screen.png)
+
+![image](documents/images/cool-features.png)
+
 ## 使用した技術/ライブラリ
 
 - React.js
@@ -14,8 +18,8 @@
 web bluetooth を使用可能な環境で全ての機能が利用できます。
 
 ※ 対応していると公言していても不具合が出る環境を観測しています。  
-　 chrome(window, mac) は動作が不安定です。  
-　 chrome(android) では完全な動作を確認しています。
+　 chrome（window, mac）は動作が不安定です。  
+　 chrome（android）では完全な動作を確認しています。
 
 (https://caniuse.com/web-bluetooth)
 ![image](https://user-images.githubusercontent.com/38291975/139562353-580f6dc7-6f92-44c8-b777-cc06cfba3769.png)
