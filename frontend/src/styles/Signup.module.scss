@@ -1,12 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Kosugi&family=M+PLUS+1&display=swap');
 
-.triangle{
-  animation: rotation 40s linear infinite;
+.triangle {
+  animation: rotation 30s linear infinite;
+}
+.triangle2 {
+  animation: rotation 5s linear infinite;
+}
+.triangle3 {
+  animation: rotation 15s linear infinite;
+}
+.triangle4 {
+  animation: rotation 20s linear infinite;
+}
+.triangle5 {
+  animation: rotation2 12s linear infinite;
+}
+.triangle6 {
+  animation: rotation2 40s linear infinite;
 }
 @keyframes rotation {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
+@keyframes rotation2 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
 .signupContainer {
   text-align: center;
 }
@@ -40,4 +67,3 @@
 .SelectUserButton {
   text-align: center;
 }
-

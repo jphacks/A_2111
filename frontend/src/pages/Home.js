@@ -14,6 +14,7 @@ import SelectUserScreen from './SelectUserScreen'
 import MyChart from '../components/myChart'
 import AdjustString from '../components/AdjustString'
 import PictureModal from '../components/PictureModal'
+import Triangle from '../components/Triangle'
 
 // const useQuery = () => new URLSearchParams(useLocation().search)
 
@@ -56,6 +57,8 @@ const Home = () => {
 
   return (
     <div>
+      <Triangle />
+
       {/* <SelectDemoModeModal /> */}
       <AdjustString />
       <NavigateBTInitialize />
@@ -88,6 +91,7 @@ const Home = () => {
             )}
             <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
           </div>
+          <Triangle />
           <div
             href="https://youtu.be/VOmlp4k5T0A"
             target="_blank"
@@ -119,6 +123,7 @@ const Home = () => {
               </div>
             </label>
           </div>
+          <Triangle />
         </>
       )}
       <div style={{ height: '110vh' }}>

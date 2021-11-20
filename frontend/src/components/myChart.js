@@ -127,6 +127,7 @@ const MyChart = () => {
           <span className={styles.chartString_3}>20時間38分</span>
         </div>
       </div>
+
       <Line
         className={styles.bothChart}
         width="400"
