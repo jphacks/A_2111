@@ -8,6 +8,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import ErrorFallback from './pages/ErrorBoundary'
 import NotFound from './pages/NotFound'
 import Splash from './components/Splash'
+import Triangle from './components/Triangle'
 
 function App() {
   const { showSplash } = useContext(AppContext)
@@ -18,6 +19,13 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: 'rgba(220,220,220,0.4)' }}>
+      <Triangle unique={1} />
+      <Triangle unique={2} />
+      <Triangle unique={3} />
+      <Triangle unique={4} />
+      <Triangle unique={5} />
+      <Triangle unique={6} />
+      <Triangle unique={7} />
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />

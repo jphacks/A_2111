@@ -1,8 +1,12 @@
 # フロントエンド
 
-![image](documents/images/pairing-screen.png)
+<!-- ![image](documents/images/pairing-screen.png) -->
+![image](https://user-images.githubusercontent.com/55702777/142709148-bea24e40-b58f-41ea-aadc-4e38f278b5d7.png)
 
-![image](documents/images/cool-features.png)
+
+<!-- ![image](documents/images/cool-features.png) -->
+![image](https://user-images.githubusercontent.com/55702777/142709515-46c90fcd-a575-4c92-bbd6-8e28fdbdab2c.png)
+
 
 ## 使用した技術/ライブラリ
 

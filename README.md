@@ -4,7 +4,7 @@
 
 ### 動画
 
-[![YouTube](http://img.youtube.com/vi/a1cLADMHmT0/0.jpg)](https://www.youtube.com/watch?v=a1cLADMHmT0)
+[![YouTube](http://img.youtube.com/vi/qxXKw7ptXFY/0.jpg)](https://youtu.be/qxXKw7ptXFY)
 
 ### プレゼンテーション
 以下のリンクより確認可能です。
@@ -16,6 +16,8 @@ https://www.canva.com/design/DAEv-7H1qU4/view?embed
 ### 背景（製品開発のきっかけ、課題等）
 
 2021 年現在、コロナ禍でマスクの着用が事実上義務化されている。その中で、マスクを着用することによる息苦しさが注目されるようになってきた。本製品では、COCOA という既存の信号を受信することで、マスクの不要な場面を判断し、快適な呼吸を促すことを目的とする。
+
+![image](https://user-images.githubusercontent.com/38291975/142709470-d57c927d-11d7-458b-989b-574a7a5099f8.png)
 
 ### 製品説明（具体的な製品の説明）
 
@@ -38,10 +40,13 @@ https://www.canva.com/design/DAEv-7H1qU4/view?embed
 #### 特長 4 　顔認証AI
 
 デバイスに顔画像が紐づけられ、紐の長さが自動調節されます。メールアドレスを持っていない子供でも簡単に利用できます。オンデバイス機械学習のため、クラウドに顔画像が送信されることはなく、プライバシー保護の観点からも安全です。
+![image](https://user-images.githubusercontent.com/38291975/142407457-3edabc91-3723-4df1-981b-b2c346dc2c18.png)
+
 
 #### 特長 5 　ミライ小町さんによる可視化
 
 現在のマスクの開閉状況が可愛い3Dモデルで可視化されます。
+![image](https://user-images.githubusercontent.com/38291975/142709688-553685cf-d8b4-457a-8c49-6267f3e045d4.png)
 
 ### 解決出来ること
 
@@ -52,8 +57,6 @@ https://www.canva.com/design/DAEv-7H1qU4/view?embed
 withコロナ時代におけるマスクを常時着用しなければいけないという懸念を除去します。
 
 ### 注力したこと（こだわり等）
-
-![image](https://user-images.githubusercontent.com/38291975/142407457-3edabc91-3723-4df1-981b-b2c346dc2c18.png)
 
 - web bluetooth を用いた開発・通信
 - オンデバイスAIにより、プライバシーの守られた顔認識を実現
@@ -99,8 +102,11 @@ withコロナ時代におけるマスクを常時着用しなければいけな�
 
 ### 独自技術
 顔認証の実装、オンデバイス処理をONNXRumtimeで実装
+![image](https://user-images.githubusercontent.com/38291975/142709216-fc971620-9bae-4248-b90b-86a3ca20bb8d.png)
 
 #### ハッカソンで開発した独自機能・技術
+- 独自デバイスの作成・アップデート
+ ![image](https://user-images.githubusercontent.com/38291975/142709389-66c567bc-2fc3-44ed-a229-282a61147ec4.png)
 
 - 電動スライダー（Motorized Slide Potentiometer）とワイヤーを用いた動力変換機構
   ![image](https://user-images.githubusercontent.com/38291975/142687178-3cb6a7a8-3411-4e04-b53f-39739f79ba5b.png)
