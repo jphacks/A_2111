@@ -1,4 +1,3 @@
-
 const Triangle = (props) => {
   const size = Math.random() * 60 + 20
   const left = Math.random() * (window.innerWidth - size * 2)
@@ -24,7 +23,7 @@ const Triangle = (props) => {
           borderBottom: size + 'px solid ' + color,
           borderLeft: size + 'px solid ' + backColor,
           borderRight: size + 'px solid ' + backColor,
-          animation: `rotation${props.unique} 40s linear infinite`,
+          animation: `rotation${props.unique} 40s linear infinite`
         }}
       ></div>
     </div>
