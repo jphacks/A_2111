@@ -29,9 +29,6 @@ COCOA の信号を受信し、マスクの開閉を行います。COCOA の API 
 - その他部品（百均など）
 
 
-![image](images/components.png)
+![image](https://user-images.githubusercontent.com/38291975/142709525-a1e6dada-4995-4806-a72a-650cb67336bb.png)
 
----
-
-![image](https://user-images.githubusercontent.com/55702777/142708908-060cc3a6-bca3-4e68-8a63-916fca64b170.png)
 
