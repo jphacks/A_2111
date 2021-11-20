@@ -14,6 +14,7 @@ import SelectUserScreen from './SelectUserScreen'
 import MyChart from '../components/myChart'
 import AdjustString from '../components/AdjustString'
 import PictureModal from '../components/PictureModal'
+import Triangle from '../components/Triangle'
 
 // const useQuery = () => new URLSearchParams(useLocation().search)
 
@@ -121,6 +122,11 @@ const Home = () => {
           </div>
         </>
       )}
+      <Triangle unique={8} />
+      <Triangle unique={9} />
+      <Triangle unique={10} />
+      <Triangle unique={11} />
+      <Triangle unique={12} />
       <div style={{ height: '110vh' }}>
         <MyChart />
       </div>

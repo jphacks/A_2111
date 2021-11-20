@@ -26,9 +26,6 @@ const SelectUserScreen = () => {
   return (
     <div>
       <div>
-        <Triangle />
-        <Triangle />
-        <Triangle />
         <div className={styles.triangle}></div>
         {members ? (
           <div style={{ height: '100vh' }}>
