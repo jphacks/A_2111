@@ -33,7 +33,6 @@ const Triangle = () => {
   const angle5 = Math.random() * 360
   const color5 = 'rgba(200, 0, 0, ' + (Math.random() * 0.5 + 0.2) + ')'
 
-
   return (
     <div style={{ position: 'relative' }}>
       <span
@@ -47,8 +46,7 @@ const Triangle = () => {
           borderLeft: size + 'px solid ' + backColor,
           borderRight: size + 'px solid ' + backColor,
           transform: 'rotate(' + angle + 'deg)',
-          transformOrigin:"40% 40%"
-          
+          transformOrigin: '40% 40%'
         }}
       ></span>
       <span
@@ -62,7 +60,7 @@ const Triangle = () => {
           borderLeft: size2 + 'px solid ' + backColor,
           borderRight: size2 + 'px solid ' + backColor,
           transform: 'rotate(' + angle2 + 'deg)',
-          transformOrigin:"60% 80%"
+          transformOrigin: '60% 80%'
         }}
       ></span>
       <span
@@ -76,11 +74,10 @@ const Triangle = () => {
           borderLeft: size3 + 'px solid ' + backColor,
           borderRight: size3 + 'px solid ' + backColor,
           transform: 'rotate(' + angle3 + 'deg)',
-          transformOrigin:"50% 50%"
-
+          transformOrigin: '50% 50%'
         }}
       ></span>
-       <span
+      <span
         className={styles.triangle4}
         style={{
           position: 'absolute',
@@ -93,7 +90,7 @@ const Triangle = () => {
           transform: 'rotate(' + angle4 + 'deg)'
         }}
       ></span>
-       <span
+      <span
         className={styles.triangle5}
         style={{
           position: 'absolute',
