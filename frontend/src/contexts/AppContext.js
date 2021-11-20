@@ -17,6 +17,7 @@ const AppContextProvider = ({ children }) => {
   const [signedInUser, setSignedInUser] = useState(null)
 
   const [openAdjustString, setOpenAdjustString] = useState(false)
+  const [headerOpen, setHeaderOpen] = useState(false)
 
   const [initialLoading, setInitialLoading] = useState(true)
   const [localStorageAvailable, setLocalStorageAvailable] = useState(false)
@@ -129,7 +130,9 @@ const AppContextProvider = ({ children }) => {
         signedInUser,
         setSignedInUser,
         openAdjustString,
-        setOpenAdjustString
+        setOpenAdjustString,
+        headerOpen,
+        setHeaderOpen
       }}
     >
       {children}
