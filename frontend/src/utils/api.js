@@ -6,6 +6,7 @@ export const postNameAndGetId = async (value) => {
   console.log(value)
   const formData = new FormData()
   formData.append('name', value)
+  formData.append('size', '5')
 
   try {
     const res = await axios.post(baseUrl + 'member', formData, {

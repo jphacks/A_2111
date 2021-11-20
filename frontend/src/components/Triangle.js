@@ -26,8 +26,7 @@ const Triangle = (props) => {
           borderRight: size + 'px solid ' + backColor,
           animation: `rotation${props.unique} 40s linear infinite`,
         }}
-      >
-      </div>
+      ></div>
     </div>
   )
 }
