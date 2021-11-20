@@ -5,7 +5,6 @@ import styles from '../styles/Signup.module.scss'
 import { Button } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { BsPersonPlusFill } from 'react-icons/bs'
-import Triangle from '../components/Triangle'
 
 const SelectUserScreen = () => {
   const [members, setmembers] = useState([])
@@ -26,9 +25,6 @@ const SelectUserScreen = () => {
   return (
     <div>
       <div>
-        <Triangle />
-        <Triangle />
-        <Triangle />
         <div className={styles.triangle}></div>
         {members ? (
           <div style={{ height: '100vh' }}>

@@ -14,6 +14,7 @@ import SelectUserScreen from './SelectUserScreen'
 import MyChart from '../components/myChart'
 import AdjustString from '../components/AdjustString'
 import PictureModal from '../components/PictureModal'
+import Triangle from '../components/Triangle'
 
 // const useQuery = () => new URLSearchParams(useLocation().search)
 
@@ -85,7 +86,6 @@ const Home = () => {
               {isMaskOpen ? (
                 <video
                   className={styles.maskPic}
-                  // src={maskOpenVideo}
                   src="https://firebasestorage.googleapis.com/v0/b/garigari-mask.appspot.com/o/maskOpen.mp4?alt=media&token=a6b41d41-0635-47c5-bf2a-94ca757659f8"
                   autoPlay
                   muted
@@ -93,7 +93,6 @@ const Home = () => {
               ) : (
                 <video
                   className={styles.maskPic}
-                  //  src={maskCloseVideo}
                   src="https://firebasestorage.googleapis.com/v0/b/garigari-mask.appspot.com/o/maskClose.mp4?alt=media&token=b4807729-e24b-441d-8688-f02ea35d5143"
                   autoPlay
                   muted
@@ -101,42 +100,43 @@ const Home = () => {
               )}
               <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
             </div>
-            <div
-              href="https://youtu.be/VOmlp4k5T0A"
-              target="_blank"
-              rel="noreferrer"
-              data-keyframers-credit
-              style={{ color: '#444' }}
-            ></div>
-            <script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
-
-            <div
-              id="app"
-              style={{ marginBottom: '100px', marginTop: '40px' }}
-              onChange={handleMaskChange}
-            >
-              <label className={styles.checker}>
-                <input className={styles.checkbox} type="checkbox" />
-                <div className={styles.checkbg}></div>
-                <div className={styles.checkmark}>
-                  <svg viewBox="0 0 100 100">
-                    <path
-                      d="M20,55 L40,75 L77,27"
-                      fill="none"
-                      stroke="#FFF"
-                      stroke-width="15"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </div>
-              </label>
-            </div>
           </>
         )}
-        <div style={{ height: '110vh' }}>
-          <MyChart />
+      </div>
+      <p>
+        <small>{isScanningLE && <>BlueTooth on&nbsp;</>}</small>
+      </p>
+      <>
+        <div
+          id="app"
+          style={{ marginBottom: '100px', marginTop: '40px' }}
+          onChange={handleMaskChange}
+        >
+          <label className={styles.checker}>
+            <input className={styles.checkbox} type="checkbox" />
+            <div className={styles.checkbg}></div>
+            <div className={styles.checkmark}>
+              <svg viewBox="0 0 100 100">
+                <path
+                  d="M20,55 L40,75 L77,27"
+                  fill="none"
+                  stroke="#FFF"
+                  stroke-width="15"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </label>
         </div>
+      </>
+      <Triangle unique={8} />
+      <Triangle unique={9} />
+      <Triangle unique={10} />
+      <Triangle unique={11} />
+      <Triangle unique={12} />
+      <div style={{ height: '110vh' }}>
+        <MyChart />
       </div>
     </div>
   )
