@@ -102,6 +102,8 @@ withコロナ時代におけるマスクを常時着用しなければいけな�
 ![image](https://user-images.githubusercontent.com/38291975/142709216-fc971620-9bae-4248-b90b-86a3ca20bb8d.png)
 
 #### ハッカソンで開発した独自機能・技術
+- 独自デバイスの作成・アップデート
+ ![image](https://user-images.githubusercontent.com/38291975/142709389-66c567bc-2fc3-44ed-a229-282a61147ec4.png)
 
 - 電動スライダー（Motorized Slide Potentiometer）とワイヤーを用いた動力変換機構
   ![image](https://user-images.githubusercontent.com/38291975/142687178-3cb6a7a8-3411-4e04-b53f-39739f79ba5b.png)
