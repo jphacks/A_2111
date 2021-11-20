@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.scss'
 // import maskPic from '../assets/mask.png'
-import maskOpenVideo from '../assets/maskOpen.mp4'
-import maskCloseVideo from '../assets/maskClose.mp4'
+// import maskOpenVideo from '../assets/maskOpen.mp4'
+// import maskCloseVideo from '../assets/maskClose.mp4'
 import { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
 import { Redirect } from 'react-router-dom'
@@ -83,9 +83,21 @@ const Home = () => {
             <PictureModal />
             <div className={styles.mask}>
               {isMaskOpen ? (
-                <video className={styles.maskPic} src={maskOpenVideo} autoPlay muted></video>
+                <video
+                  className={styles.maskPic}
+                  // src={maskOpenVideo}
+                  src="https://firebasestorage.googleapis.com/v0/b/garigari-mask.appspot.com/o/maskOpen.mp4?alt=media&token=a6b41d41-0635-47c5-bf2a-94ca757659f8"
+                  autoPlay
+                  muted
+                ></video>
               ) : (
-                <video className={styles.maskPic} src={maskCloseVideo} autoPlay muted></video>
+                <video
+                  className={styles.maskPic}
+                  //  src={maskCloseVideo}
+                  src="https://firebasestorage.googleapis.com/v0/b/garigari-mask.appspot.com/o/maskClose.mp4?alt=media&token=b4807729-e24b-441d-8688-f02ea35d5143"
+                  autoPlay
+                  muted
+                ></video>
               )}
               <p>マスク{isMaskOpen ? '外し中' : '着用中'}</p>
             </div>
