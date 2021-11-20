@@ -1,4 +1,4 @@
-import Triangle from "../components/Triangle"
+
 
 const NotFound = () => {
   return (
