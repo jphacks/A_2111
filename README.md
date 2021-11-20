@@ -109,8 +109,7 @@ withコロナ時代におけるマスクを常時着用しなければいけな�
  ![image](https://user-images.githubusercontent.com/38291975/142709389-66c567bc-2fc3-44ed-a229-282a61147ec4.png)
 
 - 電動スライダー（Motorized Slide Potentiometer）とワイヤーを用いた動力変換機構
-  ![image](https://user-images.githubusercontent.com/83204474/142711783-fcc75109-1586-4413-b08b-e592aa734eeb.jpg)
-)
+  ![image](https://user-images.githubusercontent.com/83204474/142711960-ba00ef61-a9ed-4382-8658-42b0e66c2e56.jpg)
 
 - COCOA の API は一般人は許可なく利用できなかったため、GAEN API を利用せず、bluetooth の service uuid を直接解析して通信。
 <!-- - 特に力を入れた部分をファイルリンク、または commit_id を記載してください。 -->
