@@ -99,6 +99,7 @@ withコロナ時代におけるマスクを常時着用しなければいけな�
 
 ### 独自技術
 顔認証の実装、オンデバイス処理をONNXRumtimeで実装
+![image](https://user-images.githubusercontent.com/38291975/142709216-fc971620-9bae-4248-b90b-86a3ca20bb8d.png)
 
 #### ハッカソンで開発した独自機能・技術
 
