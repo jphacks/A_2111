@@ -40,10 +40,13 @@ https://www.canva.com/design/DAEv-7H1qU4/view?embed
 #### 特長 4 　顔認証AI
 
 デバイスに顔画像が紐づけられ、紐の長さが自動調節されます。メールアドレスを持っていない子供でも簡単に利用できます。オンデバイス機械学習のため、クラウドに顔画像が送信されることはなく、プライバシー保護の観点からも安全です。
+![image](https://user-images.githubusercontent.com/38291975/142407457-3edabc91-3723-4df1-981b-b2c346dc2c18.png)
+
 
 #### 特長 5 　ミライ小町さんによる可視化
 
 現在のマスクの開閉状況が可愛い3Dモデルで可視化されます。
+![image](https://user-images.githubusercontent.com/38291975/142709688-553685cf-d8b4-457a-8c49-6267f3e045d4.png)
 
 ### 解決出来ること
 
@@ -54,8 +57,6 @@ https://www.canva.com/design/DAEv-7H1qU4/view?embed
 withコロナ時代におけるマスクを常時着用しなければいけないという懸念を除去します。
 
 ### 注力したこと（こだわり等）
-
-![image](https://user-images.githubusercontent.com/38291975/142407457-3edabc91-3723-4df1-981b-b2c346dc2c18.png)
 
 - web bluetooth を用いた開発・通信
 - オンデバイスAIにより、プライバシーの守られた顔認識を実現
