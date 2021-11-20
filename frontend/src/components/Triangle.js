@@ -103,6 +103,7 @@ const Triangle = () => {
           transform: 'rotate(' + angle5 + 'deg)'
         }}
       ></span>
+
     </div>
   )
 }

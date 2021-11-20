@@ -27,7 +27,7 @@
     margin: 0 auto;
     margin-bottom: 40px;
     border: 1px solid #dddddd;
-    // border-radius: 15px;
+    border-radius: 15px;
   }
   p {
     margin-top: 20px;
@@ -121,6 +121,7 @@
   left: 0;
   opacity: 0.4;
   visibility: hidden;
+  z-index: 1;
 
   &:checked {
     ~ .checkmark {
