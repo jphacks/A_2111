@@ -4,7 +4,7 @@
 
 ### 動画
 
-[![YouTube](http://img.youtube.com/vi/a1cLADMHmT0/0.jpg)](https://www.youtube.com/watch?v=a1cLADMHmT0)
+[![YouTube](http://img.youtube.com/vi/qxXKw7ptXFY/0.jpg)](https://youtu.be/qxXKw7ptXFY)
 
 ### プレゼンテーション
 以下のリンクより確認可能です。
