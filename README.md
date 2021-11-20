@@ -17,6 +17,8 @@ https://www.canva.com/design/DAEv-7H1qU4/view?embed
 
 2021 年現在、コロナ禍でマスクの着用が事実上義務化されている。その中で、マスクを着用することによる息苦しさが注目されるようになってきた。本製品では、COCOA という既存の信号を受信することで、マスクの不要な場面を判断し、快適な呼吸を促すことを目的とする。
 
+![image](https://user-images.githubusercontent.com/38291975/142709470-d57c927d-11d7-458b-989b-574a7a5099f8.png)
+
 ### 製品説明（具体的な製品の説明）
 
 ![image](https://user-images.githubusercontent.com/38291975/142687552-7220ed3a-ce7c-4707-8801-a175fa20e62a.png)
