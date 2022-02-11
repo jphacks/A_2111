@@ -15,7 +15,7 @@
     "detect-browser": "^5.2.1",
     "framer-motion": "^4",
     "next-qrcode": "^1.1.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "qrcode": "^1.4.4",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.3.0",
